@@ -4,7 +4,7 @@ import type {
     TypographyUtils,
 } from '@mui/material/styles/createTypography';
 
-import { HTML_FONT_SIZE } from '@constant';
+import { FONT_SIZES, HTML_FONT_SIZE } from '@constant';
 
 /* Custom px to rem function */
 const typographyUtil: TypographyUtils = {
@@ -26,12 +26,13 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontFamily: 'Inter',
     htmlFontSize: HTML_FONT_SIZE,
 
-    fontWeightLight: 400,
-    fontWeightRegular: 500,
-    fontWeightMedium: 600,
+    fontWeightLight: 400, // normal according to figma
+    fontWeightRegular: 500, // medium according to figma
+    fontWeightMedium: 600, // semi bold according to figma
+    fontWeightBold: 700, // also bold according to figma
 
     h1: {
-        fontSize: typographyUtil.pxToRem(30),
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['3xl']),
         fontWeight: 700,
         lineHeight: typographyUtil.pxToRem(45),
 
