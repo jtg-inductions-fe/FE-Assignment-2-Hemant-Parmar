@@ -5,7 +5,7 @@ import { COLORS } from '@constant';
 /* Custom Palette */
 export const palette: PaletteOptions = {
     primary: {
-        main: COLORS.PRIMARY.MAIN,
+        main: COLORS.GREEN[500],
     },
     grey: COLORS.COOL_GRAY,
     text: {
@@ -20,5 +20,9 @@ export const palette: PaletteOptions = {
     },
     info: {
         main: COLORS.BLUE[800], // The Progress badge
+    },
+    background: {
+        default: COLORS.COOL_GRAY[50],
+        paper: COLORS.WHITE,
     },
 };

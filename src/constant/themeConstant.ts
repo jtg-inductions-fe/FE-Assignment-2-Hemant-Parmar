@@ -56,13 +56,11 @@ const BLUE = {
  * @constant
  */
 export const COLORS = {
-    PRIMARY: {
-        MAIN: GREEN[500],
-    },
     COOL_GRAY,
     GREEN,
     RED,
     BLUE,
+    WHITE: '#FFFFFF',
 };
 
 /**
