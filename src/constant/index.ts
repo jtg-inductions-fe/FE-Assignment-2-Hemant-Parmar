@@ -1,6 +1,6 @@
 export {
     COLORS,
     HTML_FONT_SIZE,
-    SCALING_FACTOR,
+    SPACING_ARRAY,
     FONT_SIZES,
 } from './themeConstant';

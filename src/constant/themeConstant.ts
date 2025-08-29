@@ -1,4 +1,3 @@
-// node_modules/@mui/material/styles/createPalette.d.ts
 const COOL_GRAY = {
     50: '#F9FAFB',
     100: '#F3F4F6',
@@ -51,6 +50,8 @@ const BLUE = {
     900: '#233876',
 };
 
+const WHITE = '#FFFFFF';
+
 /**
  * Color palette used in the application.
  * @constant
@@ -60,7 +61,7 @@ export const COLORS = {
     GREEN,
     RED,
     BLUE,
-    WHITE: '#FFFFFF',
+    WHITE,
 };
 
 /**
@@ -84,7 +85,10 @@ export const FONT_SIZES = {
 };
 
 /**
- * Scaling factor used for spacing.
+ * Array used for spacing.
  * @constant
  */
-export const SCALING_FACTOR = 4;
+export const SPACING_ARRAY = [
+    0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 28, 32, 36, 40, 44, 48, 56, 64,
+    80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 256, 288, 320, 384,
+];
