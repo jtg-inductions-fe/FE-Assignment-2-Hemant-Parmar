@@ -15,7 +15,7 @@ export const palette: PaletteOptions = {
     success: {
         main: COLORS.GREEN[800], // The Completed badge
     },
-    warning: {
+    error: {
         main: COLORS.RED[800], // The Cancelled badge
     },
     info: {

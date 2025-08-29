@@ -12,7 +12,7 @@
         "lint:fix": "eslint --fix .",
         "preview": "vite preview",
         "prettier": "npx prettier --write ./",
-        "postinstall": "husky"
+        "prepare": "husky"
     },
     "dependencies": {
         "@emotion/react": "11.14.0",

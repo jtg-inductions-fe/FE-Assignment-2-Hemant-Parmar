@@ -9,7 +9,7 @@ const COOL_GRAY = {
     700: '#374151',
     800: '#1F2937',
     900: '#111827',
-};
+} as const;
 
 const GREEN = {
     50: '#F3FAF7',
@@ -22,7 +22,7 @@ const GREEN = {
     700: '#046C4E',
     800: '#03543F',
     900: '#014737',
-};
+} as const;
 
 const RED = {
     50: '#FDF2F2',
@@ -35,7 +35,7 @@ const RED = {
     700: '#C81E1E',
     800: '#9B1C1C',
     900: '#771D1D',
-};
+} as const;
 
 const BLUE = {
     50: '#EBF5FF',
@@ -48,7 +48,7 @@ const BLUE = {
     700: '#1A56DB',
     800: '#1E429F',
     900: '#233876',
-};
+} as const;
 
 const WHITE = '#FFFFFF';
 
