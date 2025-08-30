@@ -1,6 +1,9 @@
 #### Description:
 
-- Add tasks done in this is Pull Request
+Tasks done in this Pull Request
+
+- Task description 1
+- Task description 2
 
 #### Development Checklist
 
@@ -20,4 +23,8 @@
 
 #### Screenshots (if applicable)
 
-Add screenshots if applicable
+- add screenshot links here
+
+#### Netlify
+
+- add Netlify deployment URL here
