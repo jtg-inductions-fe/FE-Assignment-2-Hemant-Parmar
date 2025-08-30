@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-export function App() {
+export function RootLayout() {
     return (
         <>
             <h1> This should be common in all</h1>
