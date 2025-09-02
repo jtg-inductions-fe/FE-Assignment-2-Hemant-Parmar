@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -11,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import MainProfileURL from '@assets/images/main-profile-picture.jpg';
 
 export default function MainProfile() {
-    const navigate = useNavigate();
     const [anchorElement, setAnchorEl] = useState<HTMLElement | null>(null);
 
     const handleClose = () => {
@@ -26,7 +23,6 @@ export default function MainProfile() {
         } else {
             setAnchorEl(event.currentTarget);
         }
-        void navigate('/');
     };
 
     return (

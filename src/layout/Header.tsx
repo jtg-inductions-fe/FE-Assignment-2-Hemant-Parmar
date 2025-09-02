@@ -27,14 +27,7 @@ export function Header() {
                     </Box>
 
                     {/* Box only for mobile */}
-                    <Box
-                        sx={{
-                            display: {
-                                xs: 'flex',
-                                sm: 'none',
-                            },
-                        }}
-                    >
+                    <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
                         <IconButton>
                             <MenuOpenIcon
                                 fontSize="large"
@@ -45,7 +38,7 @@ export function Header() {
 
                     {/* Box for all screens */}
                     <Box sx={{ display: 'flex' }}>
-                        <IconButton>
+                        <IconButton href="/notifications">
                             <NotificationsIcon
                                 fontSize="large"
                                 sx={{ color: COLORS.COOL_GRAY[900] }}
