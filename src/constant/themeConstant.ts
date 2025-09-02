@@ -68,7 +68,7 @@ export const COLORS = {
  * Base font size in pixels.
  * @constant
  */
-export const HTML_FONT_SIZE = 16;
+export const HTML_FONT_SIZE = 10;
 
 /**
  * Used font sizes in pixels.
