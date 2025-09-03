@@ -38,7 +38,10 @@ export function Header() {
 
                     {/* Box for all screens */}
                     <Box sx={{ display: 'flex' }}>
-                        <IconButton href="/notifications">
+                        <IconButton
+                            href="/notifications"
+                            aria-label="Notifications"
+                        >
                             <NotificationsIcon
                                 fontSize="large"
                                 sx={{ color: COLORS.COOL_GRAY[900] }}
