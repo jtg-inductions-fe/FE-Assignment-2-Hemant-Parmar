@@ -1,21 +1,23 @@
 import { useState } from 'react';
 
 import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 
-import MainProfileURL from '@assets/images/main-profile-picture.jpg';
+import { theme } from '@theme';
 
-export default function MainProfile() {
+import { StyledPopoverBox } from './Profile.style';
+import { ProfileProps } from './Profile.type';
+
+export function Profile({ name, email, imageURL }: ProfileProps) {
     const [anchorElement, setAnchorEl] = useState<HTMLElement | null>(null);
+
+    const open = Boolean(anchorElement);
 
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-    const open = Boolean(anchorElement);
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         if (open) {
@@ -27,7 +29,7 @@ export default function MainProfile() {
 
     return (
         <IconButton onClick={handleClick}>
-            <Avatar src={MainProfileURL} alt="Profile of current user" />
+            <Avatar src={imageURL} alt={`Profile of ${name}`} />
             <Popover
                 open={open}
                 anchorEl={anchorElement}
@@ -38,16 +40,26 @@ export default function MainProfile() {
                 }}
                 transformOrigin={{
                     vertical: 'top',
-                    horizontal: 'center',
+                    horizontal: 'right',
                 }}
                 disableRestoreFocus
             >
-                <Box sx={{ padding: 10 }}>
-                    <Typography variant="h2">Hemant Parmar</Typography>
-                    <Typography variant="body2">
-                        Hemant.Parmar@hotmail.com
+                <StyledPopoverBox>
+                    <Typography
+                        variant="h2"
+                        noWrap
+                        maxWidth={theme.spacing(100)}
+                    >
+                        {name}
                     </Typography>
-                </Box>
+                    <Typography
+                        variant="body2"
+                        noWrap
+                        maxWidth={theme.spacing(100)}
+                    >
+                        {email}
+                    </Typography>
+                </StyledPopoverBox>
             </Popover>
         </IconButton>
     );

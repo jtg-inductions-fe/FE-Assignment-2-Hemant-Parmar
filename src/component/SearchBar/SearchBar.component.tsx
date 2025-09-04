@@ -1,28 +1,15 @@
-// import { useState } from 'react';
-
 import { SyntheticEvent } from 'react';
 
 import { topProducts } from 'data';
 import { useNavigate } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
-import { InputAdornment, styled } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
+import { InputAdornment } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
-import { COLORS, FONT_SIZES } from '@constant';
+import { StyledAutocomplete } from './SearchBar.style';
 
-const MyAutocomplete = styled(Autocomplete)({
-    width: 400,
-    fontSize: FONT_SIZES['base'],
-    alignContent: 'center',
-    '& .MuiOutlinedInput-root': {
-        boxShadow: `0 5px 5px ${COLORS.COOL_GRAY[200]}`,
-        padding: 0,
-    },
-});
-
-export default function SearchBar() {
+export function SearchBar() {
     const navigate = useNavigate();
 
     const handleProductSelect = (
@@ -35,7 +22,7 @@ export default function SearchBar() {
     };
 
     return (
-        <MyAutocomplete
+        <StyledAutocomplete
             freeSolo={false}
             options={topProducts}
             forcePopupIcon={false}
@@ -53,14 +40,23 @@ export default function SearchBar() {
                                     <SearchIcon fontSize="medium" />
                                 </InputAdornment>
                             ),
-                            style: {
-                                borderRadius: 16,
-                            },
                         },
                     }}
                     {...params}
                 />
             )}
+            slotProps={{
+                listbox: {
+                    sx: {
+                        '& .MuiAutocomplete-option': {
+                            display: 'block',
+                            whiteSpace: 'nowrap',
+                            textOverflow: 'ellipsis',
+                            overflow: 'hidden',
+                        },
+                    },
+                },
+            }}
         />
     );
 }
