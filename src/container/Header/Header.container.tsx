@@ -31,11 +31,6 @@ export const Header = () => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <Sidebar
-                mobileOpen={mobileOpen}
-                handleDrawerClose={handleDrawerClose}
-            />
-
             <AppBar
                 position="fixed"
                 color="secondary"
@@ -90,6 +85,11 @@ export const Header = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
+
+            <Sidebar
+                mobileOpen={mobileOpen}
+                handleDrawerClose={handleDrawerClose}
+            />
         </Box>
     );
 }

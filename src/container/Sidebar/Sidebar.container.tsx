@@ -5,19 +5,18 @@ import { NavButtonProps } from 'component/NavButton';
 import { navConfig } from 'data';
 import { Link } from 'react-router-dom';
 
-import { Box, Divider, IconButton, Toolbar } from '@mui/material';
+import { Box, Divider, IconButton, ListItem, Toolbar } from '@mui/material';
 import List from '@mui/material/List';
-import ListItemIcon from '@mui/material/ListItemIcon';
 
 type NavElementProps = NavAccordionProps | NavButtonProps;
+
+import { DRAWER_WIDTH } from 'constant/themeConstant';
 
 import { Drawer, useMediaQuery } from '@mui/material';
 
 import { theme } from '@theme';
 
 import { FooterList } from './Sidebar.style';
-
-const drawerWidth = 250;
 
 interface SidebarProps {
     mobileOpen: boolean;
@@ -30,7 +29,7 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
     return (
         <Box
             component="nav"
-            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            sx={{ width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 } }}
             aria-label="Navigation sidebar"
         >
             <Drawer
@@ -78,17 +77,22 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                     ))}
 
                     {/* At the bottom  */}
-                    <Divider sx={{ marginTop: 'auto' }} />
-                    <FooterList sx={{}}>
+                    <Divider sx={{ marginTop: 'auto' }}></Divider>
+                    <FooterList>
                         {navConfig.footer.map((item, index) => (
-                            <ListItemIcon key={index}>
+                            <ListItem
+                                key={index}
+                                sx={{ width: 'auto' }}
+                                disablePadding
+                            >
                                 <IconButton
                                     component={Link}
                                     to={`/${item.route}`}
+                                    aria-label={`${item.route}`}
                                 >
-                                    {<item.Icon />}
+                                    {<item.Icon fontSize="medium" />}
                                 </IconButton>
-                            </ListItemIcon>
+                            </ListItem>
                         ))}
                     </FooterList>
                 </Box>

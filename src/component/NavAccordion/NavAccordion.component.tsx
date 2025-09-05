@@ -1,5 +1,6 @@
 import { CustomListItem } from 'component';
 
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
     Accordion,
     AccordionDetails,
@@ -24,7 +25,7 @@ export function NavAccordion({ title, Icon, items }: NavAccordionProps) {
             disableGutters
             elevation={0}
         >
-            <StyledAccordionSummary>
+            <StyledAccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <ListItem>
                     <ListItemIcon>{<Icon />}</ListItemIcon>
                     <ListItemText primary={title} />
