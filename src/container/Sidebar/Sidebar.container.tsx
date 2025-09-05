@@ -1,0 +1,94 @@
+import { NavAccordion } from 'component';
+import { NavButton } from 'component';
+import { NavAccordionProps } from 'component/NavAccordion';
+import { NavButtonProps } from 'component/NavButton';
+import { navConfig } from 'data';
+import { Link } from 'react-router-dom';
+
+import { Box, Divider, IconButton, Toolbar } from '@mui/material';
+import List from '@mui/material/List';
+import ListItemIcon from '@mui/material/ListItemIcon';
+
+type NavElementProps = NavAccordionProps | NavButtonProps;
+
+import { Drawer, useMediaQuery } from '@mui/material';
+
+import { theme } from '@theme';
+
+import { FooterList } from './Sidebar.style';
+
+const drawerWidth = 250;
+
+interface SidebarProps {
+    mobileOpen: boolean;
+    handleDrawerClose: () => void;
+}
+
+export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
+    const match = useMediaQuery(theme.breakpoints.up('sm'));
+
+    return (
+        <Box
+            component="nav"
+            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            aria-label="Navigation sidebar"
+        >
+            <Drawer
+                variant={match ? 'permanent' : 'temporary'}
+                open={match ? true : mobileOpen}
+                onClose={handleDrawerClose}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        height: '100%',
+                    }}
+                >
+                    <Toolbar></Toolbar>
+
+                    {navConfig.lists.map((list, index) => (
+                        <Box key={index}>
+                            <Divider></Divider>
+                            <List>
+                                {list.map(
+                                    (element: NavElementProps, elementIndex) =>
+                                        'items' in element ? (
+                                            <NavAccordion
+                                                title={element.title}
+                                                icon={element.icon}
+                                                items={element.items}
+                                                key={elementIndex}
+                                            />
+                                        ) : 'route' in element ? (
+                                            <NavButton
+                                                title={element.title}
+                                                icon={element.icon}
+                                                route={element.route}
+                                                key={elementIndex}
+                                            />
+                                        ) : null,
+                                )}
+                            </List>
+                        </Box>
+                    ))}
+
+                    {/* At the bottom  */}
+                    <Divider sx={{ marginTop: 'auto' }} />
+                    <FooterList sx={{}}>
+                        {navConfig.footer.map((item, index) => (
+                            <ListItemIcon key={index}>
+                                <IconButton
+                                    component={Link}
+                                    to={`/${item.route}`}
+                                >
+                                    {item.icon}
+                                </IconButton>
+                            </ListItemIcon>
+                        ))}
+                    </FooterList>
+                </Box>
+            </Drawer>
+        </Box>
+    );
+}
