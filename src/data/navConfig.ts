@@ -33,6 +33,8 @@ export const navConfig: NavConfig = {
                 items: [
                     { title: 'Overview', route: '' },
                     { title: 'Docs', route: 'docs' },
+                    { title: 'Components', route: 'components' },
+                    { title: 'Help', route: 'help' },
                 ],
             },
             {
