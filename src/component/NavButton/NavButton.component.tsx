@@ -12,24 +12,24 @@ import { NavButtonProps } from './NavButton.type';
 
 export const NavButton = ({
     color,
-    icon,
+    Icon,
     title,
     route,
     count,
 }: NavButtonProps) => {
     const location = useLocation();
-    const Color: 'primary' | 'inherit' =
+    const routeColor: 'primary' | 'inherit' =
         location.pathname === `/${route}` ? 'primary' : 'inherit';
 
     return (
         <Button
             component={Link}
             to={`/${route}`}
-            color={color || Color}
+            color={color || routeColor}
             sx={{ display: 'flex', textTransform: 'none', p: 0 }}
         >
             <ListItem>
-                <ListItemIcon>{icon}</ListItemIcon>
+                <ListItemIcon>{<Icon color={routeColor} />}</ListItemIcon>
                 <ListItemText>{title}</ListItemText>
                 {count && <Chip label={count} size="small" />}
             </ListItem>

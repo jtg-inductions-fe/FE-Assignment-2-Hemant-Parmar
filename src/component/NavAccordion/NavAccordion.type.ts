@@ -1,3 +1,5 @@
+import { SvgIconComponent } from '@mui/icons-material';
+
 interface NavAccordionItems {
     title: string;
     route?: string;
@@ -5,7 +7,7 @@ interface NavAccordionItems {
 
 export interface NavAccordionProps {
     title: string;
-    icon: React.ReactNode;
+    Icon: SvgIconComponent;
     items?: NavAccordionItems[];
-    customExpandIcon?: React.ReactNode;
+    customExpandIcon?: SvgIconComponent;
 }

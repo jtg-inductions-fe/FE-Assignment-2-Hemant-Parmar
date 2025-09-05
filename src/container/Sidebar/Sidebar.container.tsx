@@ -56,7 +56,7 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                                         'items' in element ? (
                                             <NavAccordion
                                                 title={element.title}
-                                                icon={element.icon}
+                                                Icon={element.Icon}
                                                 items={element.items}
                                                 customExpandIcon={
                                                     element.customExpandIcon
@@ -66,7 +66,7 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                                         ) : 'route' in element ? (
                                             <NavButton
                                                 title={element.title}
-                                                icon={element.icon}
+                                                Icon={element.Icon}
                                                 route={element.route}
                                                 count={element.count}
                                                 key={elementIndex}
@@ -86,7 +86,7 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                                     component={Link}
                                     to={`/${item.route}`}
                                 >
-                                    {item.icon}
+                                    {<item.Icon />}
                                 </IconButton>
                             </ListItemIcon>
                         ))}

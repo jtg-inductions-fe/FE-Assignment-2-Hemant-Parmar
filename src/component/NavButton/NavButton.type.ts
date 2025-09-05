@@ -1,7 +1,9 @@
+import { SvgIconComponent } from '@mui/icons-material';
+
 export interface NavButtonProps {
     title: string;
     route?: string;
     color?: 'primary' | 'inherit';
-    icon: React.ReactNode;
     count?: number;
+    Icon: SvgIconComponent;
 }

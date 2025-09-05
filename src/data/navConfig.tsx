@@ -1,6 +1,7 @@
 import { NavAccordionProps } from 'component/NavAccordion';
 import { NavButtonProps } from 'component/NavButton';
 
+import { SvgIconComponent } from '@mui/icons-material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import LockIcon from '@mui/icons-material/Lock';
@@ -15,7 +16,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 
 interface NavConfig {
     lists: Array<Array<NavAccordionProps | NavButtonProps>>;
-    footer: Array<{ route: string; icon: React.ReactNode }>;
+    footer: Array<{ route: string; Icon: SvgIconComponent }>;
 }
 
 export const navConfig: NavConfig = {
@@ -24,11 +25,11 @@ export const navConfig: NavConfig = {
             {
                 title: 'Overview',
                 route: '',
-                icon: <PieChartIcon />,
+                Icon: PieChartIcon,
             },
             {
                 title: 'Pages',
-                icon: <ContactPageIcon />,
+                Icon: ContactPageIcon,
                 items: [
                     { title: 'Overview', route: '' },
                     { title: 'Docs', route: 'docs' },
@@ -36,7 +37,7 @@ export const navConfig: NavConfig = {
             },
             {
                 title: 'Sales',
-                icon: <ShoppingBagIcon />,
+                Icon: ShoppingBagIcon,
                 items: [
                     { title: 'Product List', route: 'product-list' },
                     { title: 'Billing', route: 'billing' },
@@ -46,12 +47,12 @@ export const navConfig: NavConfig = {
             {
                 title: 'Messages',
                 route: 'messages',
-                icon: <MoveToInboxSharpIcon />,
+                Icon: MoveToInboxSharpIcon,
                 count: 3,
             },
             {
                 title: 'Authentication',
-                icon: <LockIcon />,
+                Icon: LockIcon,
                 items: [
                     { title: 'Login', route: 'login' },
                     { title: 'SignUp', route: 'signup' },
@@ -62,32 +63,32 @@ export const navConfig: NavConfig = {
             {
                 title: 'Docs',
                 route: 'docs',
-                icon: <AssignmentIcon />,
+                Icon: AssignmentIcon,
             },
             {
                 title: 'Components',
                 route: 'components',
-                icon: <SubscriptionsIcon />,
+                Icon: SubscriptionsIcon,
             },
             {
                 title: 'Help',
                 route: 'help',
-                icon: <SupportIcon />,
+                Icon: SupportIcon,
             },
         ],
     ],
     footer: [
         {
             route: 'filter',
-            icon: <TuneIcon />,
+            Icon: TuneIcon,
         },
         {
             route: 'explore',
-            icon: <PublicOutlinedIcon />,
+            Icon: PublicOutlinedIcon,
         },
         {
             route: 'settings',
-            icon: <SettingsOutlinedIcon />,
+            Icon: SettingsOutlinedIcon,
         },
     ],
 };
