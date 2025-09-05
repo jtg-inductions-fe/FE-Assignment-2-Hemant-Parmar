@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { MainLogo } from 'component';
 import { Profile } from 'component';
 import { SearchBar } from 'component';
+import { Sidebar } from 'container';
 import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -66,19 +67,25 @@ export const Header = () => {
                         </Box>
 
                         {/* Box for all screens */}
-                        <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                gap: 3,
+                                alignItems: 'center',
+                            }}
+                        >
                             <NotificationsButton
-                            component={Link}
-                            to="/notifications"
+                                component={Link}
+                                to="/notifications"
                                 aria-label="Notifications"
                             >
-                            <StyledNotificationsIcon fontSize="medium" />
+                                <StyledNotificationsIcon fontSize="medium" />
                             </NotificationsButton>
-                        <Profile
+                            <Profile
                                 name="Hemant Parmar"
                                 email="hemantparmar@hotmail.com"
                                 imageURL={MainProfileURL}
-                        />
+                            />
                         </Box>
                     </Toolbar>
                 </Container>
