@@ -58,6 +58,9 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                                                 title={element.title}
                                                 icon={element.icon}
                                                 items={element.items}
+                                                customExpandIcon={
+                                                    element.customExpandIcon
+                                                }
                                                 key={elementIndex}
                                             />
                                         ) : 'route' in element ? (
@@ -65,6 +68,7 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                                                 title={element.title}
                                                 icon={element.icon}
                                                 route={element.route}
+                                                count={element.count}
                                                 key={elementIndex}
                                             />
                                         ) : null,

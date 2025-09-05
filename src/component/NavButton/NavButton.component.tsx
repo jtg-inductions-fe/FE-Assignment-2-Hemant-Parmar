@@ -1,7 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { Looks3 } from '@mui/icons-material'; // will change it to proper count in future
-import { Button, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {
+    Button,
+    Chip,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+} from '@mui/material';
 
 import { NavButtonProps } from './NavButton.type';
 
@@ -26,7 +31,7 @@ export const NavButton = ({
             <ListItem>
                 <ListItemIcon>{icon}</ListItemIcon>
                 <ListItemText>{title}</ListItemText>
-                {count && <Looks3 />}
+                {count && <Chip label={count} size="small" />}
             </ListItem>
         </Button>
     );
