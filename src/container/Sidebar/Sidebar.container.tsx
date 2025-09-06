@@ -16,7 +16,7 @@ import { Drawer, useMediaQuery } from '@mui/material';
 
 import { theme } from '@theme';
 
-import { FooterList } from './Sidebar.style';
+import { FooterList, NavBox } from './Sidebar.style';
 
 interface SidebarProps {
     mobileOpen: boolean;
@@ -29,21 +29,16 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
     return (
         <Box
             component="nav"
-            sx={{ width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 } }}
+            sx={{ width: { sm: DRAWER_WIDTH.SM }, flexShrink: { sm: 0 } }}
             aria-label="Navigation sidebar"
         >
             <Drawer
+                anchor="left"
                 variant={match ? 'permanent' : 'temporary'}
                 open={match ? true : mobileOpen}
                 onClose={handleDrawerClose}
             >
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        height: '100%',
-                    }}
-                >
+                <NavBox>
                     <Toolbar></Toolbar>
 
                     {navConfig.lists.map((list, index) => (
@@ -95,7 +90,7 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
                             </ListItem>
                         ))}
                     </FooterList>
-                </Box>
+                </NavBox>
             </Drawer>
         </Box>
     );
