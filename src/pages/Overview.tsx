@@ -1,7 +1,9 @@
+import { Gallery } from 'container';
+
 const Overview = () => (
-    <div>
-        <h1>This is overview page.</h1>
-    </div>
+    <main>
+        <Gallery />
+    </main>
 );
 
 export default Overview;
