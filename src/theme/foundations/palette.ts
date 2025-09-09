@@ -6,6 +6,7 @@ import { COLORS } from '@constant';
 export const palette: PaletteOptions = {
     primary: {
         main: COLORS.GREEN[500],
+        contrastText: COLORS.COOL_GRAY[900],
     },
     secondary: {
         main: COLORS.WHITE,
@@ -16,16 +17,25 @@ export const palette: PaletteOptions = {
         secondary: COLORS.COOL_GRAY[500],
     },
     success: {
-        main: COLORS.GREEN[800], // The Completed badge
+        main: COLORS.GREEN[100],
+        contrastText: COLORS.GREEN[800],
     },
     error: {
-        main: COLORS.RED[800], // The Cancelled badge
+        main: COLORS.RED[200],
+        contrastText: COLORS.RED[800],
     },
     info: {
-        main: COLORS.BLUE[800], // The Progress badge
+        main: COLORS.BLUE[100],
+        contrastText: COLORS.BLUE[800],
     },
+    divider: COLORS.COOL_GRAY[200],
     background: {
         default: COLORS.COOL_GRAY[50],
         paper: COLORS.WHITE,
+    },
+    action: {
+        hover: COLORS.GREEN[100],
+        selected: COLORS.GREEN[100],
+        active: COLORS.GREEN[200],
     },
 };

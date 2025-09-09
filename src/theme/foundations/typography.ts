@@ -25,10 +25,10 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontFamily: 'Inter',
     htmlFontSize: HTML_FONT_SIZE,
 
-    fontWeightLight: 400, // normal according to figma
-    fontWeightRegular: 500, // medium according to figma
-    fontWeightMedium: 600, // semi bold according to figma
-    fontWeightBold: 700, // also bold according to figma
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
 
     h1: {
         fontSize: typographyUtil.pxToRem(FONT_SIZES['3xl']),
@@ -46,7 +46,7 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
         lineHeight: 1.5,
     },
     h3: {
-        fontSize: typographyUtil.pxToRem(FONT_SIZES['xl']),
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['base']),
         fontWeight: 600,
         lineHeight: 1.5,
     },

@@ -4,7 +4,7 @@ import type { BreakpointsOptions } from '@mui/material/styles';
 export const breakpoints: BreakpointsOptions = {
     values: {
         // extra-small
-        xs: 320,
+        xs: 0,
         // small
         sm: 768,
         // medium
