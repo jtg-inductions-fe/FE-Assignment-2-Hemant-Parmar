@@ -57,30 +57,31 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     },
     body1: {
         fontSize: typographyUtil.pxToRem(FONT_SIZES['base']),
-        fontWeight: 600,
-        lineHeight: 1.5,
-    },
-    body2: {
-        fontSize: typographyUtil.pxToRem(FONT_SIZES['base']),
         fontWeight: 400,
         lineHeight: 1.5,
     },
-    caption: {
+    body2: {
         fontSize: typographyUtil.pxToRem(FONT_SIZES['sm']),
         fontWeight: 400,
         lineHeight: 1.5,
     },
     subtitle1: {
         fontSize: typographyUtil.pxToRem(FONT_SIZES['xs']),
-        fontWeight: 600,
+        fontWeight: 400,
         lineHeight: 1.5,
     },
     subtitle2: {
-        fontSize: typographyUtil.pxToRem(FONT_SIZES['xs']),
-        fontWeight: 500,
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['sm']),
+        fontWeight: 400,
         lineHeight: 1.5,
     },
     overline: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['sm']),
+        fontWeight: 600,
+        lineHeight: 1.5,
+        letterSpacing: '0.08em',
+    },
+    caption: {
         fontSize: typographyUtil.pxToRem(FONT_SIZES['xs']),
         fontWeight: 400,
         lineHeight: 1.5,

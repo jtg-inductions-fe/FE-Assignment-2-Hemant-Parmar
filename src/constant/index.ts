@@ -3,4 +3,5 @@ export {
     HTML_FONT_SIZE,
     SCALING_FACTOR,
     FONT_SIZES,
+    BREAKPOINTS,
 } from './themeConstant';
