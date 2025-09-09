@@ -31,17 +31,17 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontWeightBold: 700,
 
     h1: {
-        fontSize: typographyUtil.pxToRem(FONT_SIZES['3xl']),
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['xl']),
         fontWeight: 700,
         lineHeight: 1.5,
 
         [theme.breakpoints.up('md')]: {
-            fontSize: typographyUtil.pxToRem(FONT_SIZES['5xl']),
+            fontSize: typographyUtil.pxToRem(FONT_SIZES['xxl']),
             lineHeight: 1.3,
         },
     },
     h2: {
-        fontSize: typographyUtil.pxToRem(FONT_SIZES['xl']),
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['lg']),
         fontWeight: 700,
         lineHeight: 1.5,
     },

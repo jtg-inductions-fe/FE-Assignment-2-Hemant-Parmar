@@ -57,12 +57,42 @@ const WHITE = '#FFFFFF';
  * @constant
  */
 export const COLORS = {
-    COOL_GRAY,
-    GREEN,
-    RED,
-    BLUE,
-    WHITE,
-};
+    PRIMARY: {
+        MAIN: GREEN[500],
+    },
+    SECONDARY: WHITE,
+    TEXT: {
+        PRIMARY: COOL_GRAY[900],
+        SECONDARY: COOL_GRAY[500],
+    },
+    GREY: COOL_GRAY,
+    SUCCESS: {
+        MAIN: GREEN[100],
+        TEXT: GREEN[800],
+    },
+    ERROR: {
+        MAIN: RED[200],
+        TEXT: RED[800],
+    },
+    INFO: {
+        MAIN: BLUE[100],
+        TEXT: BLUE[800],
+    },
+    BACKGROUND: {
+        PRIMARY: COOL_GRAY[50],
+        HOVER: COOL_GRAY[100],
+        ACTIVE: COOL_GRAY[200],
+    },
+    DIVIDER: COOL_GRAY[200],
+} as const;
+
+// export const COLORS = {
+//     COOL_GRAY,
+//     GREEN,
+//     RED,
+//     BLUE,
+//     WHITE,
+// } as const;
 
 /**
  * Base font size in pixels.
@@ -78,14 +108,26 @@ export const FONT_SIZES = {
     xs: 12,
     sm: 14,
     base: 16,
-    xl: 20,
-    '3xl': 30,
-    '5xl': 48,
-    '7xl': 72,
-};
+    lg: 20,
+    xl: 30,
+    xxl: 48,
+    xxxl: 72,
+} as const;
 
 /**
  * Scaling factor used for spacing.
  * @constant
  */
 export const SCALING_FACTOR = 4;
+
+/**
+ * Breakpoints to ensure responsiveness.
+ * @constant
+ */
+export const BREAKPOINTS = {
+    xs: 0,
+    sm: 768,
+    md: 1024,
+    lg: 1440,
+    xl: 1920,
+} as const;

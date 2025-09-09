@@ -5,37 +5,37 @@ import { COLORS } from '@constant';
 /* Custom Palette */
 export const palette: PaletteOptions = {
     primary: {
-        main: COLORS.GREEN[500],
-        contrastText: COLORS.COOL_GRAY[900],
+        main: COLORS.PRIMARY.MAIN,
+        contrastText: COLORS.TEXT.PRIMARY,
     },
     secondary: {
-        main: COLORS.WHITE,
+        main: COLORS.SECONDARY,
     },
-    grey: COLORS.COOL_GRAY,
+    grey: COLORS.GREY,
     text: {
-        primary: COLORS.COOL_GRAY[900],
-        secondary: COLORS.COOL_GRAY[500],
+        primary: COLORS.TEXT.PRIMARY,
+        secondary: COLORS.TEXT.SECONDARY,
     },
     success: {
-        main: COLORS.GREEN[100],
-        contrastText: COLORS.GREEN[800],
+        main: COLORS.SUCCESS.MAIN,
+        contrastText: COLORS.SUCCESS.TEXT,
     },
     error: {
-        main: COLORS.RED[200],
-        contrastText: COLORS.RED[800],
+        main: COLORS.ERROR.MAIN,
+        contrastText: COLORS.ERROR.TEXT,
     },
     info: {
-        main: COLORS.BLUE[100],
-        contrastText: COLORS.BLUE[800],
+        main: COLORS.INFO.MAIN,
+        contrastText: COLORS.INFO.TEXT,
     },
-    divider: COLORS.COOL_GRAY[200],
+    divider: COLORS.DIVIDER,
     background: {
-        default: COLORS.COOL_GRAY[50],
-        paper: COLORS.WHITE,
+        default: COLORS.BACKGROUND.PRIMARY,
+        paper: COLORS.SECONDARY,
     },
     action: {
-        hover: COLORS.GREEN[100],
-        selected: COLORS.GREEN[100],
-        active: COLORS.GREEN[200],
+        hover: COLORS.BACKGROUND.HOVER,
+        selected: COLORS.BACKGROUND.HOVER,
+        active: COLORS.BACKGROUND.ACTIVE,
     },
 };
