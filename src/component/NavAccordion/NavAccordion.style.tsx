@@ -1,6 +1,5 @@
 import { AccordionSummary, styled } from '@mui/material';
 
-import { COLORS } from '@constant';
 import { theme } from '@theme';
 
 export const StyledAccordionSummary = styled(AccordionSummary)({
@@ -11,11 +10,11 @@ export const StyledAccordionSummary = styled(AccordionSummary)({
     paddingRight: theme.spacing(3),
 
     '&:hover': {
-        backgroundColor: COLORS.GREEN[100],
+        backgroundColor: theme.palette.action.hover,
     },
 
     '&.Mui-expanded': {
-        backgroundColor: COLORS.GREEN[100],
+        backgroundColor: theme.palette.action.active,
     },
 
     '& .MuiAccordionSummary-content': {

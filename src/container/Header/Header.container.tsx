@@ -35,7 +35,7 @@ export const Header = () => {
                 position="fixed"
                 color="secondary"
                 elevation={1}
-                sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                sx={{ zIndex: theme.zIndex.drawer + 1 }}
             >
                 <Container maxWidth={false}>
                     <Toolbar
@@ -46,7 +46,8 @@ export const Header = () => {
                         <IconButton
                             onClick={handleDrawerToggle}
                             sx={{ display: { xs: 'flex', sm: 'none' } }}
-                         aria-label="Toggle navigation">
+                            aria-label="Toggle navigation"
+                        >
                             <MenuIcon
                                 fontSize="large"
                                 sx={{ color: theme.palette.text.primary }}
@@ -92,4 +93,4 @@ export const Header = () => {
             />
         </Box>
     );
-}
+};

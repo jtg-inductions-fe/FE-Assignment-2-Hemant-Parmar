@@ -7,9 +7,9 @@ import Toolbar from '@mui/material/Toolbar';
 export const RootLayout = () => (
     <Box sx={{ display: 'flex' }}>
         <Header />
-            <Box component="main" sx={{ flexGrow: 1 }}>
-                <Toolbar aria-hidden="true"></Toolbar>
+        <Box component="main" sx={{ flexGrow: 1 }}>
+            <Toolbar aria-hidden="true"></Toolbar>
             <Outlet />
-            </Box>
+        </Box>
     </Box>
 );
