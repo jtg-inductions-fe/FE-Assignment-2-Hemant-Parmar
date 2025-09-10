@@ -1,6 +1,6 @@
-import EmptyImageURL from '@assets/images/empty-images.png';
-import RegularLandscapeURL from '@assets/images/regular-landscape.png';
-import WorkLaptopImageURL from '@assets/images/work-on-laptop.png';
+import EmptyImageURL from '@assets/images/gallery/empty-images.png';
+import RegularLandscapeURL from '@assets/images/gallery/regular-landscape.png';
+import WorkLaptopImageURL from '@assets/images/gallery/work-on-laptop.png';
 
 type GalleryImage = {
     URL: string;
