@@ -10,7 +10,7 @@ import { theme } from '@theme';
 import { StyledPopoverBox } from './Profile.style';
 import { ProfileProps } from './Profile.type';
 
-export function Profile({ name, email, imageURL }: ProfileProps) {
+export const Profile = ({ name, email, imageURL }: ProfileProps) => {
     const [anchorElement, setAnchorEl] = useState<HTMLElement | null>(null);
 
     const open = Boolean(anchorElement);
@@ -42,7 +42,6 @@ export function Profile({ name, email, imageURL }: ProfileProps) {
                     vertical: 'top',
                     horizontal: 'right',
                 }}
-                disableRestoreFocus
             >
                 <StyledPopoverBox>
                     <Typography
@@ -63,4 +62,4 @@ export function Profile({ name, email, imageURL }: ProfileProps) {
             </Popover>
         </IconButton>
     );
-}
+};

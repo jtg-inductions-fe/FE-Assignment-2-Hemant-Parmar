@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 
 import { StyledAutocomplete } from './SearchBar.style';
 
-export function SearchBar() {
+export const SearchBar = () => {
     const navigate = useNavigate();
 
     const handleProductSelect = (
@@ -59,4 +59,4 @@ export function SearchBar() {
             }}
         />
     );
-}
+};
