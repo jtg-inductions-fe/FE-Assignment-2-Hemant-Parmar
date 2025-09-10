@@ -7,7 +7,7 @@ import {
     ListItemText,
 } from '@mui/material';
 
-export function CustomListItem({
+export const CustomListItem = ({
     title,
     route,
     children,
@@ -15,17 +15,15 @@ export function CustomListItem({
     title: string;
     route?: string;
     children?: React.ReactNode;
-}) {
-    return (
-        <ListItem sx={{ p: 0 }}>
-            <ListItemButton
-                component={Link}
-                to={`/${title && route}`}
-                sx={{ pl: children ? 0 : 16 }}
-            >
-                {children && <ListItemIcon>{children}</ListItemIcon>}
-                <ListItemText primary={title} />
-            </ListItemButton>
-        </ListItem>
-    );
-}
+}) => (
+    <ListItem sx={{ p: 0 }}>
+        <ListItemButton
+            component={Link}
+            to={`/${title && route}`}
+            sx={{ pl: children ? 0 : 16 }}
+        >
+            {children && <ListItemIcon>{children}</ListItemIcon>}
+            <ListItemText primary={title} />
+        </ListItemButton>
+    </ListItem>
+);

@@ -13,37 +13,35 @@ import {
 import { StyledAccordionSummary } from './NavAccordion.style';
 import { NavAccordionProps } from './NavAccordion.type';
 
-export function NavAccordion({ title, Icon, items }: NavAccordionProps) {
-    return (
-        <Accordion
-            sx={{
-                '&:before': {
-                    display: 'none',
-                },
-            }}
-            square
-            disableGutters
-            elevation={0}
-        >
-            <StyledAccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <ListItem>
-                    <ListItemIcon>{<Icon />}</ListItemIcon>
-                    <ListItemText primary={title} />
-                </ListItem>
-            </StyledAccordionSummary>
+export const NavAccordion = ({ title, Icon, items }: NavAccordionProps) => (
+    <Accordion
+        sx={{
+            '&:before': {
+                display: 'none',
+            },
+        }}
+        square
+        disableGutters
+        elevation={0}
+    >
+        <StyledAccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <ListItem>
+                <ListItemIcon>{<Icon />}</ListItemIcon>
+                <ListItemText primary={title} />
+            </ListItem>
+        </StyledAccordionSummary>
 
-            <AccordionDetails>
-                <List disablePadding>
-                    {items &&
-                        items.map((item) => (
-                            <CustomListItem
-                                title={item.title}
-                                route={item.route}
-                                key={item.title}
-                            ></CustomListItem>
-                        ))}
-                </List>
-            </AccordionDetails>
-        </Accordion>
-    );
-}
+        <AccordionDetails>
+            <List disablePadding>
+                {items &&
+                    items.map((item) => (
+                        <CustomListItem
+                            title={item.title}
+                            route={item.route}
+                            key={item.title}
+                        ></CustomListItem>
+                    ))}
+            </List>
+        </AccordionDetails>
+    </Accordion>
+);

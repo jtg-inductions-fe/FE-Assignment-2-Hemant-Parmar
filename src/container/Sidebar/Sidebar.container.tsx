@@ -23,7 +23,7 @@ interface SidebarProps {
     handleDrawerClose: () => void;
 }
 
-export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
+export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
     const match = useMediaQuery(theme.breakpoints.up('sm'));
 
     return (
@@ -94,4 +94,4 @@ export function Sidebar({ mobileOpen, handleDrawerClose }: SidebarProps) {
             </Drawer>
         </Box>
     );
-}
+};
