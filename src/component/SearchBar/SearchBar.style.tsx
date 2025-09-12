@@ -1,8 +1,6 @@
 import { Autocomplete, styled } from '@mui/material';
 
-import { theme } from '@theme';
-
-export const StyledAutocomplete = styled(Autocomplete)({
+export const StyledAutocomplete = styled(Autocomplete)(({ theme }) => ({
     ...theme.typography.body1,
     width: 400,
     alignContent: 'center',
@@ -11,4 +9,4 @@ export const StyledAutocomplete = styled(Autocomplete)({
         padding: 0,
         borderRadius: 16,
     },
-});
+}));

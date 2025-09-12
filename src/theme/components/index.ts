@@ -3,6 +3,7 @@ import type { Components } from '@mui/material/styles';
 // Local Font files
 import InterRegularTTF from '@assets/fonts/inter/inter-regular.ttf';
 import InterRegularWOFF2 from '@assets/fonts/inter/inter-regular.woff2';
+import { COLORS } from '@constant';
 
 const fontFaceDeclarations = `
        @font-face {
@@ -22,6 +23,11 @@ export const components: Components = {
                 fontSize: '62.5%',
             },
             fontFaceDeclarations,
+        },
+    },
+    MuiSvgIcon: {
+        defaultProps: {
+            htmlColor: COLORS.TEXT.PRIMARY,
         },
     },
 };

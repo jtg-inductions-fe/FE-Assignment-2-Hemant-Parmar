@@ -1,11 +1,6 @@
 import { useState } from 'react';
 
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-
-import { theme } from '@theme';
+import { Avatar, IconButton, Popover, Typography } from '@mui/material';
 
 import { StyledPopoverBox } from './Profile.style';
 import { ProfileProps } from './Profile.type';
@@ -47,14 +42,14 @@ export const Profile = ({ name, email, imageURL }: ProfileProps) => {
                     <Typography
                         variant="h2"
                         noWrap
-                        maxWidth={theme.spacing(100)}
+                        maxWidth={(theme) => theme.spacing(100)}
                     >
                         {name}
                     </Typography>
                     <Typography
                         variant="body2"
                         noWrap
-                        maxWidth={theme.spacing(100)}
+                        maxWidth={(theme) => theme.spacing(100)}
                     >
                         {email}
                     </Typography>

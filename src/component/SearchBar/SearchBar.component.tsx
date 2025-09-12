@@ -4,8 +4,7 @@ import { topProducts } from 'data';
 import { useNavigate } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
-import { InputAdornment } from '@mui/material';
-import TextField from '@mui/material/TextField';
+import { InputAdornment, TextField } from '@mui/material';
 
 import { StyledAutocomplete } from './SearchBar.style';
 
@@ -37,7 +36,13 @@ export const SearchBar = () => {
                             ...params.InputProps,
                             startAdornment: (
                                 <InputAdornment position="end">
-                                    <SearchIcon fontSize="medium" />
+                                    <SearchIcon
+                                        fontSize="medium"
+                                        sx={{
+                                            color: (theme) =>
+                                                theme.palette.text.secondary,
+                                        }}
+                                    />
                                 </InputAdornment>
                             ),
                         },
