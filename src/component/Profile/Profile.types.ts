@@ -1,5 +1,5 @@
 export interface ProfileProps {
-    name: string;
-    email: string;
+    name?: string;
+    email?: string;
     imageURL: string;
 }
