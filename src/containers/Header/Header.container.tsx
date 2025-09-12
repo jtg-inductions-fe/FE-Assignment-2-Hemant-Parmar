@@ -1,6 +1,7 @@
 import { MainLogo } from 'components';
 import { Profile } from 'components';
 import { SearchBar } from 'components';
+import { topProducts } from 'data';
 import { Link } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -17,7 +18,7 @@ export const Header = () => (
             {/* Box only for Tablet + desktop */}
             <Box sx={{ gap: 4, display: { xs: 'none', sm: 'flex' } }}>
                 <MainLogo />
-                <SearchBar />
+                <SearchBar options={topProducts} />
             </Box>
 
             {/* Box only for mobile */}

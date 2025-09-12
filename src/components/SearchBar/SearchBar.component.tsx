@@ -1,29 +1,39 @@
 import { SyntheticEvent } from 'react';
+import { useEffect, useState } from 'react';
 
-import { topProducts } from 'data';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
 
 import { StyledAutocomplete } from './SearchBar.styles';
 
-export const SearchBar = () => {
+export const SearchBar = ({ options }: { options: string[] }) => {
     const navigate = useNavigate();
 
-    const handleProductSelect = (
-        _: SyntheticEvent,
-        selectedProduct: string,
-    ) => {
-        if (selectedProduct && topProducts.includes(selectedProduct)) {
-            void navigate(`/products/${selectedProduct}`);
+    const { productId } = useParams();
+
+    const [value, setValue] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (productId && options.includes(productId)) {
+            setValue(productId);
+        } else {
+            setValue(null);
+        }
+    }, [productId, options]);
+
+    const handleProductSelect = (_: SyntheticEvent, selectedOption: string) => {
+        if (selectedOption && options.includes(selectedOption)) {
+            void navigate(`/products/${selectedOption}`);
         }
     };
 
     return (
         <StyledAutocomplete
             freeSolo={false}
-            options={topProducts}
+            options={options}
+            value={value}
             forcePopupIcon={false}
             selectOnFocus
             handleHomeEndKeys
