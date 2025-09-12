@@ -7,25 +7,37 @@ import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
 
 import { StyledAutocomplete } from './SearchBar.styles';
+import { Option } from './SearchBar.types';
 
-export const SearchBar = ({ options }: { options: string[] }) => {
+export const SearchBar = ({ options }: { options: Option[] }) => {
     const navigate = useNavigate();
 
-    const { productId } = useParams();
+    const { productId } = useParams<{ productId: string }>();
 
-    const [value, setValue] = useState<string | null>(null);
+    const [value, setValue] = useState<Option | null>(null);
 
     useEffect(() => {
-        if (productId && options.includes(productId)) {
-            setValue(productId);
+        if (productId) {
+            options.forEach((option) => {
+                if (option.route === productId.toLowerCase()) {
+                    setValue(option);
+                    return;
+                }
+            });
         } else {
             setValue(null);
         }
     }, [productId, options]);
 
-    const handleProductSelect = (_: SyntheticEvent, selectedOption: string) => {
-        if (selectedOption && options.includes(selectedOption)) {
-            void navigate(`/products/${selectedOption}`);
+    const handleProductSelect = (_: SyntheticEvent, selectedLabel: string) => {
+        if (selectedLabel) {
+            options.forEach((option) => {
+                if (option.label === selectedLabel) {
+                    void navigate(`/products/${option.route}`);
+                    setValue(option);
+                    return;
+                }
+            });
         }
     };
 
