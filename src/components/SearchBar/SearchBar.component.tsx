@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
 
-import { StyledAutocomplete } from './SearchBar.style';
+import { StyledAutocomplete } from './SearchBar.styles';
 
 export const SearchBar = () => {
     const navigate = useNavigate();

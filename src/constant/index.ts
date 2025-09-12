@@ -5,3 +5,5 @@ export {
     FONT_SIZES,
     BREAKPOINTS,
 } from './themeConstant';
+
+export { ROUTES } from './routeConstant';

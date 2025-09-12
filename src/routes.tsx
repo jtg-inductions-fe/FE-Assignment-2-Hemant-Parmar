@@ -1,7 +1,7 @@
-import { RootLayout } from 'layout/RootLayout';
-import { ErrorPage } from 'page/ErrorPage';
-import { NotFound } from 'page/NotFound';
-import Overview from 'page/Overview';
+import { RootLayout } from 'layouts/RootLayout';
+import { ErrorPage } from 'pages/ErrorPage';
+import { NotFound } from 'pages/NotFound';
+import Overview from 'pages/Overview';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
