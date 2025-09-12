@@ -1,5 +1,8 @@
 import type { BreakpointsOptions } from '@mui/material/styles';
 
-// TODO: Add custom breakpoints here
+import { BREAKPOINTS } from '@constant';
+
 /* Custom Breakpoints */
-export const breakpoints: BreakpointsOptions = {};
+export const breakpoints: BreakpointsOptions = {
+    values: BREAKPOINTS,
+};

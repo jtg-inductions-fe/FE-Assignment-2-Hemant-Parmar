@@ -4,7 +4,7 @@ import type {
     TypographyUtils,
 } from '@mui/material/styles/createTypography';
 
-import { HTML_FONT_SIZE } from '@constant';
+import { FONT_SIZES, HTML_FONT_SIZE } from '@constant';
 
 /* Custom px to rem function */
 const typographyUtil: TypographyUtils = {
@@ -16,7 +16,6 @@ const typographyUtil: TypographyUtils = {
     pxToRem: (px: number) => `${px / HTML_FONT_SIZE}` + 'rem',
 };
 
-// TODO: Add the necessary typographies here.
 /**
  * Creates a typography block with various styles
  * @param theme - Theme object to access the breakpoints.
@@ -29,16 +28,63 @@ const typographyStyle = (theme: Theme): TypographyOptions => ({
     fontWeightLight: 400,
     fontWeightRegular: 500,
     fontWeightMedium: 600,
+    fontWeightBold: 700,
 
     h1: {
-        fontSize: typographyUtil.pxToRem(30),
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['xl']),
         fontWeight: 700,
-        lineHeight: typographyUtil.pxToRem(45),
+        lineHeight: 1.5,
 
         [theme.breakpoints.up('md')]: {
-            fontSize: typographyUtil.pxToRem(48),
-            lineHeight: typographyUtil.pxToRem(62.5),
+            fontSize: typographyUtil.pxToRem(FONT_SIZES['xxl']),
+            lineHeight: 1.3,
         },
+    },
+    h2: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['lg']),
+        fontWeight: 700,
+        lineHeight: 1.5,
+    },
+    h3: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['base']),
+        fontWeight: 600,
+        lineHeight: 1.5,
+    },
+    button: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['base']),
+        fontWeight: 500,
+        lineHeight: 1.5,
+    },
+    body1: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['base']),
+        fontWeight: 400,
+        lineHeight: 1.5,
+    },
+    body2: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['sm']),
+        fontWeight: 400,
+        lineHeight: 1.5,
+    },
+    subtitle1: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['xs']),
+        fontWeight: 400,
+        lineHeight: 1.5,
+    },
+    subtitle2: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['sm']),
+        fontWeight: 400,
+        lineHeight: 1.5,
+    },
+    overline: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['sm']),
+        fontWeight: 600,
+        lineHeight: 1.5,
+        letterSpacing: '0.08em',
+    },
+    caption: {
+        fontSize: typographyUtil.pxToRem(FONT_SIZES['xs']),
+        fontWeight: 400,
+        lineHeight: 1.5,
     },
 });
 

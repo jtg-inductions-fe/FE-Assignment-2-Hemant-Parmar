@@ -48,7 +48,8 @@ export default tseslint.config(
             ...jsxA11y.configs.recommended.rules,
             'react/react-in-jsx-scope': 'off',
             'no-console': 'error',
-            'no-shadow': 'error',
+            'no-shadow': 'off',
+            '@typescript-eslint/no-shadow': 'error',
             'react-refresh/only-export-components': [
                 'warn',
                 { allowConstantExport: true },
@@ -73,6 +74,12 @@ export default tseslint.config(
                 {
                     selector: 'variable',
                     format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+                },
+                {
+                    selector: 'variable',
+                    modifiers: ['exported'],
+                    types: ['function'],
+                    format: ['PascalCase'],
                 },
                 {
                     selector: 'function',
