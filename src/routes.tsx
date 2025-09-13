@@ -23,20 +23,17 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path: '/products/:productId',
+        path: '/products',
         element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
+            { index: true, element: <NotFound />, errorElement: <ErrorPage /> },
             {
-                index: true,
+                path: ':productId',
                 element: <NotFound />, // Ideally we want a Product page here
                 errorElement: <ErrorPage />,
             },
-            {
-                path: '*',
-                element: <NotFound />,
-                errorElement: <ErrorPage />,
-            },
+            { path: '*', element: <NotFound />, errorElement: <ErrorPage /> },
         ],
     },
 ]);

@@ -29,10 +29,13 @@ export const SearchBar = ({ options }: { options: Option[] }) => {
         }
     }, [productId, options]);
 
-    const handleProductSelect = (_: SyntheticEvent, selectedLabel: string) => {
-        if (selectedLabel) {
+    const handleProductSelect = (
+        _: SyntheticEvent,
+        selectedOption: unknown,
+    ) => {
+        if (selectedOption && options) {
             options.forEach((option) => {
-                if (option.label === selectedLabel) {
+                if (option === selectedOption) {
                     void navigate(`/products/${option.route}`);
                     setValue(option);
                     return;
@@ -49,7 +52,7 @@ export const SearchBar = ({ options }: { options: Option[] }) => {
             forcePopupIcon={false}
             selectOnFocus
             handleHomeEndKeys
-            onInputChange={handleProductSelect}
+            onChange={handleProductSelect}
             renderInput={(params) => (
                 <TextField
                     placeholder="Search"
