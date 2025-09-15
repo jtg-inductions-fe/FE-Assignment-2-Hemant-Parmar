@@ -3,7 +3,7 @@ import type { Components } from '@mui/material/styles';
 // Local Font files
 import InterVariableTTF from '@assets/fonts/inter/InterVariable.ttf';
 import InterVariableWOFF2 from '@assets/fonts/inter/InterVariable.woff2';
-import { COLORS } from '@constant';
+import { COLORS } from '@constants';
 
 const fontFaceDeclarations = {
     '@font-face': [

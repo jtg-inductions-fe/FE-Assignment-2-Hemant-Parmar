@@ -4,6 +4,8 @@ import { NotFound } from 'pages/NotFound';
 import Overview from 'pages/Overview';
 import { createBrowserRouter } from 'react-router-dom';
 
+import { ROUTES, SLUGS } from '@constants';
+
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -23,13 +25,13 @@ export const router = createBrowserRouter([
         ],
     },
     {
-        path: '/products',
+        path: ROUTES.PRODUCTS,
         element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
             { index: true, element: <NotFound />, errorElement: <ErrorPage /> },
             {
-                path: ':productId',
+                path: SLUGS.PRODUCT_ID,
                 element: <NotFound />, // Ideally we want a Product page here
                 errorElement: <ErrorPage />,
             },

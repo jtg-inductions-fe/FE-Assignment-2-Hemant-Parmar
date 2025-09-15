@@ -58,11 +58,19 @@ export const COLORS = {
     DIVIDER: COOL_GRAY[200],
 } as const;
 
+
+/**
+ * Type representing the keys of COLORS.
+ */
+export type Color = typeof COLORS[keyof typeof COLORS];
+
+
+
 /**
  * Base font size in pixels.
  * @constant
  */
-export const HTML_FONT_SIZE = 10;
+export const HTML_FONT_SIZE: number = 10;
 
 /**
  * Used font sizes in pixels.
@@ -77,6 +85,12 @@ export const FONT_SIZES = {
     xxl: 48,
     xxxl: 72,
 } as const;
+
+/**
+ * Type representing the keys of FONT_SIZES.
+ */
+export type FontSize = typeof FONT_SIZES[keyof typeof FONT_SIZES];
+
 
 /**
  * Scaling factor used for spacing.
@@ -95,3 +109,8 @@ export const BREAKPOINTS = {
     lg: 1440,
     xl: 1920,
 } as const;
+
+/**
+ * Type representing the keys of BREAKPOINTS.
+ */
+export type Breakpoint = typeof BREAKPOINTS[keyof typeof BREAKPOINTS];

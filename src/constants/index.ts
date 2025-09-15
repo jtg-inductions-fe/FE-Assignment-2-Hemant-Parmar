@@ -6,4 +6,4 @@ export {
     BREAKPOINTS,
 } from './themeConstant';
 
-export { ROUTES } from './routeConstant';
+export { ROUTES, SLUGS } from './routeConstant';

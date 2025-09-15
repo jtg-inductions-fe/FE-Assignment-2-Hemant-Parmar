@@ -1,25 +1,23 @@
 import { SyntheticEvent } from 'react';
 import { useEffect, useState } from 'react';
 
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment, TextField } from '@mui/material';
 
 import { StyledAutocomplete } from './SearchBar.styles';
-import { Option } from './SearchBar.types';
+import { Option, SearchBarProps } from './SearchBar.types';
 
-export const SearchBar = ({ options }: { options: Option[] }) => {
+export const SearchBar = ({ options, route, slug}: SearchBarProps) => {
     const navigate = useNavigate();
-
-    const { productId } = useParams<{ productId: string }>();
 
     const [value, setValue] = useState<Option | null>(null);
 
     useEffect(() => {
-        if (productId) {
+        if (slug) {
             options.forEach((option) => {
-                if (option.route === productId.toLowerCase()) {
+                if (option.route === slug.toLowerCase()) {
                     setValue(option);
                     return;
                 }
@@ -27,7 +25,7 @@ export const SearchBar = ({ options }: { options: Option[] }) => {
         } else {
             setValue(null);
         }
-    }, [productId, options]);
+    }, [slug, options]);
 
     const handleProductSelect = (
         _: SyntheticEvent,
@@ -36,7 +34,7 @@ export const SearchBar = ({ options }: { options: Option[] }) => {
         if (selectedOption && options) {
             options.forEach((option) => {
                 if (option === selectedOption) {
-                    void navigate(`/products/${option.route}`);
+                    void navigate(`${route}/${option.route}`);
                     setValue(option);
                     return;
                 }

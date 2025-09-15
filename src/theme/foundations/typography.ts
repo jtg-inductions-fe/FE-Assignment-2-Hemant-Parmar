@@ -1,10 +1,12 @@
+import { FontSize } from 'constants/themeConstant';
+
 import type { Theme } from '@mui/material/styles';
 import type {
     TypographyOptions,
     TypographyUtils,
 } from '@mui/material/styles/createTypography';
 
-import { FONT_SIZES, HTML_FONT_SIZE } from '@constant';
+import { FONT_SIZES, HTML_FONT_SIZE } from '@constants';
 
 /* Custom px to rem function */
 const typographyUtil: TypographyUtils = {

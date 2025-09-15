@@ -35,40 +35,38 @@ export const Profile = ({ name, email, imageURL }: ProfileProps) => {
     return (
         <IconButton onClick={handleClick}>
             <Avatar src={imageURL} alt={`Profile of ${name}`} />
-            {name && (
-                <Popover
-                    open={open}
-                    anchorEl={anchorElement}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                >
-                    <StyledPopoverBox>
+            <Popover
+                open={open}
+                anchorEl={anchorElement}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+            >
+                <StyledPopoverBox>
+                    <Typography
+                        variant="h2"
+                        noWrap
+                        maxWidth={(theme) => theme.spacing(100)}
+                    >
+                        {name}
+                    </Typography>
+                    {email && (
                         <Typography
-                            variant="h2"
+                            variant="body2"
                             noWrap
                             maxWidth={(theme) => theme.spacing(100)}
                         >
-                            {name}
+                            {email}
                         </Typography>
-                        {email && (
-                            <Typography
-                                variant="body2"
-                                noWrap
-                                maxWidth={(theme) => theme.spacing(100)}
-                            >
-                                {email}
-                            </Typography>
-                        )}
-                    </StyledPopoverBox>
-                </Popover>
-            )}
+                    )}
+                </StyledPopoverBox>
+            </Popover>
         </IconButton>
     );
 };
