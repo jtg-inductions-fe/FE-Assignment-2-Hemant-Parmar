@@ -70,7 +70,7 @@ export type Color = typeof COLORS[keyof typeof COLORS];
  * Base font size in pixels.
  * @constant
  */
-export const HTML_FONT_SIZE: number = 10;
+export const HTML_FONT_SIZE= 10;
 
 /**
  * Used font sizes in pixels.

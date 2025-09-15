@@ -1,10 +1,12 @@
+import type { RoutePath } from '@constants';
+
 export type Option = {
     label: string;
     route: string;
 };
 
 export type SearchBarProps = {
-    route: string;
+    route: RoutePath;
     options: Option[];
     slug?: string;
 };

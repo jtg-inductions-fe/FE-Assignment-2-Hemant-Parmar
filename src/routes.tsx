@@ -1,10 +1,10 @@
-import { RootLayout } from 'layouts/RootLayout';
-import { ErrorPage } from 'pages/ErrorPage';
-import { NotFound } from 'pages/NotFound';
-import Overview from 'pages/Overview';
 import { createBrowserRouter } from 'react-router-dom';
 
 import { ROUTES, SLUGS } from '@constants';
+import { RootLayout } from '@layouts/RootLayout';
+import { ErrorPage } from '@pages/ErrorPage';
+import { NotFound } from '@pages/NotFound';
+import Overview from '@pages/Overview';
 
 export const router = createBrowserRouter([
     {

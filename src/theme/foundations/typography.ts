@@ -1,5 +1,3 @@
-import { FontSize } from 'constants/themeConstant';
-
 import type { Theme } from '@mui/material/styles';
 import type {
     TypographyOptions,

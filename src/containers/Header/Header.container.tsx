@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 
 import MainProfileURL from '@assets/images/users/main-profile-picture.jpg';
@@ -10,7 +11,7 @@ import { SearchBar } from '@components';
 import { ROUTES } from '@constants';
 import { topProducts } from '@data';
 
-import { NotificationsButton, StyledNotificationsIcon } from './Header.styles';
+import { NotificationsButton} from './Header.styles';
 
 export const Header = () => {
     const { productId } = useParams<{ productId: string }>();
@@ -38,7 +39,7 @@ export const Header = () => {
                         to={ROUTES.NOTIFICATIONS}
                         aria-label="Notifications"
                     >
-                        <StyledNotificationsIcon fontSize="medium" />
+                        <NotificationsIcon fontSize="medium" />
                     </NotificationsButton>
                     <Profile
                         name="Hemant Parmar"

@@ -34,4 +34,11 @@ export const components: Components = {
             htmlColor: COLORS.TEXT.PRIMARY,
         },
     },
+    MuiAutocomplete: {
+      styleOverrides: {
+        inputRoot: {
+          borderRadius: 16, 
+        },
+      },
+    },
 };

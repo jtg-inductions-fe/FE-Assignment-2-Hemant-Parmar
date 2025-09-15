@@ -1,4 +1,4 @@
-import { RoutePath } from "constants/routeConstant"
+import { RoutePath } from "@constants"
 
 export type MainLogoProps = {
     route: RoutePath,
