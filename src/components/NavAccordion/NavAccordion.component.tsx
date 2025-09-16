@@ -10,8 +10,8 @@ import {
 
 import { CustomListItem } from '@components';
 
-import { StyledAccordionSummary } from './NavAccordion.style';
-import { NavAccordionProps } from './NavAccordion.type';
+import { StyledAccordionSummary } from './NavAccordion.styles';
+import { NavAccordionProps } from './NavAccordion.types';
 
 export const NavAccordion = ({ title, Icon, items }: NavAccordionProps) => (
     <Accordion

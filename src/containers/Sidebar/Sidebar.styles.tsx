@@ -1,9 +1,6 @@
 import { Box, List, styled } from '@mui/material';
 
-import { DRAWER_WIDTH } from '@constants';
-import { theme } from '@theme';
-
-export const FooterList = styled(List)({
+export const FooterList = styled(List)(({ theme }) => ({
     position: 'sticky',
     left: 0,
     right: 0,
@@ -12,15 +9,16 @@ export const FooterList = styled(List)({
     justifyContent: 'center',
     gap: theme.spacing(4),
     background: theme.palette.background.paper,
-});
+}));
 
-export const NavBox = styled(Box)({
+export const NavBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
-    width: DRAWER_WIDTH.XS,
+    width: theme.custom.drawerWidth.mobile,
+
     [theme.breakpoints.up('sm')]: {
-        width: DRAWER_WIDTH.SM,
+        width: theme.custom.drawerWidth.desktop,
     },
     maxWidth: '90vw',
-});
+}));

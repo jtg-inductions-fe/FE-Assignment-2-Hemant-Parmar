@@ -8,7 +8,7 @@ import {
     ListItemText,
 } from '@mui/material';
 
-import { NavButtonProps } from './NavButton.type';
+import { NavButtonProps } from './NavButton.types';
 
 export const NavButton = ({
     color,

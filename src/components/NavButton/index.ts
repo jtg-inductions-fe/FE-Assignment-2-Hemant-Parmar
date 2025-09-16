@@ -1,2 +1,2 @@
 export { NavButton } from './NavButton.component';
-export type { NavButtonProps } from './NavButton.type';
+export type { NavButtonProps } from './NavButton.types';

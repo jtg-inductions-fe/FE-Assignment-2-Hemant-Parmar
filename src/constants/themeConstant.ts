@@ -120,6 +120,6 @@ export type Breakpoint = typeof BREAKPOINTS[keyof typeof BREAKPOINTS];
  * @constant
  */
 export const DRAWER_WIDTH = {
-    SM: 250,
-    XS: 300,
+    mobile: 250,
+    desktop: 300,
 };

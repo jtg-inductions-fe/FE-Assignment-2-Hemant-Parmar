@@ -1,8 +1,6 @@
 import { AccordionSummary, styled } from '@mui/material';
 
-import { theme } from '@theme';
-
-export const StyledAccordionSummary = styled(AccordionSummary)({
+export const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
     borderRadius: 3,
     boxShadow: 'none',
     border: 'none',
@@ -20,4 +18,4 @@ export const StyledAccordionSummary = styled(AccordionSummary)({
     '& .MuiAccordionSummary-content': {
         margin: 0,
     },
-});
+}));

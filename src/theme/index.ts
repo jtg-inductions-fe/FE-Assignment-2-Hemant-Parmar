@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-import { SCALING_FACTOR } from '@constants';
+import { DRAWER_WIDTH,SCALING_FACTOR } from '@constants';
 
 /* Customized MUI components themes */
 import { components } from './components';
@@ -27,6 +27,12 @@ let theme = createTheme({
 theme = createTheme(theme, {
     typography: {
         ...typography.typographyStyle(theme),
+    },
+    custom: {
+        drawerWidth : {
+            mobile: DRAWER_WIDTH.mobile,
+            desktop: DRAWER_WIDTH.desktop,
+        },
     },
 });
 
