@@ -11,23 +11,40 @@ import { SearchBar } from '@components';
 import { ROUTES } from '@constants';
 import { topProducts } from '@data';
 
-import { NotificationsButton} from './Header.styles';
+import { NotificationsButton } from './Header.styles';
 
-export const Header = () => {
+export const Header = ({
+    handleDrawerToggle,
+}: {
+    handleDrawerToggle: () => void;
+}) => {
+    //TD: header props make
     const { productId } = useParams<{ productId: string }>();
 
     return (
-        <AppBar position="sticky" color="secondary" elevation={1}>
+        <AppBar
+            position="sticky"
+            color="secondary"
+            elevation={1}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        >
             <Toolbar sx={{ justifyContent: 'space-between' }}>
                 {/* Box only for Tablet + desktop */}
                 <Box sx={{ gap: 4, display: { xs: 'none', sm: 'flex' } }}>
                     <MainLogo route={ROUTES.ROOT} />
-                    <SearchBar options={topProducts} route={ROUTES.PRODUCTS} slug={productId}/>
+                    <SearchBar
+                        options={topProducts}
+                        route={ROUTES.PRODUCTS}
+                        slug={productId}
+                    />
                 </Box>
 
                 {/* Box only for mobile */}
                 <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                    <IconButton aria-label="Toggle navigation">
+                    <IconButton
+                        onClick={handleDrawerToggle}
+                        aria-label="Toggle navigation"
+                    >
                         <MenuIcon fontSize="large" />
                     </IconButton>
                 </Box>

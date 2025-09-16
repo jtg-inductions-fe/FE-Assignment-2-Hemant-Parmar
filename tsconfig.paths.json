@@ -7,8 +7,9 @@
             "@constants": ["constants/index"],
             "@data": ["data/index"],
             "@pages/*": ["pages/*"],
-            "@layouts/*": ["layouts/*"],
+            "@layouts": ["layouts/index"],
             "@components":["components/index"],
+            "@containers":["containers/index"],
         }
     }
 }

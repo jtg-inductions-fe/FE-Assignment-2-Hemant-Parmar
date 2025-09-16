@@ -7,19 +7,17 @@ import {
     ListItemText,
 } from '@mui/material';
 
+import { CustomListItemProps } from './CustomListItem.types';
+
 export const CustomListItem = ({
     title,
     route,
     children,
-}: {
-    title: string;
-    route?: string;
-    children?: React.ReactNode;
-}) => (
-    <ListItem sx={{ p: 0 }}>
+}: CustomListItemProps) => (
+    <ListItem disablePadding>
         <ListItemButton
             component={Link}
-            to={`/${title && route}`}
+            to={route?? `/${title}`}
             sx={{ pl: children ? 0 : 16 }}
         >
             {children && <ListItemIcon>{children}</ListItemIcon>}
