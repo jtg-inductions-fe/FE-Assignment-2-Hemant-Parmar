@@ -1,5 +1,3 @@
-import { CustomListItem } from 'component';
-
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
     Accordion,
@@ -9,6 +7,8 @@ import {
     ListItemIcon,
     ListItemText,
 } from '@mui/material';
+
+import { CustomListItem } from '@components';
 
 import { StyledAccordionSummary } from './NavAccordion.style';
 import { NavAccordionProps } from './NavAccordion.type';

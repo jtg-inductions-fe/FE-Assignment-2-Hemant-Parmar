@@ -1,6 +1,6 @@
 import { Box, List, styled } from '@mui/material';
 
-import { DRAWER_WIDTH } from '@constant';
+import { DRAWER_WIDTH } from '@constants';
 import { theme } from '@theme';
 
 export const FooterList = styled(List)({
