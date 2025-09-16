@@ -1,5 +1,5 @@
-import { NavAccordionProps } from 'component/NavAccordion';
-import { NavButtonProps } from 'component/NavButton';
+import { NavAccordionProps } from 'components/NavAccordion';
+import { NavButtonProps } from 'components/NavButton';
 
 import { SvgIconComponent } from '@mui/icons-material';
 import AssignmentIcon from '@mui/icons-material/Assignment';

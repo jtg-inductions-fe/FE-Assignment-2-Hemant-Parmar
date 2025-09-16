@@ -1,19 +1,19 @@
-import { NavAccordion } from 'component';
-import { NavButton } from 'component';
-import { NavAccordionProps } from 'component/NavAccordion';
-import { NavButtonProps } from 'component/NavButton';
-import { navConfig } from 'data';
 import { Link } from 'react-router-dom';
 
 import { Box, Divider, IconButton, ListItem, Toolbar } from '@mui/material';
 import List from '@mui/material/List';
 
-type NavElementProps = NavAccordionProps | NavButtonProps;
+import { NavAccordion } from '@components';
+import { NavButton } from '@components';
+import { NavAccordionProps } from '@components';
+import { NavButtonProps } from '@components';
+import { navConfig } from '@data';
 
-import { DRAWER_WIDTH } from 'constant/themeConstant';
+type NavElementProps = NavAccordionProps | NavButtonProps;
 
 import { Drawer, useMediaQuery } from '@mui/material';
 
+import { DRAWER_WIDTH } from '@constants';
 import { theme } from '@theme';
 
 import { FooterList, NavBox } from './Sidebar.style';
