@@ -1,2 +1,2 @@
 export { NavAccordion } from './NavAccordion.component';
-export type { NavAccordionProps } from './NavAccordion.type';
+export type { NavAccordionProps } from './NavAccordion.types';

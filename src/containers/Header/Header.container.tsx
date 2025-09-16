@@ -10,13 +10,9 @@ import { ROUTES } from '@constants';
 import { topProducts } from '@data';
 
 import { RoundedButton } from './Header.styles';
+import { HeaderProps } from './Header.types';
 
-export const Header = ({
-    handleDrawerToggle,
-}: {
-    handleDrawerToggle: () => void;
-}) => {
-    //TD: header props make
+export const Header = ({ handleDrawerToggle }: HeaderProps) => {
     const { productId } = useParams<{ productId: string }>();
 
     return (

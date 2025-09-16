@@ -12,29 +12,27 @@ import { navConfig } from '@data';
 type NavElementProps = NavAccordionProps | NavButtonProps;
 
 import { Drawer, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
-import { DRAWER_WIDTH } from '@constants';
-import { theme } from '@theme';
-
-import { FooterList, NavBox } from './Sidebar.style';
-
-interface SidebarProps {
-    mobileOpen: boolean;
-    handleDrawerClose: () => void;
-}
+import { FooterList, NavBox } from './Sidebar.styles';
+import { SidebarProps } from './Sidebar.types';
 
 export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
+    const theme = useTheme();
     const match = useMediaQuery(theme.breakpoints.up('sm'));
 
     return (
         <Box
             component="nav"
-            sx={{ width: { sm: DRAWER_WIDTH.SM }, flexShrink: { sm: 0 } }}
+            sx={{
+                width: { sm: theme.custom.drawerWidth.desktop },
+                flexShrink: { sm: 0 },
+            }}
             aria-label="Navigation sidebar"
         >
             <Drawer
                 anchor="left"
-                variant={match ? 'permanent' : 'temporary'}
+                variant={match ? 'persistent' : 'temporary'}
                 open={match ? true : mobileOpen}
                 onClose={handleDrawerClose}
             >
