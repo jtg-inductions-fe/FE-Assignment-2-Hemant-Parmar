@@ -1,9 +1,11 @@
-import { Gallery } from 'container';
+import { Box} from '@mui/material';
+
+import { Gallery } from '@containers';
 
 const Overview = () => (
-    <main>
+    <Box>
         <Gallery />
-    </main>
+    </Box>
 );
 
 export default Overview;
