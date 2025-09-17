@@ -1,13 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import {
-    Button,
-    Chip,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-} from '@mui/material';
+import { Chip, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 
+import { StyledButton } from './NavButton.styles';
 import { NavButtonProps } from './NavButton.types';
 
 export const NavButton = ({
@@ -22,17 +17,20 @@ export const NavButton = ({
         location.pathname === `/${route}` ? 'primary' : 'inherit';
 
     return (
-        <Button
-            component={Link}
-            to={`/${route}`}
-            color={color || routeColor}
-            sx={{ display: 'flex', textTransform: 'none', p: 0 }}
-        >
-            <ListItem>
-                <ListItemIcon>{<Icon color={routeColor} />}</ListItemIcon>
-                <ListItemText>{title}</ListItemText>
-                {count && <Chip label={count} size="small" />}
-            </ListItem>
-        </Button>
+        <ListItem disablePadding aria-label={title}>
+            <StyledButton
+                component={Link}
+                to={`/${route}`}
+                color={color || routeColor}
+            >
+                <ListItem>
+                    <ListItemIcon>
+                        <Icon color={routeColor} />
+                    </ListItemIcon>
+                    <ListItemText>{title}</ListItemText>
+                    {count && <Chip label={count} size="small" />}
+                </ListItem>
+            </StyledButton>
+        </ListItem>
     );
 };

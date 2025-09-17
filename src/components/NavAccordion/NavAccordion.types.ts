@@ -1,13 +1,12 @@
 import { SvgIconComponent } from '@mui/icons-material';
 
-interface NavAccordionItems {
+export type NavAccordionItems = {
     title: string;
     route?: string;
-}
+};
 
-export interface NavAccordionProps {
+export type NavAccordionProps = {
     title: string;
     Icon: SvgIconComponent;
     items?: NavAccordionItems[];
-    customExpandIcon?: SvgIconComponent;
-}
+};

@@ -1,5 +1,5 @@
-import { NavAccordionProps } from 'components/NavAccordion';
-import { NavButtonProps } from 'components/NavButton';
+import type { NavAccordionProps } from 'components/NavAccordion';
+import type { NavButtonProps } from 'components/NavButton';
 
 import { SvgIconComponent } from '@mui/icons-material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -14,9 +14,11 @@ import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import SupportIcon from '@mui/icons-material/Support';
 import TuneIcon from '@mui/icons-material/Tune';
 
-interface NavConfig {
+import { ROUTES } from '@constants';
+
+export interface NavConfig {
     lists: Array<Array<NavAccordionProps | NavButtonProps>>;
-    footer: Array<{ route: string; Icon: SvgIconComponent }>;
+    footer: Array<{ title: string; route: string; Icon: SvgIconComponent }>;
 }
 
 export const navConfig: NavConfig = {
@@ -24,31 +26,31 @@ export const navConfig: NavConfig = {
         [
             {
                 title: 'Overview',
-                route: '',
+                route: ROUTES.ROOT,
                 Icon: PieChartIcon,
             },
             {
                 title: 'Pages',
                 Icon: ContactPageIcon,
                 items: [
-                    { title: 'Overview', route: '' },
-                    { title: 'Docs', route: 'docs' },
-                    { title: 'Components', route: 'components' },
-                    { title: 'Help', route: 'help' },
+                    { title: 'Overview', route: ROUTES.ROOT },
+                    { title: 'Docs', route: ROUTES.DOCS },
+                    { title: 'Components', route: ROUTES.COMPONENTS },
+                    { title: 'Help', route: ROUTES.HELP },
                 ],
             },
             {
                 title: 'Sales',
                 Icon: ShoppingBagIcon,
                 items: [
-                    { title: 'Product List', route: 'product-list' },
-                    { title: 'Billing', route: 'billing' },
-                    { title: 'Invoice', route: 'invoice' },
+                    { title: 'Product List', route: ROUTES.PRODUCT_LIST },
+                    { title: 'Billing', route: ROUTES.BILLING },
+                    { title: 'Invoice', route: ROUTES.INVOICE },
                 ],
             },
             {
                 title: 'Messages',
-                route: 'messages',
+                route: ROUTES.MESSAGES,
                 Icon: MoveToInboxSharpIcon,
                 count: 3,
             },
@@ -56,40 +58,43 @@ export const navConfig: NavConfig = {
                 title: 'Authentication',
                 Icon: LockIcon,
                 items: [
-                    { title: 'Login', route: 'login' },
-                    { title: 'SignUp', route: 'signup' },
+                    { title: 'Login', route: ROUTES.LOGIN },
+                    { title: 'Sign Up', route: ROUTES.SIGNUP },
                 ],
             },
         ],
         [
             {
                 title: 'Docs',
-                route: 'docs',
+                route: ROUTES.DOCS,
                 Icon: AssignmentIcon,
             },
             {
                 title: 'Components',
-                route: 'components',
+                route: ROUTES.COMPONENTS,
                 Icon: SubscriptionsIcon,
             },
             {
                 title: 'Help',
-                route: 'help',
+                route: ROUTES.HELP,
                 Icon: SupportIcon,
             },
         ],
     ],
     footer: [
         {
-            route: 'filter',
+            title: "filter",
+            route: ROUTES.FILTER,
             Icon: TuneIcon,
         },
         {
-            route: 'explore',
+            title: "explore",
+            route: ROUTES.EXPLORE,
             Icon: PublicOutlinedIcon,
         },
         {
-            route: 'settings',
+            title: "settings",
+            route: ROUTES.SETTINGS,
             Icon: SettingsOutlinedIcon,
         },
     ],
