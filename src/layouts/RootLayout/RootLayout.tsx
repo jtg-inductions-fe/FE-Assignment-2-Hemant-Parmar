@@ -21,15 +21,20 @@ export const RootLayout = ({ showSidebar }: RootLayoutProps) => {
     };
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-            <Header handleDrawerToggle={handleDrawerToggle} mobileOpen={mobileOpen} />
-            {showSidebar && (
-                <Sidebar
-                    mobileOpen={mobileOpen}
-                    handleDrawerClose={handleDrawerClose}
-                />
-            )}
-            <Box component="main" sx={{ flexGrow: 1, overflow: 'auto' }}>
-                <Outlet />
+            <Header
+                handleDrawerToggle={handleDrawerToggle}
+                mobileOpen={mobileOpen}
+            />
+            <Box display={'flex'} width={'100%'}>
+                {showSidebar && (
+                    <Sidebar
+                        mobileOpen={mobileOpen}
+                        handleDrawerClose={handleDrawerClose}
+                    />
+                )}
+                <Box component="main" sx={{ flexGrow: 1, overflow: 'auto' }}>
+                    <Outlet />
+                </Box>
             </Box>
         </Box>
     );

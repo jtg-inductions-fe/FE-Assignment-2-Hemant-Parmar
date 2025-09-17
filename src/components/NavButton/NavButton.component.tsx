@@ -14,22 +14,20 @@ export const NavButton = ({
 }: NavButtonProps) => {
     const location = useLocation();
     const routeColor: 'primary' | 'inherit' =
-        location.pathname === `/${route}` ? 'primary' : 'inherit';
+        location.pathname === route ? 'primary' : 'inherit';
 
     return (
         <ListItem disablePadding aria-label={title}>
             <StyledButton
                 component={Link}
-                to={`/${route}`}
+                to={route}
                 color={color || routeColor}
             >
-                <ListItem>
-                    <ListItemIcon>
-                        <Icon color={routeColor} />
-                    </ListItemIcon>
-                    <ListItemText>{title}</ListItemText>
-                    {count && <Chip label={count} size="small" />}
-                </ListItem>
+                <ListItemIcon>
+                    <Icon color={routeColor} />
+                </ListItemIcon>
+                <ListItemText>{title}</ListItemText>
+                {count && <Chip label={count} size="small" />}
             </StyledButton>
         </ListItem>
     );

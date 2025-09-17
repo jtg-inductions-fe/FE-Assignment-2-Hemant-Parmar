@@ -9,7 +9,7 @@ import Overview from '@pages/Overview';
 export const router = createBrowserRouter([
     {
         path: ROUTES.ROOT,
-        element: <RootLayout showSidebar/>,
+        element: <RootLayout showSidebar />,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -17,11 +17,20 @@ export const router = createBrowserRouter([
                 element: <Overview />,
                 errorElement: <ErrorPage />,
             },
+        ],
+    },
+    {
+        path: ROUTES.PRODUCTS,
+        element: <RootLayout />,
+        errorElement: <ErrorPage />,
+        children: [
+            { index: true, element: <NotFound />, errorElement: <ErrorPage /> },
             {
-                path: `${ROUTES.PRODUCTS}/${SLUGS.PRODUCT_ID}`,
+                path: SLUGS.PRODUCT_ID,
                 element: <NotFound />, // Ideally we want a Product page here
                 errorElement: <ErrorPage />,
             },
+            { path: '*', element: <NotFound />, errorElement: <ErrorPage /> },
         ],
     },
     {
