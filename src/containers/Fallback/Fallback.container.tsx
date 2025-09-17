@@ -1,9 +1,9 @@
-import { GoHomeButton } from 'component';
-
 import { Container, Typography } from '@mui/material';
 
-import { FlexBox } from './Fallback.style';
-import { FallbackProps } from './Fallback.type';
+import { GoHomeButton } from '@components';
+
+import { FlexBox } from './Fallback.styles';
+import { FallbackProps } from './Fallback.types';
 
 export const Fallback = ({ imageURL, title, desc }: FallbackProps) => (
     <Container maxWidth="xl" sx={{ textAlign: 'center' }}>
