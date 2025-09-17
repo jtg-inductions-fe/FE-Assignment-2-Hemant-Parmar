@@ -8,7 +8,7 @@ import Overview from '@pages/Overview';
 
 export const router = createBrowserRouter([
     {
-        path: '/',
+        path: ROUTES.ROOT,
         element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
@@ -18,24 +18,15 @@ export const router = createBrowserRouter([
                 errorElement: <ErrorPage />,
             },
             {
+                path: `${ROUTES.PRODUCTS}/${SLUGS.PRODUCT_ID}`,
+                element: <NotFound />, // Ideally we want a Product page here
+                errorElement: <ErrorPage />,
+            },
+            {
                 path: '*',
                 element: <NotFound />,
                 errorElement: <ErrorPage />,
             },
-        ],
-    },
-    {
-        path: ROUTES.PRODUCTS,
-        element: <RootLayout />,
-        errorElement: <ErrorPage />,
-        children: [
-            { index: true, element: <NotFound />, errorElement: <ErrorPage /> },
-            {
-                path: SLUGS.PRODUCT_ID,
-                element: <NotFound />, // Ideally we want a Product page here
-                errorElement: <ErrorPage />,
-            },
-            { path: '*', element: <NotFound />, errorElement: <ErrorPage /> },
         ],
     },
 ]);
