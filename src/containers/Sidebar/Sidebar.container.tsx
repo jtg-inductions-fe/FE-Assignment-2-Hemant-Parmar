@@ -77,7 +77,7 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                             >
                                 <IconButton
                                     component={Link}
-                                    to={`/${item.route}`}
+                                    to={item.route}
                                     aria-label={`${item.title}`}
                                 >
                                     <item.Icon fontSize="medium" />
