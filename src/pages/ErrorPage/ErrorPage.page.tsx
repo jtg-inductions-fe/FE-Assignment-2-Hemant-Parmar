@@ -1,4 +1,4 @@
-import { Fallback } from 'container';
+import { Fallback } from '@containers';
 
 import ErrorImageURL from '@assets/images/Error.svg';
 
