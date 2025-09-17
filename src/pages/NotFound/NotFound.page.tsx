@@ -1,6 +1,5 @@
-import { Fallback } from 'container';
-
 import NotFoundImageURL from '@assets/images/404.svg';
+import { Fallback } from '@containers';
 
 export const NotFound = () => (
     <Fallback

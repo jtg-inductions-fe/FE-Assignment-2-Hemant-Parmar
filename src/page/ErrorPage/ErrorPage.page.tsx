@@ -1,1 +1,0 @@
-export const ErrorPage = () => <h2>This is the Error Page</h2>;
