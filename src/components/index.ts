@@ -6,5 +6,5 @@ export { CustomListItem } from './CustomListItem';
 export { NavButton } from './NavButton';
 export { GoHomeButton } from './GoHomeButton';
 
-export type {NavAccordionProps} from './NavAccordion';
-export type {NavButtonProps} from './NavButton';
+export type { NavAccordionProps } from './NavAccordion';
+export type { NavButtonProps } from './NavButton';
