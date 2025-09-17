@@ -5,6 +5,18 @@ export const ROUTES = {
     ROOT: '/',
     NOTIFICATIONS: '/notifications',
     PRODUCTS: '/products',
+    DOCS: '/docs',
+    COMPONENTS: '/components',
+    HELP: '/help',
+    PRODUCT_LIST: '/product-list',
+    BILLING: '/billing',
+    INVOICE: '/invoice',
+    LOGIN: '/login',
+    SIGNUP: '/signup',
+    FILTER: '/filter',
+    EXPLORE: '/explore',
+    SETTINGS: '/setting',
+    MESSAGES: '/messages',
 } as const;
 
 /**

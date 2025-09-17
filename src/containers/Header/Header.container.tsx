@@ -12,7 +12,7 @@ import { topProducts } from '@data';
 import { RoundedButton } from './Header.styles';
 import { HeaderProps } from './Header.types';
 
-export const Header = ({ handleDrawerToggle }: HeaderProps) => {
+export const Header = ({ handleDrawerToggle, mobileOpen }: HeaderProps) => {
     const { productId } = useParams<{ productId: string }>();
 
     return (
@@ -38,6 +38,7 @@ export const Header = ({ handleDrawerToggle }: HeaderProps) => {
                     <IconButton
                         onClick={handleDrawerToggle}
                         aria-label="Toggle navigation"
+                        aria-expanded={mobileOpen ? true : false}
                     >
                         <MenuIcon fontSize="large" />
                     </IconButton>

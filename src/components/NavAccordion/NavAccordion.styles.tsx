@@ -1,7 +1,7 @@
 import { AccordionSummary, styled } from '@mui/material';
 
 export const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
-    borderRadius: 3,
+    borderRadius: theme.spacing(3),
     boxShadow: 'none',
     border: 'none',
     paddingLeft: 0,

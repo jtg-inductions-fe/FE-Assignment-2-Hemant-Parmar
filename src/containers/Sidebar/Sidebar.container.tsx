@@ -32,17 +32,18 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
         >
             <Drawer
                 anchor="left"
-                variant={match ? 'persistent' : 'temporary'}
+                variant={match ? 'permanent' : 'temporary'}
                 open={match ? true : mobileOpen}
                 onClose={handleDrawerClose}
+                ModalProps={{ keepMounted: true }}
             >
                 <NavBox>
-                    <Toolbar></Toolbar>
+                    <Toolbar />
 
                     {navConfig.lists.map((list, index) => (
                         <Box key={index}>
-                            <Divider></Divider>
-                            <List>
+                            {index > 0 && <Divider />}
+                            <List aria-label={`Nav section ${index + 1}`}>
                                 {list.map(
                                     (element: NavElementProps, elementIndex) =>
                                         'items' in element ? (
@@ -50,9 +51,6 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                                                 title={element.title}
                                                 Icon={element.Icon}
                                                 items={element.items}
-                                                customExpandIcon={
-                                                    element.customExpandIcon
-                                                }
                                                 key={elementIndex}
                                             />
                                         ) : 'route' in element ? (
@@ -70,7 +68,6 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                     ))}
 
                     {/* At the bottom  */}
-                    <Divider sx={{ marginTop: 'auto' }}></Divider>
                     <FooterList>
                         {navConfig.footer.map((item, index) => (
                             <ListItem
@@ -81,9 +78,9 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                                 <IconButton
                                     component={Link}
                                     to={`/${item.route}`}
-                                    aria-label={`${item.route}`}
+                                    aria-label={`${item.title}`}
                                 >
-                                    {<item.Icon fontSize="medium" />}
+                                    <item.Icon fontSize="medium" />
                                 </IconButton>
                             </ListItem>
                         ))}

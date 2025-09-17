@@ -15,18 +15,20 @@ import { NavAccordionProps } from './NavAccordion.types';
 
 export const NavAccordion = ({ title, Icon, items }: NavAccordionProps) => (
     <Accordion
+        square
+        disableGutters
+        elevation={0}
         sx={{
             '&:before': {
                 display: 'none',
             },
         }}
-        square
-        disableGutters
-        elevation={0}
     >
-        <StyledAccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <StyledAccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`${title}-content`} id={`${title}-header`}>
             <ListItem>
-                <ListItemIcon>{<Icon />}</ListItemIcon>
+                <ListItemIcon>
+                    <Icon />
+                </ListItemIcon>
                 <ListItemText primary={title} />
             </ListItem>
         </StyledAccordionSummary>
