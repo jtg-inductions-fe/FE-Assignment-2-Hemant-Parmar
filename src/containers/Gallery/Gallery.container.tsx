@@ -1,27 +1,28 @@
-import { galleryConfig } from 'data';
-
 import {
     Container,
     ImageList,
     ImageListItem,
     useMediaQuery,
+    useTheme,
 } from '@mui/material';
 
-import { theme } from '@theme';
+import { galleryConfig } from '@data';
 
 export const Gallery = () => {
-    const small = useMediaQuery(theme.breakpoints.up('sm'));
-    const medium = useMediaQuery(theme.breakpoints.up('md'));
-    const large = useMediaQuery(theme.breakpoints.up('lg'));
+    const theme = useTheme();
+
+    const isMobileScreen = useMediaQuery(theme.breakpoints.up('sm'));
+    const isTabletScreen = useMediaQuery(theme.breakpoints.up('md'));
+    const isDesktopScreen = useMediaQuery(theme.breakpoints.up('lg'));
 
     return (
         <Container maxWidth="xl">
             <ImageList
                 variant={'quilted'}
-                cols={small ? (large ? 3 : 2) : 1}
+                cols={isMobileScreen ? (isDesktopScreen ? 3 : 2) : 1}
                 rowHeight={
                     galleryConfig.rowHeight &&
-                    (medium
+                    (isTabletScreen
                         ? galleryConfig.rowHeight.large
                         : galleryConfig.rowHeight.small)
                 }
@@ -29,22 +30,22 @@ export const Gallery = () => {
             >
                 {galleryConfig.images.map(
                     (
-                        { URL, rows, cols, priority, desc, mobileInvisible },
+                        { url, rows, cols, priority, desc, mobileInvisible },
                         index,
                     ) => (
                         <ImageListItem
                             key={index}
                             rows={rows}
-                            cols={small ? cols : 1}
+                            cols={isMobileScreen ? cols : 1}
                             sx={{
-                                gridRow: !large && priority ? 1 : 'auto',
+                                gridRow: !isDesktopScreen && priority ? 1 : 'auto',
                                 display:
-                                    !small && mobileInvisible
+                                    !isMobileScreen && mobileInvisible
                                         ? 'none'
                                         : 'block',
                             }}
                         >
-                            <img src={URL} alt={desc} />
+                            <img src={url} alt={desc} />
                         </ImageListItem>
                     ),
                 )}
