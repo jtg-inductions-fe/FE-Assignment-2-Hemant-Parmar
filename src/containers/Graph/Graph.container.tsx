@@ -10,9 +10,20 @@ import {
 import { Box, useTheme, Container } from '@mui/material';
 
 import { salesData } from '@data';
+import { CustomTooltip } from '@components';
+import { formatDateVariants } from '@utils';
 
 export const Graph = () => {
     const theme = useTheme();
+
+    const chartData = salesData.map((d) => {
+        const { short, full } = formatDateVariants(d.date);
+        return {
+            dateShort: short, // for X axis
+            dateFull: full, // for tooltip
+            sales: d.sales,
+        };
+    });
 
     return (
         <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
@@ -25,7 +36,7 @@ export const Graph = () => {
             >
                 <ResponsiveContainer>
                     <LineChart
-                        data={salesData}
+                        data={chartData}
                         margin={{ top: 50, right: 20, left: 20, bottom: 50 }}
                     >
                         <text
@@ -35,15 +46,20 @@ export const Graph = () => {
                         >
                             <tspan fontSize="20">Sales</tspan>
                         </text>
-                        <CartesianGrid strokeDasharray="0" vertical={false} color={theme.palette.action.hover} strokeWidth={1}/>
+                        <CartesianGrid
+                            strokeDasharray="0"
+                            vertical={false}
+                            color={theme.palette.action.hover}
+                            strokeWidth={1}
+                        />
                         <XAxis
-                            dataKey="date"
+                            dataKey="dateShort"
                             axisLine={false}
                             tickLine={false}
                             tickMargin={36}
                             color={theme.palette.text.secondary}
                             fontSize={theme.typography.body2.fontSize}
-                            />
+                        />
                         <YAxis
                             domain={[0, 240000]}
                             tickFormatter={(value) => `${value / 1000}K`}
@@ -54,16 +70,7 @@ export const Graph = () => {
                             color={theme.palette.text.secondary}
                             fontSize={theme.typography.body2.fontSize}
                         />
-                        <Tooltip
-                            cursor={{ stroke: 'dashed' }}
-                            formatter={(value: number, _name) => [
-                                `Sales: $${((value / 1000) as number).toLocaleString()}K`,
-                            ]}
-                            contentStyle={{
-                                backgroundColor: theme.palette.background.paper,
-                                border: `1px solid ${theme.palette.divider}`,
-                            }}
-                        />
+                        <Tooltip content={<CustomTooltip />} />
                         <Line
                             type="monotone"
                             dataKey="sales"
