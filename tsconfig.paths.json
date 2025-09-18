@@ -9,7 +9,8 @@
             "@pages/*": ["pages/*"],
             "@layouts": ["layouts/index"],
             "@components": ["components/index"],
-            "@containers": ["containers/index"]
+            "@containers": ["containers/index"],
+            "@utils": ["utils/index"]
         }
     }
 }

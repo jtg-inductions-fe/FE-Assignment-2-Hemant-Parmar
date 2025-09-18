@@ -1,9 +1,9 @@
 export const salesData = [
-    { date: '01 Apr', sales: 200000 },
-    { date: '02 Apr', sales: 20000 },
-    { date: '03 Apr', sales: 79000 },
-    { date: '04 Apr', sales: 12000 },
-    { date: '05 Apr', sales: 90000 },
-    { date: '06 Apr', sales: 20000 },
-    { date: '07 Apr', sales: 180000 },
+  { date: "2025-04-01T00:00:00Z", sales: 80000 },
+  { date: "2025-04-02T00:00:00Z", sales: 100000 },
+  { date: "2025-04-03T00:00:00Z", sales: 79000 },
+  { date: "2025-04-04T00:00:00Z", sales: 120000 },
+  { date: "2025-04-05T00:00:00Z", sales: 80000 },
+  { date: "2025-04-06T00:00:00Z", sales: 120000 },
+  { date: "2025-04-07T00:00:00Z", sales: 160000 },
 ];
