@@ -10,6 +10,7 @@
             "@layouts": ["layouts/index"],
             "@components":["components/index"],
             "@containers":["containers/index"],
+            "@utils":["utils/index"],
         }
     }
 }
