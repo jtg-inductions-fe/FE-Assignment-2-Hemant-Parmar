@@ -7,10 +7,11 @@ import {
     Tooltip,
     ResponsiveContainer,
 } from 'recharts';
-import { Box, useTheme, Container, useMediaQuery } from '@mui/material';
+import {  useTheme, useMediaQuery } from '@mui/material';
+import ErrorIcon from '@mui/icons-material/ErrorOutline';
 
 import { salesData } from '@data';
-import { CustomTooltip } from '@components';
+import { CustomTooltip, CustomContainer } from '@components';
 import { formatDateVariants } from '@utils';
 
 export const Graph = () => {
@@ -27,66 +28,57 @@ export const Graph = () => {
     });
 
     return (
-        <Container maxWidth="xl" sx={{ overflow: 'hidden' }}>
-            <Box
-                width={'100%'}
-                height={500}
-                bgcolor={theme.palette.background.paper}
-                borderRadius={3}
-                p={notMobileScreen ? 8 : 2}
-            >
-                <ResponsiveContainer>
-                    <LineChart
-                        data={chartData}
-                        margin={{ top: 50, right: 20, left: 20, bottom: 50 }}
-                    >
-                        <text
-                            fill="black"
-                            textAnchor="start"
-                            dominantBaseline="text-before-edge"
-                        >
-                            <tspan fontSize="20">Sales</tspan>
-                        </text>
-                        <CartesianGrid
-                            strokeDasharray="0"
-                            vertical={false}
-                            color={theme.palette.action.hover}
-                            strokeWidth={1}
-                        />
-                        <XAxis
-                            dataKey="dateShort"
-                            axisLine={false}
-                            tickLine={false}
-                            tickMargin={36}
-                            color={theme.palette.text.secondary}
-                            fontSize={theme.typography.body2.fontSize}
-                            angle={notMobileScreen ? 0 : -45}
-                        />
+        <CustomContainer
+            heading="Sales"
+            Icon={ErrorIcon}
+        >
+            <ResponsiveContainer height={500}>
+                <LineChart
+                    data={chartData}
+                    margin={{ top: 30, right: 30, left: 20, bottom: 50 }}
+                >
+                    <CartesianGrid
+                        strokeDasharray="0"
+                        vertical={false}
+                        color={theme.palette.action.hover}
+                        strokeWidth={1}
+                    />
+                    <XAxis
+                        dataKey="dateShort"
+                        axisLine={false}
+                        tickLine={false}
+                        tickMargin={36}
+                        color={theme.palette.text.secondary}
+                        fontSize={theme.typography.body2.fontSize}
+                        angle={notMobileScreen ? 0 : -45}
+                    />
 
-                        <YAxis
-                            tickCount={7}
-                            width={notMobileScreen ? undefined : 0}
-                            domain={[0, 240000]}
-                            tickFormatter={(value) => `${value / 1000}K`}
-                            axisLine={false}
-                            tickLine={false}
-                            tickMargin={28}
-                            color={theme.palette.text.secondary}
-                            fontSize={theme.typography.body2.fontSize}
-                        />
+                    <YAxis
+                        tickCount={7}
+                        width={notMobileScreen ? undefined : 0}
+                        domain={[0, 240000]}
+                        tickFormatter={(value) => `${value / 1000}K`}
+                        axisLine={false}
+                        tickLine={false}
+                        tickMargin={72}
+                        tick= {{
+                            color:theme.palette.text.secondary,
+                            fontSize:theme.typography.body2.fontSize,
+                            textAnchor:'start',
+                        }}
+                    />
 
-                        <Tooltip content={<CustomTooltip />} />
-                        <Line
-                            type="monotone"
-                            dataKey="sales"
-                            stroke={theme.palette.primary.main}
-                            strokeWidth={3}
-                            dot={{ r: 0 }}
-                            activeDot={{ r: 5 }}
-                        />
-                    </LineChart>
-                </ResponsiveContainer>
-            </Box>
-        </Container>
+                    <Tooltip content={<CustomTooltip />} />
+                    <Line
+                        type="monotone"
+                        dataKey="sales"
+                        stroke={theme.palette.primary.main}
+                        strokeWidth={3}
+                        dot={{ r: 0 }}
+                        activeDot={{ r: 5 }}
+                    />
+                </LineChart>
+            </ResponsiveContainer>
+        </CustomContainer>
     );
 };
