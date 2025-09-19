@@ -24,6 +24,7 @@ export const RootLayout = ({ showSidebar }: RootLayoutProps) => {
             <Header
                 handleDrawerToggle={handleDrawerToggle}
                 mobileOpen={mobileOpen}
+                showSidebar={showSidebar}
             />
             <Box display={'flex'} width={'100%'}>
                 {showSidebar && (

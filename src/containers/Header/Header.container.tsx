@@ -14,7 +14,11 @@ import { topProducts } from '@data';
 import { NotificationsButton } from './Header.styles';
 import { HeaderProps } from './Header.types';
 
-export const Header = ({ handleDrawerToggle, mobileOpen }: HeaderProps) => {
+export const Header = ({
+    handleDrawerToggle,
+    mobileOpen,
+    showSidebar,
+}: HeaderProps) => {
     const { productId } = useParams<{ productId: string }>();
 
     return (
@@ -37,13 +41,17 @@ export const Header = ({ handleDrawerToggle, mobileOpen }: HeaderProps) => {
 
                 {/* Box only for mobile */}
                 <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                    <IconButton
-                        onClick={handleDrawerToggle}
-                        aria-label="Toggle navigation"
-                        aria-expanded={mobileOpen ? true : false}
-                    >
-                        <MenuIcon fontSize="large" />
-                    </IconButton>
+                    {showSidebar ? (
+                        <IconButton
+                            onClick={handleDrawerToggle}
+                            aria-label="Toggle navigation"
+                            aria-expanded={mobileOpen ? true : false}
+                        >
+                            <MenuIcon fontSize="large" />
+                        </IconButton>
+                    ) : (
+                        <MainLogo route={ROUTES.ROOT} />
+                    )}
                 </Box>
 
                 {/* Box for all screens */}
