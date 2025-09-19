@@ -1,12 +1,11 @@
 export type RowData = {
-  id: number;
-  name: string;
-  email: string;
-  avatar: string;
-  money: number;
-}
+    content: string;
+    caption: string;
+    avatar?: string;
+    value: number;
+    format: (val: number) => string | React.ReactNode;
+};
 
 export type CustomTableProps = {
-    heading: string;
-  users: RowData[];
-}
+    users: RowData[];
+};
