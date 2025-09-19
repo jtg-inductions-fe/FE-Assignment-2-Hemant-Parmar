@@ -7,7 +7,7 @@ export const NotificationsButton = styled(IconButton)(({ theme }) => ({
     aspectRatio: '1/1',
     lineHeight: 'normal',
 
-    [theme.breakpoints.up('sm')]: {
+    ":hover": {
         boxShadow: theme.shadows[10],
     },
 })) as typeof IconButton;
