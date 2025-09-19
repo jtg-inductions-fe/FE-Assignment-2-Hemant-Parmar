@@ -6,7 +6,7 @@ export const Overview = () => (
     <Box>
         <Gallery />
         <Graph />
-        <Grid2 maxWidth="xl" sx={{ m: 4}} container spacing={4}>
+        <Grid2 maxWidth="xl" sx={{ m: 4}} container spacing={4} >
             <Customers />
             <Products />
         </Grid2>
