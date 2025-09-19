@@ -7,7 +7,7 @@ import {
     Tooltip,
     ResponsiveContainer,
 } from 'recharts';
-import { Box, useTheme, Container } from '@mui/material';
+import { Box, useTheme, Container, useMediaQuery } from '@mui/material';
 
 import { salesData } from '@data';
 import { CustomTooltip } from '@components';
@@ -15,12 +15,13 @@ import { formatDateVariants } from '@utils';
 
 export const Graph = () => {
     const theme = useTheme();
+    const notMobileScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
     const chartData = salesData.map((d) => {
         const { short, full } = formatDateVariants(d.date);
         return {
-            dateShort: short, // for X axis
-            dateFull: full, // for tooltip
+            dateShort: short, // date format for the X axis
+            dateFull: full, // date format for the tooltip
             sales: d.sales,
         };
     });
@@ -32,7 +33,7 @@ export const Graph = () => {
                 height={500}
                 bgcolor={theme.palette.background.paper}
                 borderRadius={3}
-                p={8}
+                p={notMobileScreen ? 8 : 2}
             >
                 <ResponsiveContainer>
                     <LineChart
@@ -59,17 +60,21 @@ export const Graph = () => {
                             tickMargin={36}
                             color={theme.palette.text.secondary}
                             fontSize={theme.typography.body2.fontSize}
+                            angle={notMobileScreen ? 0 : -45}
                         />
+
                         <YAxis
+                            tickCount={7}
+                            width={notMobileScreen ? undefined : 0}
                             domain={[0, 240000]}
                             tickFormatter={(value) => `${value / 1000}K`}
-                            tickCount={7}
                             axisLine={false}
                             tickLine={false}
                             tickMargin={28}
                             color={theme.palette.text.secondary}
                             fontSize={theme.typography.body2.fontSize}
                         />
+
                         <Tooltip content={<CustomTooltip />} />
                         <Line
                             type="monotone"
