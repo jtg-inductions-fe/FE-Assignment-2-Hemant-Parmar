@@ -13,9 +13,9 @@ const data: RowData[] = latestCustomers.map((user) => ({
 
 export const Customers = () => {
     return (
-        <Grid2 size={{ xs: 12, sm: 4 }}>
+        <Grid2 size={{ xs: 12, md: 6, lg: 4 }}>
             <CustomContainer heading="Latest Customers" disableGutters>
-                <CustomTable users={data} />
+                <CustomTable data={data} />
             </CustomContainer>
         </Grid2>
     );

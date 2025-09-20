@@ -7,5 +7,5 @@ export type RowData = {
 };
 
 export type CustomTableProps = {
-    users: RowData[];
+    data: RowData[];
 };
