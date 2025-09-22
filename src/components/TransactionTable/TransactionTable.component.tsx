@@ -14,6 +14,7 @@ import {
     HeadCellText,
     MobileHiddenCell,
 } from './TransactionTable.styles';
+import { formatDateVariants } from '@utils';
 
 export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
     return (
@@ -63,7 +64,7 @@ export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
                                     color="text.secondary"
                                     textAlign={{ xs: 'right', sm: 'center' }}
                                 >
-                                    {item.date}
+                                    {formatDateVariants(item.date)['usFull']}
                                 </Typography>
                             </TableCell>
                             <MobileHiddenCell>
