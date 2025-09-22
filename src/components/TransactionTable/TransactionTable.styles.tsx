@@ -1,4 +1,4 @@
-import { Chip, Typography } from '@mui/material';
+import { Chip, TableCell, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Transaction } from './TransactionTable.types';
 
@@ -24,4 +24,12 @@ export const HeadCellText = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.subtitle1.fontSize,
     fontWeight: theme.typography.fontWeightMedium,
     color: theme.palette.text.secondary,
+}));
+
+export const MobileHiddenCell = styled(TableCell)(({ theme }) => ({
+    display: 'none',
+
+    [theme.breakpoints.up('md')]: {
+        display: 'table-cell',
+    },
 }));
