@@ -9,18 +9,26 @@ import {
 } from '@mui/material';
 
 import { TransactionProps } from './TransactionTable.types';
-import { StatusChip } from './TransactionTable.styles';
+import { StatusChip, HeadCellText } from './TransactionTable.styles';
 
-export const TransactionTable = ({ data }: TransactionProps) => {
+export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
     return (
         <TableContainer>
             <Table>
                 <TableHead sx={{ backgroundColor: 'background.default' }}>
                     <TableRow>
-                        <TableCell>TRANSACTION</TableCell>
-                        <TableCell>DATE & TIME</TableCell>
-                        <TableCell>AMOUNT</TableCell>
-                        <TableCell>STATUS</TableCell>
+                        <TableCell>
+                            <HeadCellText>TRANSACTION</HeadCellText>
+                        </TableCell>
+                        <TableCell>
+                            <HeadCellText>DATE & TIME</HeadCellText>
+                        </TableCell>
+                        <TableCell>
+                            <HeadCellText>AMOUNT</HeadCellText>
+                        </TableCell>
+                        <TableCell>
+                            <HeadCellText>STATUS</HeadCellText>
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -35,22 +43,34 @@ export const TransactionTable = ({ data }: TransactionProps) => {
                             }}
                         >
                             <TableCell>
-                                <Typography variant="h3">
-                                    {item.person}
+                                <Typography variant="body2" fontWeight="medium">
+                                    {descFormatter
+                                        ? descFormatter(item)
+                                        : item.person}
                                 </Typography>
                             </TableCell>
                             <TableCell>
-                                <Typography color="text.secondary">
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                >
                                     {item.date}
                                 </Typography>
                             </TableCell>
                             <TableCell>
-                                <Typography variant="h3">
-                                    ${item.amount}
+                                <Typography
+                                    variant="body1"
+                                    fontWeight={(theme) =>
+                                        theme.typography.fontWeightRegular
+                                    }
+                                >
+                                    {item.amount < 0
+                                        ? `-$${-item.amount}`
+                                        : `$${item.amount}`}
                                 </Typography>
                             </TableCell>
                             <TableCell>
-                                <StatusChip label={item.status} />
+                                <StatusChip label={item.status} size="small" />
                             </TableCell>
                         </TableRow>
                     ))}
