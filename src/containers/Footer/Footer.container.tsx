@@ -34,6 +34,8 @@ export const Footer = () => {
                                 src={iconURL}
                                 height={24}
                                 width={24}
+                                alt=""
+                                aria-hidden="true"
                             ></Box>
                         </ListItemButton>
                     </ListItem>
