@@ -6,5 +6,6 @@ export type Transaction = {
 };
 
 export type TransactionProps = {
+    descFormatter?: (item: Transaction) => string | React.ReactNode;
     data: Transaction[];
 };
