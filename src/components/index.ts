@@ -8,6 +8,7 @@ export { PrimaryButton } from './PrimaryButton';
 export { Container } from './Container';
 export { Table } from './Table';
 export { ReusableTable } from './ReusableTable';
+export { TwitterIcon, FacebookIcon, DribbleIcon, GithubIcon } from './icons';
 
 export type { NavAccordionProps } from './NavAccordion';
 export type { NavButtonProps } from './NavButton';
