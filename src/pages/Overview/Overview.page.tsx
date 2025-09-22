@@ -1,6 +1,6 @@
 import { Box, Grid2 } from '@mui/material';
 
-import { Customers, Gallery, Graph, Products } from '@containers';
+import { Customers, Gallery, Graph, Products, Transactions } from '@containers';
 
 export const Overview = () => (
     <Box>
@@ -10,5 +10,6 @@ export const Overview = () => (
             <Customers />
             <Products />
         </Grid2>
+        <Transactions />
     </Box>
 );
