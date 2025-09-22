@@ -4,6 +4,7 @@ export { navConfig } from './navConfig';
 export { salesData } from './salesData';
 export { latestCustomers } from './latestCustomers';
 export { transactionsData } from './transactionsData';
+export { footerConfig } from './footerConfig';
 
 export type { GalleryConfig, GalleryImage } from './galleryConfig';
 export type { Transaction } from './transactionsData';
