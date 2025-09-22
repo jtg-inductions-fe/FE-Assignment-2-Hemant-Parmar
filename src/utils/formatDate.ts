@@ -13,6 +13,13 @@ export function formatDateVariants(utcDate: string) {
     year: "numeric",
     timeZone: "UTC",
   }).format(date);
+  
+  const usFull = new Intl.DateTimeFormat("en-US", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(date);
 
-  return { short, full };
+  return { short, full, usFull };
 }
