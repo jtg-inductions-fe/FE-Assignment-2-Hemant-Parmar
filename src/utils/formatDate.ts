@@ -18,5 +18,12 @@ export function formatDateVariants(utcDate: string): {
         timeZone: 'UTC',
     }).format(date);
 
-    return { short, full };
+    const usFull = new Intl.DateTimeFormat('en-US', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'UTC',
+    }).format(date);
+
+    return { short, full, usFull };
 }
