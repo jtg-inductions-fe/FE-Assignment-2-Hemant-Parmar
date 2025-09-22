@@ -9,7 +9,11 @@ import {
 } from '@mui/material';
 
 import { TransactionProps } from './TransactionTable.types';
-import { StatusChip, HeadCellText } from './TransactionTable.styles';
+import {
+    StatusChip,
+    HeadCellText,
+    MobileHiddenCell,
+} from './TransactionTable.styles';
 
 export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
     return (
@@ -21,14 +25,18 @@ export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
                             <HeadCellText>TRANSACTION</HeadCellText>
                         </TableCell>
                         <TableCell>
-                            <HeadCellText>DATE & TIME</HeadCellText>
+                            <HeadCellText
+                                textAlign={{ xs: 'right', sm: 'center' }}
+                            >
+                                DATE & TIME
+                            </HeadCellText>
                         </TableCell>
-                        <TableCell>
+                        <MobileHiddenCell>
                             <HeadCellText>AMOUNT</HeadCellText>
-                        </TableCell>
-                        <TableCell>
+                        </MobileHiddenCell>
+                        <MobileHiddenCell>
                             <HeadCellText>STATUS</HeadCellText>
-                        </TableCell>
+                        </MobileHiddenCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -53,11 +61,12 @@ export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
+                                    textAlign={{ xs: 'right', sm: 'center' }}
                                 >
                                     {item.date}
                                 </Typography>
                             </TableCell>
-                            <TableCell>
+                            <MobileHiddenCell>
                                 <Typography
                                     variant="body1"
                                     fontWeight={(theme) =>
@@ -68,10 +77,10 @@ export const TransactionTable = ({ descFormatter, data }: TransactionProps) => {
                                         ? `-$${-item.amount}`
                                         : `$${item.amount}`}
                                 </Typography>
-                            </TableCell>
-                            <TableCell>
+                            </MobileHiddenCell>
+                            <MobileHiddenCell>
                                 <StatusChip label={item.status} size="small" />
-                            </TableCell>
+                            </MobileHiddenCell>
                         </TableRow>
                     ))}
                 </TableBody>
