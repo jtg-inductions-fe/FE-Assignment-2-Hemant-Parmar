@@ -1,18 +1,23 @@
 import { Container, Typography } from '@mui/material';
 
-import { GoHomeButton } from '@components';
+import { PrimaryButton } from '@components';
+import { ROUTES } from '@constants';
 
 import { FlexBox } from './Fallback.styles';
 import { FallbackProps } from './Fallback.types';
 
-export const Fallback = ({ imageURL, title, desc }: FallbackProps) => (
+export const Fallback = ({ imageURL, title, desc, alt }: FallbackProps) => (
     <Container maxWidth="xl" sx={{ textAlign: 'center' }}>
         <FlexBox
             py={{ xs: 8, sm: 0 }}
             width={{ md: '66%', lg: '50%' }}
             margin={'auto'}
         >
-            <img width={'100%'} src={imageURL} alt="Not Found" />
+            <img
+                width={'100%'}
+                src={imageURL}
+                alt={alt ?? `${title} illustration`}
+            />
         </FlexBox>
         <FlexBox gap={22} p={{ xs: 4, sm: 0 }}>
             <FlexBox gap={10}>
@@ -22,7 +27,7 @@ export const Fallback = ({ imageURL, title, desc }: FallbackProps) => (
                 </Typography>
             </FlexBox>
 
-            <GoHomeButton />
+            <PrimaryButton route={ROUTES.ROOT} content={'Go back home'} />
         </FlexBox>
     </Container>
 );
