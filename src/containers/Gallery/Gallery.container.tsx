@@ -16,17 +16,16 @@ export const Gallery = () => {
     const isDesktopScreen = useMediaQuery(theme.breakpoints.up('lg'));
 
     return (
-        <Container maxWidth="xl">
+        <Container maxWidth="xl" component="section" aria-label="Gallery">
             <ImageList
                 variant={'quilted'}
                 cols={isMobileScreen ? (isDesktopScreen ? 3 : 2) : 1}
                 rowHeight={
-                    galleryConfig.rowHeight &&
-                    (isTabletScreen
-                        ? galleryConfig.rowHeight.large
-                        : galleryConfig.rowHeight.small)
+                    isTabletScreen
+                        ? (galleryConfig.rowHeight?.large ?? 180)
+                        : (galleryConfig.rowHeight?.small ?? 120)
                 }
-                gap={45}
+                gap={isTabletScreen ? 45 : 20}
             >
                 {galleryConfig.images.map(
                     (
@@ -38,7 +37,8 @@ export const Gallery = () => {
                             rows={rows}
                             cols={isMobileScreen ? cols : 1}
                             sx={{
-                                gridRow: !isDesktopScreen && priority ? 1 : 'auto',
+                                gridRow:
+                                    !isDesktopScreen && priority ? 1 : 'auto',
                                 display:
                                     !isMobileScreen && mobileInvisible
                                         ? 'none'

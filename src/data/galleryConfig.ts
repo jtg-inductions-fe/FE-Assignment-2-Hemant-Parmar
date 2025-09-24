@@ -5,7 +5,7 @@ import WorkLaptopImageURL from '@assets/images/gallery/work-on-laptop.png';
 /**
  * A single gallery image.
  */
-type GalleryImage = {
+export type GalleryImage = {
     /** Image source URL. */
     url: string;
 
@@ -28,7 +28,7 @@ type GalleryImage = {
 /**
  * Gallery layout configuration.
  */
-type GalleryConfig = {
+export type GalleryConfig = {
     /** Row height (px) for small/large screens. */
     rowHeight?: { small: number; large: number };
 
