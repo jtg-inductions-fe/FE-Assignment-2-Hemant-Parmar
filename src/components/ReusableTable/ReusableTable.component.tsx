@@ -5,12 +5,46 @@ import {
     TableContainer,
     TableHead,
     TableRow,
+    Typography,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
 
 import { ReusableTableProps } from './ReusableTable.types';
-import { HeadCellText } from './ReusableTable.styles';
+import { HeadCellText, StatusChip } from './ReusableTable.styles';
+import { formatDateVariants } from '@utils';
+import { Transaction } from '@containers';
+
+function render<T extends Transaction>(key: string, row: T) {
+    if (key === 'date') {
+        return (
+            <Typography variant="body2" color="text.secondary">
+                {formatDateVariants(row.date)['usFull']}
+            </Typography>
+        );
+    } else if (key === 'desc') {
+        return (
+            <Typography variant="body2" fontWeight="medium">
+                <Typography variant="body2" component="span">
+                    Payment {row.status === 'Cancelled' ? ' failed ' : ''}
+                    {row.amount < 0 ? ' refund to ' : ' from '}
+                </Typography>
+                {row.person}
+            </Typography>
+        );
+    } else if (key === 'amount') {
+        return <Typography
+            variant="body1"
+            fontWeight={(theme) => theme.typography.fontWeightRegular}
+        >
+            {row.amount < 0 ? `-$${-row.amount}` : `$${row.amount}`}
+        </Typography>;
+    } else if (key === 'status') {
+        return <StatusChip label={row.status} size="small" />;
+    } else {
+        return <Typography>{JSON.stringify(row)}</Typography>;
+    }
+}
 
 export const ReusableTable = <T extends object>({
     columns,
@@ -47,11 +81,12 @@ export const ReusableTable = <T extends object>({
                             {columns.map((col) =>
                                 !isNotMobile && col.hideOnMobile ? null : (
                                     <TableCell key={col.key.toString()}>
-                                        {col.render
-                                            ? col.render(row)
+                                        {/* {col.key in rendererMap
+                                            ? rendererMap(col.key)(row)
                                             : (row[
                                                   col.key as keyof T
-                                              ] as React.ReactNode)}
+                                              ] as React.ReactNode)} */}
+                                        {render(col.key, row as Transaction)}
                                     </TableCell>
                                 ),
                             )}

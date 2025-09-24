@@ -1,28 +1,19 @@
 import { ReusableTable, CustomContainer, Column } from '@components';
 
 import { transactionsData } from '@data';
-import { Transaction } from './Transactions.types';
-import {
-    amountRenderer,
-    dateRenderer,
-    descRenderer,
-    statusRenderer,
-} from './Transactions.styles';
 
-const transactionColumns: Column<Transaction>[] = [
-    { key: 'desc', label: 'TRANSACTION', render: descRenderer },
-    { key: 'date', label: 'DATE & TIME', render: dateRenderer },
+const transactionColumns: Column[] = [
+    { key: 'desc', label: 'TRANSACTION' },
+    { key: 'date', label: 'DATE & TIME' },
     {
         key: 'amount',
         label: 'AMOUNT',
         hideOnMobile: true,
-        render: amountRenderer,
     },
     {
         key: 'status',
         label: 'STATUS',
         hideOnMobile: true,
-        render: statusRenderer,
     },
 ];
 
