@@ -7,6 +7,6 @@ export type NavAccordionItems = {
 
 export type NavAccordionProps = {
     title: string;
-    Icon: SvgIconComponent;
+    icon: SvgIconComponent;
     items?: NavAccordionItems[];
 };

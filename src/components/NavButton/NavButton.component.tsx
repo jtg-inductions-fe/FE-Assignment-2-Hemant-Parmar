@@ -1,32 +1,35 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { Chip, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import {
+    Chip,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Typography,
+} from '@mui/material';
 
 import { StyledButton } from './NavButton.styles';
 import { NavButtonProps } from './NavButton.types';
 
 export const NavButton = ({
-    color,
-    Icon,
+    active,
+    icon,
     title,
     route,
     count,
 }: NavButtonProps) => {
-    const location = useLocation();
-    const routeColor: 'primary' | 'inherit' =
-        location.pathname === route ? 'primary' : 'inherit';
-
+    const Icon = icon; // To differentiate Icon as a React Element
     return (
         <ListItem disablePadding aria-label={title}>
-            <StyledButton
-                component={Link}
-                to={route}
-                color={color || routeColor}
-            >
+            <StyledButton component={Link} to={route}>
                 <ListItemIcon>
-                    <Icon color={routeColor} />
+                    <Icon color={active ? 'primary' : undefined} />
                 </ListItemIcon>
-                <ListItemText>{title}</ListItemText>
+                <ListItemText>
+                    <Typography color={active ? 'primary' : 'inherit'}>
+                        {title}
+                    </Typography>
+                </ListItemText>
                 {count && <Chip label={count} size="small" />}
             </StyledButton>
         </ListItem>

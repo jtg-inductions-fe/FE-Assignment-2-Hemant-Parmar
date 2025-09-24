@@ -18,7 +18,7 @@ import { ROUTES } from '@constants';
 
 export interface NavConfig {
     lists: Array<Array<NavAccordionProps | NavButtonProps>>;
-    footer: Array<{ title: string; route: string; Icon: SvgIconComponent }>;
+    footer: Array<{ title: string; route: string; icon: SvgIconComponent }>;
 }
 
 export const navConfig: NavConfig = {
@@ -27,11 +27,11 @@ export const navConfig: NavConfig = {
             {
                 title: 'Overview',
                 route: ROUTES.ROOT,
-                Icon: PieChartIcon,
+                icon: PieChartIcon,
             },
             {
                 title: 'Pages',
-                Icon: ContactPageIcon,
+                icon: ContactPageIcon,
                 items: [
                     { title: 'Overview', route: ROUTES.ROOT },
                     { title: 'Docs', route: ROUTES.DOCS },
@@ -41,7 +41,7 @@ export const navConfig: NavConfig = {
             },
             {
                 title: 'Sales',
-                Icon: ShoppingBagIcon,
+                icon: ShoppingBagIcon,
                 items: [
                     { title: 'Product List', route: ROUTES.PRODUCT_LIST },
                     { title: 'Billing', route: ROUTES.BILLING },
@@ -51,12 +51,12 @@ export const navConfig: NavConfig = {
             {
                 title: 'Messages',
                 route: ROUTES.MESSAGES,
-                Icon: MoveToInboxSharpIcon,
+                icon: MoveToInboxSharpIcon,
                 count: 3,
             },
             {
                 title: 'Authentication',
-                Icon: LockIcon,
+                icon: LockIcon,
                 items: [
                     { title: 'Login', route: ROUTES.LOGIN },
                     { title: 'Sign Up', route: ROUTES.SIGNUP },
@@ -67,35 +67,35 @@ export const navConfig: NavConfig = {
             {
                 title: 'Docs',
                 route: ROUTES.DOCS,
-                Icon: AssignmentIcon,
+                icon: AssignmentIcon,
             },
             {
                 title: 'Components',
                 route: ROUTES.COMPONENTS,
-                Icon: SubscriptionsIcon,
+                icon: SubscriptionsIcon,
             },
             {
                 title: 'Help',
                 route: ROUTES.HELP,
-                Icon: SupportIcon,
+                icon: SupportIcon,
             },
         ],
     ],
     footer: [
         {
-            title: "filter",
+            title: 'filter',
             route: ROUTES.FILTER,
-            Icon: TuneIcon,
+            icon: TuneIcon,
         },
         {
-            title: "explore",
+            title: 'explore',
             route: ROUTES.EXPLORE,
-            Icon: PublicOutlinedIcon,
+            icon: PublicOutlinedIcon,
         },
         {
-            title: "settings",
+            title: 'settings',
             route: ROUTES.SETTINGS,
-            Icon: SettingsOutlinedIcon,
+            icon: SettingsOutlinedIcon,
         },
     ],
 };

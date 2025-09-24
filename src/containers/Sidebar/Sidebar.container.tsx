@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { Box, Divider, IconButton, ListItem, Toolbar } from '@mui/material';
 import List from '@mui/material/List';
@@ -20,6 +20,7 @@ import { SidebarProps } from './Sidebar.types';
 export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
     const theme = useTheme();
     const match = useMediaQuery(theme.breakpoints.up('sm'));
+    const location = useLocation();
 
     return (
         <Box
@@ -49,17 +50,21 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                                         'items' in element ? (
                                             <NavAccordion
                                                 title={element.title}
-                                                Icon={element.Icon}
+                                                icon={element.icon}
                                                 items={element.items}
                                                 key={elementIndex}
                                             />
                                         ) : 'route' in element ? (
                                             <NavButton
                                                 title={element.title}
-                                                Icon={element.Icon}
+                                                icon={element.icon}
                                                 route={element.route}
                                                 count={element.count}
                                                 key={elementIndex}
+                                                active={
+                                                    location.pathname ===
+                                                    element.route
+                                                }
                                             />
                                         ) : null,
                                 )}
@@ -80,7 +85,7 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                                     to={item.route}
                                     aria-label={`${item.title}`}
                                 >
-                                    <item.Icon fontSize="medium" />
+                                    <item.icon />
                                 </IconButton>
                             </ListItem>
                         ))}

@@ -3,7 +3,7 @@ import { SvgIconComponent } from '@mui/icons-material';
 export interface NavButtonProps {
     title: string;
     route: string;
-    color?: 'primary' | 'inherit';
+    active?: boolean;
     count?: number;
-    Icon: SvgIconComponent;
+    icon: SvgIconComponent;
 }
