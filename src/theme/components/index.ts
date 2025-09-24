@@ -26,7 +26,7 @@ export const components: Components = {
             html: {
                 fontSize: '62.5%',
             },
-            fontFaceDeclarations,
+            ...fontFaceDeclarations,
         },
     },
     MuiSvgIcon: {

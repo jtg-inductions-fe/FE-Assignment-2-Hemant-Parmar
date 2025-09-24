@@ -27,10 +27,7 @@ export const SearchBar = ({ options, route, slug }: SearchBarProps) => {
         }
     }, [slug, options]);
 
-    const handleSelection = (
-        _: SyntheticEvent,
-        selectedOption: unknown,
-    ) => {
+    const handleSelection = (_: SyntheticEvent, selectedOption: unknown) => {
         if (selectedOption && options) {
             options.forEach((option) => {
                 if (option === selectedOption) {

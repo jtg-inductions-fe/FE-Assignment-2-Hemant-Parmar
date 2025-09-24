@@ -94,7 +94,7 @@ export default tseslint.config(
             '@typescript-eslint/no-floating-promises': [
                 'error',
                 {
-                    ignoreMethods: ['navigate'],
+                    ignoreVoid: true,
                 },
             ],
         },
