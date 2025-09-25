@@ -9,11 +9,13 @@ import {
 import { galleryConfig } from '@data';
 
 export const Gallery = () => {
-    const theme = useTheme();
+    const {
+        breakpoints: { up },
+    } = useTheme();
 
-    const isMobileScreen = useMediaQuery(theme.breakpoints.up('sm'));
-    const isTabletScreen = useMediaQuery(theme.breakpoints.up('md'));
-    const isDesktopScreen = useMediaQuery(theme.breakpoints.up('lg'));
+    const isMobileScreen = useMediaQuery(up('sm'));
+    const isTabletScreen = useMediaQuery(up('md'));
+    const isDesktopScreen = useMediaQuery(up('lg'));
 
     return (
         <Container maxWidth="xl" component="section" aria-label="Gallery">
