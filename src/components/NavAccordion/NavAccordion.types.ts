@@ -1,4 +1,4 @@
-import { SvgIconComponent } from '@mui/icons-material';
+import { ReactElement } from 'react';
 
 export type NavAccordionItems = {
     title: string;
@@ -7,6 +7,6 @@ export type NavAccordionItems = {
 
 export type NavAccordionProps = {
     title: string;
-    icon: SvgIconComponent;
+    icon: ReactElement;
     items?: NavAccordionItems[];
 };

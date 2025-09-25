@@ -1,18 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 
 import { Box, Divider, IconButton, ListItem, Toolbar } from '@mui/material';
+import { Drawer, useMediaQuery } from '@mui/material';
 import List from '@mui/material/List';
+import { useTheme } from '@mui/material/styles';
 
 import { NavAccordion } from '@components';
 import { NavButton } from '@components';
-import { NavAccordionProps } from '@components';
-import { NavButtonProps } from '@components';
 import { navConfig } from '@data';
-
-type NavElementProps = NavAccordionProps | NavButtonProps;
-
-import { Drawer, useMediaQuery } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 
 import { FooterList, NavBox } from './Sidebar.styles';
 import { SidebarProps } from './Sidebar.types';
@@ -45,28 +40,40 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                         <Box key={index}>
                             {index > 0 && <Divider />}
                             <List aria-label={`Nav section ${index + 1}`}>
-                                {list.map(
-                                    (element: NavElementProps, elementIndex) =>
-                                        'items' in element ? (
-                                            <NavAccordion
-                                                title={element.title}
-                                                icon={element.icon}
-                                                items={element.items}
-                                                key={elementIndex}
-                                            />
-                                        ) : 'route' in element ? (
-                                            <NavButton
-                                                title={element.title}
-                                                icon={element.icon}
-                                                route={element.route}
-                                                count={element.count}
-                                                key={elementIndex}
-                                                active={
-                                                    location.pathname ===
-                                                    element.route
-                                                }
-                                            />
-                                        ) : null,
+                                {list.map((element, elementIndex) =>
+                                    'items' in element ? (
+                                        <NavAccordion
+                                            title={element.title}
+                                            icon={<element.icon />}
+                                            items={element.items}
+                                            key={elementIndex}
+                                        />
+                                    ) : 'route' in element ? (
+                                        <NavButton
+                                            title={element.title}
+                                            icon={
+                                                <element.icon
+                                                    color={
+                                                        location.pathname ===
+                                                        element.route
+                                                            ? 'primary'
+                                                            : 'inherit'
+                                                    }
+                                                />
+                                            }
+                                            route={element.route}
+                                            count={
+                                                'count' in element
+                                                    ? element.count
+                                                    : undefined
+                                            }
+                                            key={elementIndex}
+                                            active={
+                                                location.pathname ===
+                                                element.route
+                                            }
+                                        />
+                                    ) : null,
                                 )}
                             </List>
                         </Box>

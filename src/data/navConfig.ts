@@ -1,7 +1,3 @@
-import type { NavAccordionProps } from 'components/NavAccordion';
-import type { NavButtonProps } from 'components/NavButton';
-
-import { SvgIconComponent } from '@mui/icons-material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import LockIcon from '@mui/icons-material/Lock';
@@ -16,12 +12,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 
 import { ROUTES } from '@constants';
 
-export interface NavConfig {
-    lists: Array<Array<NavAccordionProps | NavButtonProps>>;
-    footer: Array<{ title: string; route: string; icon: SvgIconComponent }>;
-}
-
-export const navConfig: NavConfig = {
+export const navConfig = {
     lists: [
         [
             {
