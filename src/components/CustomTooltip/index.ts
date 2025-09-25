@@ -1,1 +1,1 @@
-export {CustomTooltip} from './CustomTooltip.component';
+export { CustomTooltip } from './CustomTooltip.component';

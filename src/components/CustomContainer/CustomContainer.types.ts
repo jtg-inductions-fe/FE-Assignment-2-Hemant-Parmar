@@ -1,8 +1,9 @@
-import { SvgIconComponent } from '@mui/icons-material';
+import { ReactElement } from 'react';
+
 import { ContainerProps } from '@mui/material';
 
 export type CustomContainerProps = ContainerProps & {
-    heading?: string;
+    heading: string;
     caption?: string;
-    Icon?: SvgIconComponent;
+    icon?: ReactElement;
 };
