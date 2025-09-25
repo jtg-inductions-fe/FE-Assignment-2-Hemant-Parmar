@@ -4,8 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 
-import { Header } from '@containers';
-import { Sidebar } from '@containers';
+import { Header, Sidebar } from '@containers';
 
 import { RootLayoutProps } from './RootLayout.types';
 

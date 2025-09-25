@@ -1,4 +1,5 @@
-import { Box, List, styled } from '@mui/material';
+import { Box, List } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 export const FooterList = styled(List)(({ theme }) => ({
     marginTop: 'auto',

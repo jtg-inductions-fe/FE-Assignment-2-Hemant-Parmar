@@ -8,8 +8,8 @@
             "@data": ["data/index"],
             "@pages/*": ["pages/*"],
             "@layouts": ["layouts/index"],
-            "@components": ["components/index"]
-            "@containers":["containers/index"],
+            "@components": ["components/index"],
+            "@containers": ["containers/index"]
         }
     }
 }

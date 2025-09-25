@@ -17,7 +17,7 @@ export const CustomListItem = ({
     <ListItem disablePadding>
         <ListItemButton
             component={Link}
-            to={route?? `/${title}`}
+            to={route ?? `/${title}`}
             sx={{ pl: children ? 0 : 16 }}
         >
             {children && <ListItemIcon>{children}</ListItemIcon>}
