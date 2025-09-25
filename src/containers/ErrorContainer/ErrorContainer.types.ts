@@ -5,7 +5,7 @@ export type FlexBoxProps = {
     alignItems?: CSSProperties['alignItems'];
 };
 
-export type FallbackProps = {
+export type ErrorContainerProps = {
     imageURL: string;
     title: string;
     desc: string;
