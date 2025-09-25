@@ -1,27 +1,28 @@
 import { Link, useLocation } from 'react-router-dom';
 
 import { Box, Divider, IconButton, ListItem, Toolbar } from '@mui/material';
-import { Drawer, useMediaQuery } from '@mui/material';
-import List from '@mui/material/List';
+import { Drawer, List, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-import { NavAccordion } from '@components';
-import { NavButton } from '@components';
+import { NavAccordion, NavButton } from '@components';
 import { navConfig } from '@data';
 
 import { FooterList, NavBox } from './Sidebar.styles';
 import { SidebarProps } from './Sidebar.types';
 
 export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
-    const theme = useTheme();
-    const match = useMediaQuery(theme.breakpoints.up('sm'));
+    const {
+        breakpoints,
+        custom: { drawerWidth },
+    } = useTheme();
+    const match = useMediaQuery(breakpoints.up('sm'));
     const location = useLocation();
 
     return (
         <Box
             component="nav"
             sx={{
-                width: { sm: theme.custom.drawerWidth.desktop },
+                width: { sm: drawerWidth.desktop },
                 flexShrink: { sm: 0 },
             }}
             aria-label="Navigation sidebar"

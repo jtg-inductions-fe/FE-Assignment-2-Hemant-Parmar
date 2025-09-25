@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '*',
-        element: <RootLayout showSidebar />, //test
+        element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
             {

@@ -11,15 +11,23 @@ export const FooterList = styled(List)(({ theme }) => ({
     bottom: 0,
 }));
 
-export const NavBox = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    width: theme.custom.drawerWidth.mobile,
-    maxWidth: '90vw',
-    padding: theme.spacing(0, 2),
+export const NavBox = styled(Box)(
+    ({
+        theme: {
+            spacing,
+            breakpoints,
+            custom: { drawerWidth },
+        },
+    }) => ({
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        width: drawerWidth.mobile,
+        maxWidth: '90vw',
+        padding: spacing(0, 2),
 
-    [theme.breakpoints.up('sm')]: {
-        width: theme.custom.drawerWidth.desktop,
-    },
-}));
+        [breakpoints.up('sm')]: {
+            width: drawerWidth.desktop,
+        },
+    }),
+);
