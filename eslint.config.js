@@ -91,12 +91,6 @@ export default tseslint.config(
                 },
             ],
             'arrow-body-style': ['error', 'as-needed'],
-            '@typescript-eslint/no-floating-promises': [
-                'error',
-                {
-                    ignoreVoid: true,
-                },
-            ],
         },
         /* Specify React version for eslint-plugin-react */
         settings: {

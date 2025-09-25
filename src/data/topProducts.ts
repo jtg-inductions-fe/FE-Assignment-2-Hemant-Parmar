@@ -1,4 +1,4 @@
-import { Option } from "components/SearchBar/SearchBar.types";
+import { Option } from 'components/SearchBar/SearchBar.types';
 
 // The List of top products provided by Themesberg
 export const topProducts: Option[] = [

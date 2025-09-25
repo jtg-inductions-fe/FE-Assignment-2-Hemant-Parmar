@@ -9,15 +9,15 @@ import { InputAdornment, TextField } from '@mui/material';
 import { StyledAutocomplete } from './SearchBar.styles';
 import { Option, SearchBarProps } from './SearchBar.types';
 
-export const SearchBar = ({ options, route, slug }: SearchBarProps) => {
+export const SearchBar = ({ options, route, param }: SearchBarProps) => {
     const navigate = useNavigate();
 
     const [value, setValue] = useState<Option | null>(null);
 
     useEffect(() => {
-        if (slug) {
+        if (param) {
             options.forEach((option) => {
-                if (option.route === slug.toLowerCase()) {
+                if (option.route === param.toLowerCase()) {
                     setValue(option);
                     return;
                 }
@@ -25,17 +25,21 @@ export const SearchBar = ({ options, route, slug }: SearchBarProps) => {
         } else {
             setValue(null);
         }
-    }, [slug, options]);
+    }, [param, options]);
 
-    const handleSelection = (_: SyntheticEvent, selectedOption: unknown) => {
+    const handleSelection = (
+        _: SyntheticEvent,
+        selectedOption: Option | null,
+    ) => {
         if (selectedOption && options) {
-            options.forEach((option) => {
-                if (option === selectedOption) {
-                    navigate(`${route}/${option.route}`);
-                    setValue(option);
-                    return;
-                }
-            });
+            const [matchedOption] = options.filter(
+                (option) => option === selectedOption,
+            );
+            if (matchedOption) {
+                navigate(`${route}/${matchedOption.route}`);
+                setValue(matchedOption);
+                return;
+            }
         }
     };
 
@@ -48,6 +52,11 @@ export const SearchBar = ({ options, route, slug }: SearchBarProps) => {
             selectOnFocus
             handleHomeEndKeys
             onChange={handleSelection}
+            autoHighlight
+            getOptionLabel={(o: Option) => o.label}
+            isOptionEqualToValue={(o1: Option, o2: Option) =>
+                o1.route === o2.route
+            }
             renderInput={(params) => (
                 <TextField
                     placeholder="Search"

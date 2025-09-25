@@ -35,10 +35,10 @@ export const components: Components = {
         },
     },
     MuiAutocomplete: {
-      styleOverrides: {
-        inputRoot: {
-          borderRadius: 16, 
+        styleOverrides: {
+            inputRoot: {
+                borderRadius: 16,
+            },
         },
-      },
     },
 };

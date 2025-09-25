@@ -8,7 +8,7 @@
             "@data": ["data/index"],
             "@pages/*": ["pages/*"],
             "@layouts/*": ["layouts/*"],
-            "@components":["components/index"],
+            "@components": ["components/index"]
         }
     }
 }

@@ -1,5 +1,5 @@
-import { RoutePath } from "@constants"
+import { RoutePath } from '@constants';
 
 export type MainLogoProps = {
-    route: RoutePath,
-}
+    route: RoutePath;
+};

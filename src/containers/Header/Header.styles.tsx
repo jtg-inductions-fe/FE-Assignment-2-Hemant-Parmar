@@ -1,13 +1,17 @@
-import { IconButton, styled } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-export const NotificationsButton = styled(IconButton)(({ theme }) => ({
-    display: 'block',
+export const RoundedButton = styled(IconButton)(({ theme }) => ({
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+    padding: theme.spacing(0.5),
     borderRadius: '50%',
-    height: '100%',
-    aspectRatio: '1/1',
-    lineHeight: 'normal',
+    lineHeight: 1,
 
-    [theme.breakpoints.up('sm')]: {
+    '&:hover': {
         boxShadow: theme.shadows[10],
     },
 })) as typeof IconButton;

@@ -1,3 +1,5 @@
+import { AutocompleteProps } from '@mui/material';
+
 import type { RoutePath } from '@constants';
 
 export type Option = {
@@ -8,5 +10,7 @@ export type Option = {
 export type SearchBarProps = {
     route: RoutePath;
     options: Option[];
-    slug?: string;
+    param?: string; //The name of the parameter e.g. 'optionId' in /options/:optionId
 };
+
+export type ACProps = AutocompleteProps<Option, false, false, false>;

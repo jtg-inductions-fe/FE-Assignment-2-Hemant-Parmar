@@ -5,13 +5,11 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 
 import MainProfileURL from '@assets/images/users/main-profile-picture.jpg';
-import { MainLogo } from '@components';
-import { Profile } from '@components';
-import { SearchBar } from '@components';
+import { MainLogo, Profile, SearchBar } from '@components';
 import { ROUTES } from '@constants';
 import { topProducts } from '@data';
 
-import { NotificationsButton} from './Header.styles';
+import { RoundedButton } from './Header.styles';
 
 export const Header = () => {
     const { productId } = useParams<{ productId: string }>();
@@ -22,7 +20,11 @@ export const Header = () => {
                 {/* Box only for Tablet + desktop */}
                 <Box sx={{ gap: 4, display: { xs: 'none', sm: 'flex' } }}>
                     <MainLogo route={ROUTES.ROOT} />
-                    <SearchBar options={topProducts} route={ROUTES.PRODUCTS} slug={productId}/>
+                    <SearchBar
+                        options={topProducts}
+                        route={ROUTES.PRODUCTS}
+                        param={productId}
+                    />
                 </Box>
 
                 {/* Box only for mobile */}
@@ -34,13 +36,13 @@ export const Header = () => {
 
                 {/* Box for all screens */}
                 <Box sx={{ display: 'flex', gap: 3, alignItems: 'center' }}>
-                    <NotificationsButton
+                    <RoundedButton
                         component={Link}
                         to={ROUTES.NOTIFICATIONS}
                         aria-label="Notifications"
                     >
                         <NotificationsIcon fontSize="medium" />
-                    </NotificationsButton>
+                    </RoundedButton>
                     <Profile
                         name="Hemant Parmar"
                         email="hemantparmar@hotmail.com"
