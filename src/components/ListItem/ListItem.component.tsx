@@ -1,20 +1,16 @@
 import { Link } from 'react-router-dom';
 
 import {
-    ListItem,
+    ListItem as MuiListItem,
     ListItemButton,
     ListItemIcon,
     ListItemText,
 } from '@mui/material';
 
-import { CustomListItemProps } from './CustomListItem.types';
+import { ListItemProps } from './ListItem.types';
 
-export const CustomListItem = ({
-    title,
-    route,
-    children,
-}: CustomListItemProps) => (
-    <ListItem disablePadding>
+export const ListItem = ({ title, route, children }: ListItemProps) => (
+    <MuiListItem disablePadding>
         <ListItemButton
             component={Link}
             to={route ?? `/${title}`}
@@ -23,5 +19,5 @@ export const CustomListItem = ({
             {children && <ListItemIcon>{children}</ListItemIcon>}
             <ListItemText primary={title} />
         </ListItemButton>
-    </ListItem>
+    </MuiListItem>
 );

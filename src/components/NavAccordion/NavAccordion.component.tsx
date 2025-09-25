@@ -3,12 +3,12 @@ import {
     Accordion,
     AccordionDetails,
     List,
-    ListItem,
+    ListItem as MuiListItem,
     ListItemIcon,
     ListItemText,
 } from '@mui/material';
 
-import { CustomListItem } from '@components';
+import { ListItem } from '@components';
 
 import { StyledAccordionSummary } from './NavAccordion.styles';
 import { NavAccordionProps } from './NavAccordion.types';
@@ -31,23 +31,23 @@ export const NavAccordion = ({ title, icon, items }: NavAccordionProps) => {
                 aria-controls={`${title}-content`}
                 id={`${title}-header`}
             >
-                <ListItem>
+                <MuiListItem>
                     <ListItemIcon>
                         <Icon />
                     </ListItemIcon>
                     <ListItemText primary={title} />
-                </ListItem>
+                </MuiListItem>
             </StyledAccordionSummary>
 
             <AccordionDetails>
                 <List disablePadding>
                     {items &&
                         items.map((item) => (
-                            <CustomListItem
+                            <ListItem
                                 title={item.title}
                                 route={item.route}
                                 key={item.title}
-                            ></CustomListItem>
+                            ></ListItem>
                         ))}
                 </List>
             </AccordionDetails>
