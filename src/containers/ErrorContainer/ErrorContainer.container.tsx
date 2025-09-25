@@ -3,10 +3,15 @@ import { Container, Typography } from '@mui/material';
 import { PrimaryButton } from '@components';
 import { ROUTES } from '@constants';
 
-import { FlexBox } from './Fallback.styles';
-import { FallbackProps } from './Fallback.types';
+import { FlexBox } from './ErrorContainer.styles';
+import { ErrorContainerProps } from './ErrorContainer.types';
 
-export const Fallback = ({ imageURL, title, desc, alt }: FallbackProps) => (
+export const ErrorContainer = ({
+    imageURL,
+    title,
+    desc,
+    alt,
+}: ErrorContainerProps) => (
     <Container maxWidth="xl" sx={{ textAlign: 'center' }}>
         <FlexBox
             py={{ xs: 8, sm: 0 }}
