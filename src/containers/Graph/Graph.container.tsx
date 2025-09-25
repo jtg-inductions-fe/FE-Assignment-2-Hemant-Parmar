@@ -1,25 +1,31 @@
 import {
-    LineChart,
+    CartesianGrid,
     Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
     XAxis,
     YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
 } from 'recharts';
-import {  useTheme, useMediaQuery } from '@mui/material';
-import ErrorIcon from '@mui/icons-material/ErrorOutline';
 
+import ErrorIcon from '@mui/icons-material/ErrorOutline';
+import { useMediaQuery, useTheme } from '@mui/material';
+
+import { CustomContainer, CustomTooltip } from '@components';
 import { salesData } from '@data';
-import { CustomTooltip, CustomContainer } from '@components';
 import { formatDateVariants } from '@utils';
+
+type ChartDataItem = { dateShort: string; dateFull: string; sales: number };
 
 export const Graph = () => {
     const theme = useTheme();
     const notMobileScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
-    const chartData = salesData.map((d) => {
-        const { short, full } = formatDateVariants(d.date);
+    const chartData: ChartDataItem[] = salesData.map((d) => {
+        const { short, full } = formatDateVariants(d.date) as {
+            short: string;
+            full: string;
+        };
         return {
             dateShort: short, // date format for the X axis
             dateFull: full, // date format for the tooltip
@@ -30,7 +36,7 @@ export const Graph = () => {
     return (
         <CustomContainer
             heading="Sales"
-            Icon={ErrorIcon}
+            icon={<ErrorIcon fontSize="small" color="warning" />}
         >
             <ResponsiveContainer height={500}>
                 <LineChart
@@ -61,10 +67,10 @@ export const Graph = () => {
                         axisLine={false}
                         tickLine={false}
                         tickMargin={72}
-                        tick= {{
-                            color:theme.palette.text.secondary,
-                            fontSize:theme.typography.body2.fontSize,
-                            textAnchor:'start',
+                        tick={{
+                            color: theme.palette.text.secondary,
+                            fontSize: theme.typography.body2.fontSize,
+                            textAnchor: 'start',
                         }}
                     />
 

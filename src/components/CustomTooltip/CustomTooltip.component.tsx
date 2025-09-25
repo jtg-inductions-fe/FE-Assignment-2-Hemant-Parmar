@@ -1,6 +1,8 @@
 import { TooltipProps } from 'recharts';
-import { Paper, Typography, Box, useTheme } from '@mui/material';
 
+import { Box, Typography, useTheme } from '@mui/material';
+
+import { TooltipPaper } from './CustomTooltip.styles';
 import { CustomPayload } from './CustomTooltip.types';
 
 export const CustomTooltip = ({
@@ -11,27 +13,7 @@ export const CustomTooltip = ({
 
     if (active && payload && payload.length) {
         return (
-            <Paper
-                elevation={0}
-                sx={{
-                    p: 2,
-                    borderRadius: 2,
-                    backgroundColor: theme.palette.background.paper,
-                    position: 'relative',
-                    overflow: 'visible',
-                    filter: 'drop-shadow(0px 2px 6px rgba(0,0,0,0.2))', // single shadow for whole shape
-                    '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        bottom: -8,
-                        left: '50%',
-                        transform: 'translateX(-50%) rotate(45deg)',
-                        width: 16,
-                        height: 16,
-                        backgroundColor: theme.palette.background.paper,
-                    },
-                }}
-            >
+            <TooltipPaper elevation={0}>
                 <Box>
                     <Typography variant="subtitle1" color="text.secondary">
                         {payload[0].payload.dateFull}
@@ -62,7 +44,7 @@ export const CustomTooltip = ({
                         </Typography>
                     </Typography>
                 </Box>
-            </Paper>
+            </TooltipPaper>
         );
     }
 
