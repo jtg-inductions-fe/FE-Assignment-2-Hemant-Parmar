@@ -1,1 +1,1 @@
-export {Graph} from './Graph.container';
+export { Graph } from './Graph.container';
