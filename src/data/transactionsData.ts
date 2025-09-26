@@ -1,4 +1,9 @@
-import type { Transaction } from '@containers';
+export interface Transaction {
+    person: string;
+    date: string;
+    amount: number;
+    status: 'Completed' | 'In Progress' | 'Cancelled';
+}
 
 // The List of transactions in Themesberg
 export const transactionsData: Transaction[] = [

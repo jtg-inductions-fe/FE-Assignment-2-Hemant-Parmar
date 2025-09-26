@@ -6,3 +6,4 @@ export { latestCustomers } from './latestCustomers';
 export { transactionsData } from './transactionsData';
 
 export type { GalleryConfig, GalleryImage } from './galleryConfig';
+export type { Transaction } from './transactionsData';
