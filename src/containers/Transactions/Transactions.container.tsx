@@ -1,28 +1,31 @@
 import { ReusableTable, CustomContainer, Column } from '@components';
 
 import { transactionsData } from '@data';
-import { Transaction } from './Transactions.types';
-import {
-    amountRenderer,
-    dateRenderer,
-    descRenderer,
-    statusRenderer,
-} from './Transactions.styles';
+import type { Transaction } from '@data';
+import { DescRenderer } from './subcomponents';
 
-const transactionColumns: Column<Transaction>[] = [
-    { key: 'desc', label: 'TRANSACTION', render: descRenderer },
-    { key: 'date', label: 'DATE & TIME', render: dateRenderer },
+const schema: Column<Transaction>[] = [
+    {
+        key: 'person',
+        label: 'TRANSACTION',
+        formatter: (data: Transaction) => <DescRenderer data={data} />,
+    },
+    {
+        key: 'date',
+        category: 'date',
+        label: 'DATE & TIME',
+    },
     {
         key: 'amount',
+        category: 'amount',
         label: 'AMOUNT',
         hideOnMobile: true,
-        render: amountRenderer,
     },
     {
         key: 'status',
+        category: 'status',
         label: 'STATUS',
         hideOnMobile: true,
-        render: statusRenderer,
     },
 ];
 
@@ -32,10 +35,7 @@ export const Transactions = () => {
             heading="Transactions"
             caption="This is a list of latest transactions."
         >
-            <ReusableTable
-                data={transactionsData}
-                columns={transactionColumns}
-            />
+            <ReusableTable data={transactionsData} columns={schema} />
         </CustomContainer>
     );
 };
