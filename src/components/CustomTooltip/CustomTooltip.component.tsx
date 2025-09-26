@@ -9,11 +9,14 @@ export const CustomTooltip = ({
     active,
     payload,
 }: TooltipProps<number, string> & { payload?: CustomPayload[] }) => {
-    const theme = useTheme();
+    const {
+        spacing,
+        palette: { primary },
+    } = useTheme();
 
     if (active && payload && payload.length) {
         return (
-            <TooltipPaper elevation={0}>
+            <TooltipPaper elevation={0} role="tooltip">
                 <Box>
                     <Typography variant="subtitle1" color="text.secondary">
                         {payload[0].payload.dateFull}
@@ -29,10 +32,10 @@ export const CustomTooltip = ({
                     >
                         {/* The dot in the tooltip */}
                         <Box
-                            width="10px"
-                            height="10px"
-                            borderRadius="5px"
-                            bgcolor={theme.palette.primary.main}
+                            width={spacing(3)}
+                            height={spacing(3)}
+                            borderRadius={spacing(2)}
+                            bgcolor={primary.main}
                         />
                         Sales:
                         <Typography
