@@ -5,3 +5,6 @@ export {
     FONT_SIZES,
     BREAKPOINTS,
 } from './themeConstant';
+
+export { ROUTES, SLUGS } from './routeConstant';
+export type { RoutePath, Slug } from './routeConstant';

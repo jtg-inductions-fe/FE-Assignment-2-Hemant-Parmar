@@ -1,0 +1,1 @@
+export { topProducts } from './topProducts';

@@ -1,18 +1,25 @@
-import { RootLayout } from 'layout/RootLayout';
-import { ErrorPage } from 'page/ErrorPage';
-import { NotFound } from 'page/NotFound';
-import Overview from 'page/Overview';
 import { createBrowserRouter } from 'react-router-dom';
+
+import { ROUTES, SLUGS } from '@constants';
+import { RootLayout } from '@layouts/RootLayout';
+import { ErrorPage } from '@pages/ErrorPage';
+import { NotFound } from '@pages/NotFound';
+import Overview from '@pages/Overview';
 
 export const router = createBrowserRouter([
     {
-        path: '/',
+        path: ROUTES.ROOT,
         element: <RootLayout />,
         errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
                 element: <Overview />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: `${ROUTES.PRODUCTS}/${SLUGS.PRODUCT_ID}`,
+                element: <NotFound />, // Ideally we want a Product page here
                 errorElement: <ErrorPage />,
             },
             {

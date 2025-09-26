@@ -4,7 +4,7 @@ import type {
     TypographyUtils,
 } from '@mui/material/styles/createTypography';
 
-import { FONT_SIZES, HTML_FONT_SIZE } from '@constant';
+import { FONT_SIZES, HTML_FONT_SIZE } from '@constants';
 
 /* Custom px to rem function */
 const typographyUtil: TypographyUtils = {
