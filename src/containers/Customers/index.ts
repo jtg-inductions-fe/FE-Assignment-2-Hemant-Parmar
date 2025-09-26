@@ -1,1 +1,1 @@
-export {Customers} from './Customers.container';
+export { Customers } from './Customers.container';
