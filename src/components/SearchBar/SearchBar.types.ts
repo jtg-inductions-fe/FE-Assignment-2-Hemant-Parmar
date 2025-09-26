@@ -10,7 +10,8 @@ export type Option = {
 export type SearchBarProps = {
     route: RoutePath;
     options: Option[];
-    param?: string; //The name of the parameter e.g. 'optionId' in /options/:optionId
+    val?: string; //The value of the parameter in /options?optionId=val
+    selectionHandler: (optionId: string) => void;
 };
 
 export type ACProps = AutocompleteProps<Option, false, false, false>;

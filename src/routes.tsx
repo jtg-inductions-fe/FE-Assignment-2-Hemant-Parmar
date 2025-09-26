@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import { ROUTES, SLUGS } from '@constants';
+import { ROUTES } from '@constants';
 import { RootLayout } from '@layouts/RootLayout';
 import { ErrorPage } from '@pages/ErrorPage';
 import { NotFound } from '@pages/NotFound';
@@ -15,11 +15,6 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element: <Overview />,
-                errorElement: <ErrorPage />,
-            },
-            {
-                path: `${ROUTES.PRODUCTS}/${SLUGS.PRODUCT_ID}`,
-                element: <NotFound />, // Ideally we want a Product page here
                 errorElement: <ErrorPage />,
             },
             {

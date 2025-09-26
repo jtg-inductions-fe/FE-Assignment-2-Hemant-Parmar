@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -6,13 +6,18 @@ import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 
 import MainProfileURL from '@assets/images/users/main-profile-picture.jpg';
 import { MainLogo, Profile, SearchBar } from '@components';
-import { ROUTES } from '@constants';
+import { PARAMS, ROUTES } from '@constants';
 import { topProducts } from '@data';
 
 import { RoundedButton } from './Header.styles';
 
 export const Header = () => {
-    const { productId } = useParams<{ productId: string }>();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const productId = searchParams.get(PARAMS.PRODUCT_ID);
+
+    const selectionHandler = (newVal: string) => {
+        setSearchParams([[PARAMS.PRODUCT_ID, newVal]]);
+    };
 
     return (
         <AppBar position="sticky" color="secondary" elevation={1}>
@@ -23,7 +28,8 @@ export const Header = () => {
                     <SearchBar
                         options={topProducts}
                         route={ROUTES.PRODUCTS}
-                        param={productId}
+                        val={productId ? productId : undefined}
+                        selectionHandler={selectionHandler}
                     />
                 </Box>
 

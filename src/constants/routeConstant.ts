@@ -13,14 +13,14 @@ export const ROUTES = {
 export type RoutePath = (typeof ROUTES)[keyof typeof ROUTES];
 
 /**
- * Various slugs used in the application.
+ * Various query params used in the application.
  * @constant
  */
-export const SLUGS = {
-    PRODUCT_ID: ':productId',
+export const PARAMS = {
+    PRODUCT_ID: 'productId',
 };
 
 /**
  * Type representing the keys of ROUTES.
  */
-export type Slug = (typeof SLUGS)[keyof typeof SLUGS];
+export type Param = (typeof PARAMS)[keyof typeof PARAMS];

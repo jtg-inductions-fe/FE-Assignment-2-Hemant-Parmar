@@ -9,15 +9,20 @@ import { InputAdornment, TextField } from '@mui/material';
 import { StyledAutocomplete } from './SearchBar.styles';
 import { Option, SearchBarProps } from './SearchBar.types';
 
-export const SearchBar = ({ options, route, param }: SearchBarProps) => {
+export const SearchBar = ({
+    route,
+    options,
+    val,
+    selectionHandler,
+}: SearchBarProps) => {
     const navigate = useNavigate();
 
     const [value, setValue] = useState<Option | null>(null);
 
     useEffect(() => {
-        if (param) {
+        if (val) {
             options.forEach((option) => {
-                if (option.route === param.toLowerCase()) {
+                if (option.route === val.toLowerCase()) {
                     setValue(option);
                     return;
                 }
@@ -25,7 +30,7 @@ export const SearchBar = ({ options, route, param }: SearchBarProps) => {
         } else {
             setValue(null);
         }
-    }, [param, options]);
+    }, [val, options]);
 
     const handleSelection = (
         _: SyntheticEvent,
@@ -36,10 +41,13 @@ export const SearchBar = ({ options, route, param }: SearchBarProps) => {
                 (option) => option === selectedOption,
             );
             if (matchedOption) {
-                navigate(`${route}/${matchedOption.route}`);
+                navigate(route);
+                selectionHandler(matchedOption.route);
                 setValue(matchedOption);
                 return;
             }
+        } else {
+            setValue(null);
         }
     };
 

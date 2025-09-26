@@ -6,5 +6,5 @@ export {
     BREAKPOINTS,
 } from './themeConstant';
 
-export { ROUTES, SLUGS } from './routeConstant';
-export type { RoutePath, Slug } from './routeConstant';
+export { ROUTES, PARAMS } from './routeConstant';
+export type { RoutePath, Param } from './routeConstant';
