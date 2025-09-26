@@ -1,4 +1,5 @@
-export const salesData = [
+type SalesDatum = { date: string; sales: number };
+export const salesData: ReadonlyArray<SalesDatum> = [
     { date: '2025-04-01T00:00:00Z', sales: 80000 },
     { date: '2025-04-02T00:00:00Z', sales: 100000 },
     { date: '2025-04-03T00:00:00Z', sales: 79000 },
