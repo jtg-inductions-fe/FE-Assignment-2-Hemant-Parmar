@@ -10,12 +10,18 @@ import { ROUTES } from '@constants';
 import { topProducts } from '@data';
 
 import { RoundedButton } from './Header.styles';
+import { HeaderProps } from './Header.types';
 
-export const Header = () => {
+export const Header = ({ handleDrawerToggle, mobileOpen }: HeaderProps) => {
     const { productId } = useParams<{ productId: string }>();
 
     return (
-        <AppBar position="sticky" color="secondary" elevation={1}>
+        <AppBar
+            position="sticky"
+            color="secondary"
+            elevation={1}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        >
             <Toolbar sx={{ justifyContent: 'space-between' }}>
                 {/* Box only for Tablet + desktop */}
                 <Box sx={{ gap: 4, display: { xs: 'none', sm: 'flex' } }}>
@@ -29,7 +35,11 @@ export const Header = () => {
 
                 {/* Box only for mobile */}
                 <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-                    <IconButton aria-label="Toggle navigation">
+                    <IconButton
+                        onClick={handleDrawerToggle}
+                        aria-label="Toggle navigation"
+                        aria-expanded={mobileOpen ? true : false}
+                    >
                         <MenuIcon fontSize="large" />
                     </IconButton>
                 </Box>

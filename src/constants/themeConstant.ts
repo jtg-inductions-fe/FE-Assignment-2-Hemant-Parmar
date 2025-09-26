@@ -110,3 +110,12 @@ export const BREAKPOINTS = {
  * Type representing the keys of BREAKPOINTS.
  */
 export type Breakpoint = (typeof BREAKPOINTS)[keyof typeof BREAKPOINTS];
+
+/**
+ * Drawer width for the sidebar.
+ * @constant
+ */
+export const DRAWER_WIDTH = {
+    mobile: 250,
+    desktop: 300,
+};
