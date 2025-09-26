@@ -5,17 +5,43 @@ import {
     TableContainer,
     TableHead,
     TableRow,
+    Typography,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
 
-import { ReusableTableProps } from './ReusableTable.types';
-import { HeadCellText } from './ReusableTable.styles';
+import type { Status, ReusableTableProps } from './ReusableTable.types';
+import { HeadCellText, StatusChip } from './ReusableTable.styles';
+import { formatDateVariants } from '@utils';
 
-export const ReusableTable = <T extends object>({
-    columns,
-    data,
-}: ReusableTableProps<T>) => {
+function render(category: string | undefined, data: any) {
+    if (category) {
+        if (category === 'date') {
+            return (
+                <Typography variant="body2" color="text.secondary">
+                    {formatDateVariants(data as string)['usFull']}
+                </Typography>
+            );
+        } else if (category === 'amount') {
+            return (
+                <Typography
+                    variant="body1"
+                    fontWeight={(theme) => theme.typography.fontWeightRegular}
+                >
+                    {(data as number) < 0
+                        ? `-$${-data as number}`
+                        : `$${data as number}`}
+                </Typography>
+            );
+        } else if (category === 'status') {
+            return <StatusChip label={data as Status} size="small" />;
+        }
+    } else {
+        return <Typography>{data}</Typography>;
+    }
+}
+
+export const ReusableTable = <T,>({ columns, data }: ReusableTableProps<T>) => {
     const theme = useTheme();
     const isNotMobile = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -26,7 +52,7 @@ export const ReusableTable = <T extends object>({
                     <TableRow>
                         {columns.map((col) =>
                             !isNotMobile && col.hideOnMobile ? null : (
-                                <TableCell key={col.key.toString()}>
+                                <TableCell key={col.label}>
                                     <HeadCellText> {col.label}</HeadCellText>
                                 </TableCell>
                             ),
@@ -46,12 +72,13 @@ export const ReusableTable = <T extends object>({
                         >
                             {columns.map((col) =>
                                 !isNotMobile && col.hideOnMobile ? null : (
-                                    <TableCell key={col.key.toString()}>
-                                        {col.render
-                                            ? col.render(row)
-                                            : (row[
-                                                  col.key as keyof T
-                                              ] as React.ReactNode)}
+                                    <TableCell key={col.label}>
+                                        {'formatter' in col
+                                            ? col.formatter?.(row)
+                                            : render(
+                                                  col.category,
+                                                  row[col.key],
+                                              )}
                                     </TableCell>
                                 ),
                             )}
