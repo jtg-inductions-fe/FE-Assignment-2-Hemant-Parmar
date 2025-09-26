@@ -1,1 +1,1 @@
-export {Products} from "./Products.container";
+export { Products } from './Products.container';
