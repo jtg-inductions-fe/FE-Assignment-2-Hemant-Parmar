@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import {
     CartesianGrid,
     Line,
@@ -15,23 +17,27 @@ import { CustomContainer, CustomTooltip } from '@components';
 import { salesData } from '@data';
 import { formatDateVariants } from '@utils';
 
-type ChartDataItem = { dateShort: string; dateFull: string; sales: number };
+import type { ChartDataItem } from './Graph.types';
 
 export const Graph = () => {
     const theme = useTheme();
     const notMobileScreen = useMediaQuery(theme.breakpoints.up('sm'));
 
-    const chartData: ChartDataItem[] = salesData.map((d) => {
-        const { short, full } = formatDateVariants(d.date) as {
-            short: string;
-            full: string;
-        };
-        return {
-            dateShort: short, // date format for the X axis
-            dateFull: full, // date format for the tooltip
-            sales: d.sales,
-        };
-    });
+    const chartData: ChartDataItem[] = useMemo(
+        () =>
+            salesData.map((d) => {
+                const { short, full } = formatDateVariants(d.date) as {
+                    short: string;
+                    full: string;
+                };
+                return {
+                    dateShort: short, // date format for the X axis
+                    dateFull: full, // date format for the tooltip
+                    sales: d.sales,
+                };
+            }),
+        [],
+    );
 
     return (
         <CustomContainer
@@ -44,9 +50,8 @@ export const Graph = () => {
                     margin={{ top: 30, right: 30, left: 20, bottom: 50 }}
                 >
                     <CartesianGrid
-                        strokeDasharray="0"
                         vertical={false}
-                        color={theme.palette.action.hover}
+                        stroke={theme.palette.action.hover}
                         strokeWidth={1}
                     />
                     <XAxis
@@ -54,9 +59,11 @@ export const Graph = () => {
                         axisLine={false}
                         tickLine={false}
                         tickMargin={36}
-                        color={theme.palette.text.secondary}
-                        fontSize={theme.typography.body2.fontSize}
                         angle={notMobileScreen ? 0 : -45}
+                        tick={{
+                            color: theme.palette.text.secondary,
+                            fontSize: theme.typography.body2.fontSize,
+                        }}
                     />
 
                     <YAxis
@@ -74,13 +81,13 @@ export const Graph = () => {
                         }}
                     />
 
-                    <Tooltip content={<CustomTooltip />} />
+                    <Tooltip content={CustomTooltip} />
                     <Line
                         type="monotone"
                         dataKey="sales"
                         stroke={theme.palette.primary.main}
                         strokeWidth={3}
-                        dot={{ r: 0 }}
+                        dot={false}
                         activeDot={{ r: 5 }}
                     />
                 </LineChart>
