@@ -5,14 +5,7 @@ import MichealAvatar from '@assets/images/users/micheal-gough-profile-picture.jp
 import NeilAvatar from '@assets/images/users/neil-sims-profile-picture.jpg';
 import ThomasAvatar from '@assets/images/users/thomas-lean-profile-picture.jpg';
 
-export type Customer = {
-    name: string;
-    email: string;
-    avatar: string;
-    amount: number;
-};
-
-export const latestCustomers: Customer[] = [
+export const latestCustomers = [
     {
         name: 'Neil Sims',
         email: 'neil@example.com',
