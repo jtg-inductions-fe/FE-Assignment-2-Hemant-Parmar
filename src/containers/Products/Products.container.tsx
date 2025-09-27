@@ -1,7 +1,7 @@
 import { Grid2, Typography } from '@mui/material';
 
 import type { RowData } from '@components';
-import { CustomContainer, CustomTable } from '@components';
+import { Container, Table } from '@components';
 import { topProducts } from '@data';
 
 const data: RowData[] = topProducts.map((product) => ({
@@ -13,8 +13,8 @@ const data: RowData[] = topProducts.map((product) => ({
 
 export const Products = () => (
     <Grid2 size={{ xs: 12, md: 6, lg: 8 }}>
-        <CustomContainer heading="Latest Customers" disableGutters>
-            <CustomTable data={data} />
-        </CustomContainer>
+        <Container heading="Latest Customers" disableGutters>
+            <Table data={data} />
+        </Container>
     </Grid2>
 );
