@@ -10,11 +10,17 @@ import {
     useTheme,
 } from '@mui/material';
 
-import type { Status, ReusableTableProps } from './ReusableTable.types';
-import { HeadCellText, StatusChip } from './ReusableTable.styles';
 import { formatDateVariants } from '@utils';
 
-function render(category: string | undefined, data: any) {
+import { HeadCellText, StatusChip } from './ReusableTable.styles';
+import type {
+    Category,
+    ReusableTableProps,
+    Status,
+} from './ReusableTable.types';
+
+// If you are not passing a category from one of the below, you have to pass custom
+function render<T>(category: Category | undefined, data: T) {
     if (category) {
         if (category === 'date') {
             return (
@@ -29,7 +35,7 @@ function render(category: string | undefined, data: any) {
                     fontWeight={(theme) => theme.typography.fontWeightRegular}
                 >
                     {(data as number) < 0
-                        ? `-$${-data as number}`
+                        ? `-$${-(data as number)}`
                         : `$${data as number}`}
                 </Typography>
             );
@@ -37,7 +43,7 @@ function render(category: string | undefined, data: any) {
             return <StatusChip label={data as Status} size="small" />;
         }
     } else {
-        return <Typography>{data}</Typography>;
+        return null;
     }
 }
 
@@ -65,7 +71,7 @@ export const ReusableTable = <T,>({ columns, data }: ReusableTableProps<T>) => {
                             key={index}
                             sx={{
                                 '&:nth-of-type(even)': {
-                                    backgroundColor: (theme) =>
+                                    backgroundColor:
                                         theme.palette.background.default,
                                 },
                             }}
@@ -74,7 +80,7 @@ export const ReusableTable = <T,>({ columns, data }: ReusableTableProps<T>) => {
                                 !isNotMobile && col.hideOnMobile ? null : (
                                     <TableCell key={col.label}>
                                         {'formatter' in col
-                                            ? col.formatter?.(row)
+                                            ? col.formatter(row)
                                             : render(
                                                   col.category,
                                                   row[col.key],

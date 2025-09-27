@@ -1,7 +1,7 @@
-import { ReusableTable, CustomContainer, Column } from '@components';
-
-import { transactionsData } from '@data';
+import { Column, Container, ReusableTable } from '@components';
 import type { Transaction } from '@data';
+import { transactionsData } from '@data';
+
 import { DescRenderer } from './subcomponents';
 
 const schema: Column<Transaction>[] = [
@@ -29,13 +29,11 @@ const schema: Column<Transaction>[] = [
     },
 ];
 
-export const Transactions = () => {
-    return (
-        <CustomContainer
-            heading="Transactions"
-            caption="This is a list of latest transactions."
-        >
-            <ReusableTable data={transactionsData} columns={schema} />
-        </CustomContainer>
-    );
-};
+export const Transactions = () => (
+    <Container
+        heading="Transactions"
+        caption="This is a list of latest transactions."
+    >
+        <ReusableTable data={transactionsData} columns={schema} />
+    </Container>
+);
