@@ -1,8 +1,8 @@
 import { Column, Container, ReusableTable } from '@components';
-import type { Transaction } from '@data';
 import { transactionsData } from '@data';
 
 import { DescRenderer } from './subcomponents';
+import type { Transaction } from './Transactions.types';
 
 const schema: Column<Transaction>[] = [
     {
@@ -34,6 +34,9 @@ export const Transactions = () => (
         heading="Transactions"
         caption="This is a list of latest transactions."
     >
-        <ReusableTable data={transactionsData} columns={schema} />
+        <ReusableTable
+            data={transactionsData as Transaction[]}
+            columns={schema}
+        />
     </Container>
 );
