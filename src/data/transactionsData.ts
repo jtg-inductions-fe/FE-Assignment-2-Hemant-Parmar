@@ -1,12 +1,5 @@
-export interface Transaction {
-    person: string;
-    date: string;
-    amount: number;
-    status: 'Completed' | 'In Progress' | 'Cancelled';
-}
-
 // The List of transactions in Themesberg
-export const transactionsData: Transaction[] = [
+export const transactionsData = [
     {
         person: 'Bonnie Green',
         date: '2021-04-23T00:00:00Z',

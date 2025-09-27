@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 
-import { Transaction } from '@data';
+import { Transaction } from '@containers';
 
 export const DescRenderer = ({ data }: { data: Transaction }) => (
     <Typography variant="body2" fontWeight="medium">
