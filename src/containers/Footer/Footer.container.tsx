@@ -1,25 +1,26 @@
-import { CustomContainer } from '@components';
-import { footerConfig } from '@data';
-import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
+import {
+    Box,
+    Container,
+    List,
+    ListItem,
+    ListItemButton,
+    Typography,
+} from '@mui/material';
 
-export const Footer = () => {
-    return (
-        <CustomContainer
-            customPadding
-            paperProps={{
-                sx: {
-                    display: 'flex',
-                    flexDirection: { xs: 'column', sm: 'row' },
-                    justifyContent: 'space-between',
-                    alignItems: { sm: 'center' },
-                    gap: { xs: 4, sm: 0 },
-                },
-            }}
-        >
+import { footerConfig } from '@data';
+
+import { FooterBox } from './Footer.styles';
+
+export const Footer = () => (
+    <Container maxWidth="xl" sx={{ p: { xs: 2, sm: 3 } }}>
+        <FooterBox component="footer" bgcolor="background.paper">
             <Typography variant="body1" color="text.secondary">
                 &copy; 2021 Themesberg, LLC. All rights reserved.
             </Typography>
-            <List disablePadding sx={{ display: 'flex', gap: 6 }}>
+            <List
+                disablePadding
+                sx={{ display: 'flex', gap: { xs: 6, sm: 2, md: 4 } }}
+            >
                 {footerConfig.links.map(({ url, iconURL, ariaLabel }) => (
                     <ListItem key={url} disablePadding sx={{ width: 'auto' }}>
                         <ListItemButton
@@ -27,7 +28,7 @@ export const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={ariaLabel}
-                            disableGutters
+                            sx={{ px: { xs: 1, sm: 2, md: 3 } }}
                         >
                             <Box
                                 component="img"
@@ -41,6 +42,6 @@ export const Footer = () => {
                     </ListItem>
                 ))}
             </List>
-        </CustomContainer>
-    );
-};
+        </FooterBox>
+    </Container>
+);
