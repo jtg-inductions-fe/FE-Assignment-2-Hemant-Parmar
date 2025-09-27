@@ -1,15 +1,20 @@
-import { Box, Container, Paper, Typography } from '@mui/material';
+import {
+    Box,
+    Container as MuiContainer,
+    Paper,
+    Typography,
+} from '@mui/material';
 
-import type { CustomContainerProps } from './CustomContainer.types';
+import type { ContainerProps } from './Container.types';
 
-export const CustomContainer = ({
+export const Container = ({
     heading,
     caption,
     children,
     icon,
     ...rest
-}: CustomContainerProps) => (
-    <Container maxWidth="xl" {...rest}>
+}: ContainerProps) => (
+    <MuiContainer component="section" maxWidth="xl" {...rest}>
         <Paper sx={{ p: 6, borderRadius: 4 }}>
             <Box mb={3}>
                 <Box display="flex" alignItems="center" gap={2}>
@@ -24,5 +29,5 @@ export const CustomContainer = ({
             </Box>
             {children}
         </Paper>
-    </Container>
+    </MuiContainer>
 );
