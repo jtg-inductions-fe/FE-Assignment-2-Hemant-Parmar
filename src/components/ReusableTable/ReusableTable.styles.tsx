@@ -1,5 +1,6 @@
-import { Typography, Chip } from '@mui/material';
+import { Chip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
 import type { Status } from './ReusableTable.types';
 
 export const HeadCellText = styled(Typography)(({ theme }) => ({

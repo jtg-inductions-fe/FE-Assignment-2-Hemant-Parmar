@@ -1,9 +1,11 @@
 export function formatDateVariants(utcDate: string): {
     short: string;
     full: string;
+    usFull: string;
 } {
     const date = new Date(utcDate);
-    if (Number.isNaN(date.getTime())) return { short: '', full: '' };
+    if (Number.isNaN(date.getTime()))
+        return { short: '', full: '', usFull: '' };
 
     const short = new Intl.DateTimeFormat('en-GB', {
         day: '2-digit',
