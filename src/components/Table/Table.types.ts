@@ -6,6 +6,6 @@ export type RowData = {
     format: (val: number) => string | React.ReactNode;
 };
 
-export type CustomTableProps = {
+export type TableProps = {
     data: RowData[];
 };
