@@ -1,12 +1,5 @@
-export type Product = {
-    label: string;
-    route: string;
-    technology: string;
-    sales: number;
-};
-
 // The List of top products provided by Themesberg
-export const topProducts: Product[] = [
+export const topProducts = [
     {
         id: 0,
         label: 'Restaurant Booking App',
