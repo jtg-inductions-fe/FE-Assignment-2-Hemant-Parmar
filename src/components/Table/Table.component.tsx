@@ -1,6 +1,6 @@
 import {
     Avatar,
-    Table,
+    Table as MuiTable,
     TableBody,
     TableCell,
     TableContainer,
@@ -8,11 +8,11 @@ import {
     Typography,
 } from '@mui/material';
 
-import { CustomTableProps } from './CustomTable.types';
+import { TableProps } from './Table.types';
 
-export const CustomTable = ({ data }: CustomTableProps) => (
+export const Table = ({ data }: TableProps) => (
     <TableContainer>
-        <Table>
+        <MuiTable>
             <TableBody>
                 {data.map((item, index) => (
                     <TableRow
@@ -48,6 +48,6 @@ export const CustomTable = ({ data }: CustomTableProps) => (
                     </TableRow>
                 ))}
             </TableBody>
-        </Table>
+        </MuiTable>
     </TableContainer>
 );
