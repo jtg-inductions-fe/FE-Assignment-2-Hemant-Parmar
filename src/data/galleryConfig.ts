@@ -2,41 +2,7 @@ import EmptyImageURL from '@assets/images/gallery/empty-images.png';
 import RegularLandscapeURL from '@assets/images/gallery/regular-landscape.png';
 import WorkLaptopImageURL from '@assets/images/gallery/work-on-laptop.png';
 
-/**
- * A single gallery image.
- */
-export type GalleryImage = {
-    /** Image source URL. */
-    url: string;
-
-    /** Grid rows to span (default: 1). */
-    rows?: number;
-
-    /** Grid columns to span (default: 1). */
-    cols?: number;
-
-    /** Image description / caption. */
-    desc: string;
-
-    /** Prioritize the display (e.g. Topmost on mobile). */
-    priority?: boolean;
-
-    /** Hide image on mobile devices. */
-    mobileInvisible?: boolean;
-};
-
-/**
- * Gallery layout configuration.
- */
-export type GalleryConfig = {
-    /** Row height (px) for small/large screens. */
-    rowHeight?: { small: number; large: number };
-
-    /** List of gallery images. */
-    images: GalleryImage[];
-};
-
-export const galleryConfig: GalleryConfig = {
+export const galleryConfig = {
     rowHeight: { small: 112, large: 200 },
     images: [
         {
