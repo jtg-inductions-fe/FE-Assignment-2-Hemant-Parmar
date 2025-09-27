@@ -6,6 +6,8 @@ export { Profile } from './Profile';
 export { SearchBar } from './SearchBar';
 export { PrimaryButton } from './PrimaryButton';
 export { Container } from './Container';
+export { Table } from './Table';
 
 export type { NavAccordionProps } from './NavAccordion';
 export type { NavButtonProps } from './NavButton';
+export type { RowData } from './Table';
