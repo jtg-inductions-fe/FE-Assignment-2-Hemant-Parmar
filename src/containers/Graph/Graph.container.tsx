@@ -5,7 +5,7 @@ import {
     Line,
     LineChart,
     ResponsiveContainer,
-    Tooltip,
+    Tooltip as RechartsTooltip,
     XAxis,
     YAxis,
 } from 'recharts';
@@ -13,11 +13,12 @@ import {
 import ErrorIcon from '@mui/icons-material/ErrorOutline';
 import { useMediaQuery, useTheme } from '@mui/material';
 
-import { CustomContainer, CustomTooltip } from '@components';
+import { Container } from '@components';
 import { salesData } from '@data';
 import { formatDateVariants } from '@utils';
 
 import type { ChartDataItem } from './Graph.types';
+import { Tooltip } from './subcomponents';
 
 export const Graph = () => {
     const theme = useTheme();
@@ -40,7 +41,7 @@ export const Graph = () => {
     );
 
     return (
-        <CustomContainer
+        <Container
             heading="Sales"
             icon={<ErrorIcon fontSize="small" color="warning" />}
         >
@@ -81,7 +82,7 @@ export const Graph = () => {
                         }}
                     />
 
-                    <Tooltip content={CustomTooltip} />
+                    <RechartsTooltip content={Tooltip} />
                     <Line
                         type="monotone"
                         dataKey="sales"
@@ -92,6 +93,6 @@ export const Graph = () => {
                     />
                 </LineChart>
             </ResponsiveContainer>
-        </CustomContainer>
+        </Container>
     );
 };

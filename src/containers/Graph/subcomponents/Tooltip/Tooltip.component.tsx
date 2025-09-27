@@ -2,13 +2,13 @@ import { TooltipProps } from 'recharts';
 
 import { Box, Typography, useTheme } from '@mui/material';
 
-import { TooltipPaper } from './CustomTooltip.styles';
-import { CustomPayload } from './CustomTooltip.types';
+import { TooltipPaper } from './Tooltip.styles';
+import { Payload } from './Tooltip.types';
 
-export const CustomTooltip = ({
+export const Tooltip = ({
     active,
     payload,
-}: TooltipProps<number, string> & { payload?: CustomPayload[] }) => {
+}: TooltipProps<number, string> & { payload?: Payload[] }) => {
     const {
         spacing,
         palette: { primary },

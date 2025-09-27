@@ -1,4 +1,4 @@
-export type CustomPayload = {
+export type Payload = {
     value: number;
     payload: {
         dateShort: string;
