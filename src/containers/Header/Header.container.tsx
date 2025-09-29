@@ -29,7 +29,7 @@ export const Header = ({
             <Toolbar sx={{ justifyContent: 'space-between' }}>
                 {/* Box only for Tablet + desktop */}
                 <Box sx={{ gap: 4, display: { xs: 'none', sm: 'flex' } }}>
-                    <MainLogo route={ROUTES.ROOT} />
+                    <MainLogo route={ROUTES.ROOT} label="Go to home" />
                     <SearchBar
                         options={topProducts}
                         route={ROUTES.PRODUCTS}
@@ -48,7 +48,7 @@ export const Header = ({
                             <MenuIcon fontSize="large" />
                         </IconButton>
                     ) : (
-                        <MainLogo route={ROUTES.ROOT} />
+                        <MainLogo route={ROUTES.ROOT} label="Go to home" />
                     )}
                 </Box>
 
