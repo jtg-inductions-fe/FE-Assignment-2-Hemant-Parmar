@@ -3,19 +3,8 @@ import FacebookIconURL from '@assets/images/icons/FacebookIcon.svg';
 import GithubIconURL from '@assets/images/icons/GithubIcon.svg';
 import TwitterIconURL from '@assets/images/icons/TwitterIcon.svg';
 
-export type FooterLink = {
-    url: string;
-    iconURL: string;
-    ariaLabel: string;
-};
-
-export type FooterConfig = {
-    description: string;
-    links: FooterLink[];
-};
-
-export const footerConfig: FooterConfig = {
-    description: '&copy; 2021 Themesberg, LLC. All rights reserved.',
+export const footerConfig = {
+    description: '© 2021 Themesberg, LLC. All rights reserved.',
     links: [
         {
             url: 'https://facebook.com/',

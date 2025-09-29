@@ -15,7 +15,7 @@ export const Footer = () => (
     <Container maxWidth="xl" sx={{ p: { xs: 2, sm: 3 } }}>
         <FooterBox component="footer" bgcolor="background.paper">
             <Typography variant="body1" color="text.secondary">
-                &copy; 2021 Themesberg, LLC. All rights reserved.
+                {footerConfig.description}
             </Typography>
             <List
                 disablePadding
