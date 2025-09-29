@@ -24,10 +24,10 @@ export const navConfig = {
                 title: 'Pages',
                 icon: ContactPageIcon,
                 items: [
-                    { title: 'Overview', route: ROUTES.ROOT },
-                    { title: 'Docs', route: ROUTES.DOCS },
-                    { title: 'Components', route: ROUTES.COMPONENTS },
-                    { title: 'Help', route: ROUTES.HELP },
+                    { title: 'About Us', route: ROUTES.ABOUT },
+                    { title: 'Contacts', route: ROUTES.CONTACTS },
+                    { title: 'Our Team', route: ROUTES.TEAM },
+                    { title: 'Join Us', route: ROUTES.CAREER },
                 ],
             },
             {
