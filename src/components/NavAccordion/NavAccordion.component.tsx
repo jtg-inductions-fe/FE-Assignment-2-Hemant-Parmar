@@ -31,7 +31,10 @@ export const NavAccordion = ({ title, icon, items }: NavAccordionProps) => (
         >
             <MuiListItem>
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={title} />
+                <ListItemText
+                    primary={title}
+                    sx={(theme) => theme.mixins.lineClamp(1)}
+                />
             </MuiListItem>
         </StyledAccordionSummary>
 

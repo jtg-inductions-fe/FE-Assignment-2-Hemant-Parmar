@@ -12,6 +12,8 @@ export const PrimaryButton = (props: PrimaryButtonProps) => (
         variant="contained"
         sx={{ textTransform: 'none', borderRadius: 3 }}
     >
-        <Typography color="secondary">{props.content}</Typography>
+        <Typography color="secondary" sx={(theme) => theme.mixins.lineClamp(1)}>
+            {props.content}
+        </Typography>
     </Button>
 );

@@ -52,6 +52,7 @@ export const Profile = ({ name, email, imageURL }: ProfileProps) => {
                     <Typography
                         variant="h2"
                         noWrap
+                        sx={(theme) => theme.mixins.lineClamp(1)}
                         maxWidth={(theme) => theme.spacing(100)}
                     >
                         {name}
@@ -60,6 +61,7 @@ export const Profile = ({ name, email, imageURL }: ProfileProps) => {
                         <Typography
                             variant="body2"
                             noWrap
+                            sx={(theme) => theme.mixins.lineClamp(1)}
                             maxWidth={(theme) => theme.spacing(100)}
                         >
                             {email}

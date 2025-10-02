@@ -17,7 +17,10 @@ export const ListItem = ({ title, route, children }: ListItemProps) => (
             sx={{ pl: children ? 0 : 16 }}
         >
             {children && <ListItemIcon>{children}</ListItemIcon>}
-            <ListItemText primary={title} />
+            <ListItemText
+                primary={title}
+                sx={(theme) => theme.mixins.lineClamp(1)}
+            />
         </ListItemButton>
     </MuiListItem>
 );

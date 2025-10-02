@@ -39,7 +39,11 @@ function renderCell<T>(category: Category | undefined, data: T): ReactNode {
             if (typeof data !== 'string') return null;
             const { usFull } = formatDateVariants(data);
             return (
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={(theme) => theme.mixins.lineClamp(1)}
+                >
                     {usFull}
                 </Typography>
             );
@@ -49,6 +53,7 @@ function renderCell<T>(category: Category | undefined, data: T): ReactNode {
                 <Typography
                     variant="body1"
                     fontWeight={(theme) => theme.typography.fontWeightRegular}
+                    sx={(theme) => theme.mixins.lineClamp(1)}
                 >
                     {data < 0 ? `-$${-data}` : `$${data}`}
                 </Typography>
