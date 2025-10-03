@@ -4,18 +4,14 @@ import { Button, Typography } from '@mui/material';
 
 import { PrimaryButtonProps } from './PrimaryButton.types';
 
-export const PrimaryButton = ({
-    route,
-    content,
-    onClick,
-}: PrimaryButtonProps) => (
+export const PrimaryButton = (props: PrimaryButtonProps) => (
     <Button
-        component={route ? Link : 'button'}
-        to={route}
-        onClick={onClick}
+        component={'route' in props ? Link : 'button'}
+        to={'route' in props ? props.route : undefined}
+        onClick={'onClick' in props ? props.onClick : undefined}
         variant="contained"
         sx={{ textTransform: 'none', borderRadius: 3 }}
     >
-        <Typography color="secondary">{content}</Typography>
+        <Typography color="secondary">{props.content}</Typography>
     </Button>
 );
