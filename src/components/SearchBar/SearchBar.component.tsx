@@ -40,6 +40,8 @@ export const SearchBar = ({ options, route, param }: SearchBarProps) => {
                 setValue(matchedOption);
                 return;
             }
+        } else {
+            setValue(null);
         }
     };
 

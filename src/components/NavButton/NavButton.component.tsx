@@ -22,7 +22,10 @@ export const NavButton = ({
         <StyledButton component={Link} to={route}>
             <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText>
-                <Typography color={active ? 'primary' : 'inherit'}>
+                <Typography
+                    color={active ? 'primary' : 'inherit'}
+                    sx={(theme) => theme.mixins.lineClamp(1)}
+                >
                     {title}
                 </Typography>
             </ListItemText>

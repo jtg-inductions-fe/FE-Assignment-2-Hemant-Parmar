@@ -5,12 +5,14 @@ import {
     List,
     ListItem as MuiListItem,
     ListItemIcon,
-    ListItemText,
 } from '@mui/material';
 
 import { ListItem } from '@components';
 
-import { StyledAccordionSummary } from './NavAccordion.styles';
+import {
+    ResponsiveListText,
+    StyledAccordionSummary,
+} from './NavAccordion.styles';
 import { NavAccordionProps } from './NavAccordion.types';
 
 export const NavAccordion = ({ title, icon, items }: NavAccordionProps) => (
@@ -31,7 +33,7 @@ export const NavAccordion = ({ title, icon, items }: NavAccordionProps) => (
         >
             <MuiListItem>
                 <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText primary={title} />
+                <ResponsiveListText primary={title} />
             </MuiListItem>
         </StyledAccordionSummary>
 

@@ -32,16 +32,26 @@ export const Table = ({ data }: TableProps) => (
                             </TableCell>
                         ) : null}
                         <TableCell padding="none">
-                            <Typography variant="h3">{item.content}</Typography>
+                            <Typography
+                                variant="h3"
+                                sx={(theme) => theme.mixins.lineClamp(1)}
+                            >
+                                {item.content}
+                            </Typography>
                             <Typography
                                 variant="caption"
                                 color="text.secondary"
+                                sx={(theme) => theme.mixins.lineClamp(1)}
                             >
                                 {item.caption}
                             </Typography>
                         </TableCell>
                         <TableCell>
-                            <Typography variant="h3" textAlign="right">
+                            <Typography
+                                variant="h3"
+                                textAlign="right"
+                                sx={(theme) => theme.mixins.lineClamp(1)}
+                            >
                                 {item.format(item.value)}
                             </Typography>
                         </TableCell>

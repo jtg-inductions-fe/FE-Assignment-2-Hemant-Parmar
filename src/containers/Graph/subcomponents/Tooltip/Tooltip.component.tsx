@@ -42,6 +42,7 @@ export const Tooltip = ({
                             component="span"
                             fontWeight="bold"
                             color="text.primary"
+                            sx={(theme) => theme.mixins.lineClamp(1)}
                         >
                             ${payload[0].value / 1000}k
                         </Typography>

@@ -4,10 +4,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 
-import MainProfileURL from '@assets/images/users/main-profile-picture.jpg';
 import { MainLogo, Profile, SearchBar } from '@components';
 import { ROUTES } from '@constants';
-import { topProducts } from '@data';
+import { currentUser, topProducts } from '@data';
 
 import { RoundedButton } from './Header.styles';
 import { HeaderProps } from './Header.types';
@@ -29,7 +28,7 @@ export const Header = ({
             <Toolbar sx={{ justifyContent: 'space-between' }}>
                 {/* Box only for Tablet + desktop */}
                 <Box sx={{ gap: 4, display: { xs: 'none', sm: 'flex' } }}>
-                    <MainLogo route={ROUTES.ROOT} />
+                    <MainLogo route={ROUTES.ROOT} label="Go to home" />
                     <SearchBar
                         options={topProducts}
                         route={ROUTES.PRODUCTS}
@@ -48,7 +47,7 @@ export const Header = ({
                             <MenuIcon fontSize="large" />
                         </IconButton>
                     ) : (
-                        <MainLogo route={ROUTES.ROOT} />
+                        <MainLogo route={ROUTES.ROOT} label="Go to home" />
                     )}
                 </Box>
 
@@ -62,9 +61,9 @@ export const Header = ({
                         <NotificationsIcon fontSize="medium" />
                     </RoundedButton>
                     <Profile
-                        name="Hemant Parmar"
-                        email="hemantparmar@hotmail.com"
-                        imageURL={MainProfileURL}
+                        name={currentUser.name}
+                        email={currentUser.email}
+                        imageURL={currentUser.profileImg}
                     />
                 </Box>
             </Toolbar>

@@ -1,4 +1,4 @@
-import { AccordionSummary } from '@mui/material';
+import { AccordionSummary, ListItemText } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const StyledAccordionSummary = styled(AccordionSummary)(
@@ -24,6 +24,22 @@ export const StyledAccordionSummary = styled(AccordionSummary)(
 
         '& .MuiAccordionSummary-content': {
             margin: 0,
+        },
+    }),
+);
+
+export const ResponsiveListText = styled(ListItemText)(
+    ({
+        theme: {
+            breakpoints,
+            mixins: { flexClamp },
+            custom: { drawerWidth },
+        },
+    }) => ({
+        ...flexClamp(drawerWidth.mobile * 0.4),
+
+        [breakpoints.up('sm')]: {
+            ...flexClamp(drawerWidth.desktop * 0.5),
         },
     }),
 );
