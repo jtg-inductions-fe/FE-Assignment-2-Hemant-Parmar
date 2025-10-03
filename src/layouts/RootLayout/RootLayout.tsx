@@ -19,7 +19,14 @@ export const RootLayout = ({ showSidebar }: RootLayoutProps) => {
         setMobileOpen(false);
     };
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+        <Box
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                maxWidth: (theme) => theme.breakpoints.values.xl,
+                mx: 'auto',
+            }}
+        >
             <Header
                 handleDrawerToggle={handleDrawerToggle}
                 mobileOpen={mobileOpen}

@@ -27,7 +27,7 @@ export const NavBox = styled(Box)(
         padding: spacing(0, 2),
 
         [breakpoints.up('sm')]: {
-            width: drawerWidth.desktop,
+            width: '100%',
         },
     }),
 );

@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import { Box, Divider, IconButton, ListItem, Toolbar } from '@mui/material';
+import { Box, Divider, IconButton, ListItem } from '@mui/material';
 import { Drawer, List, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
@@ -33,10 +33,21 @@ export const Sidebar = ({ mobileOpen, handleDrawerClose }: SidebarProps) => {
                 open={match ? true : mobileOpen}
                 onClose={handleDrawerClose}
                 ModalProps={{ keepMounted: true }}
+                sx={{
+                    [`& .MuiDrawer-paper`]: {
+                        width: {
+                            xs: drawerWidth['mobile'],
+                            sm: drawerWidth['desktop'],
+                        },
+                        boxSizing: 'border-box',
+                        position: 'sticky',
+                        top: 0,
+                        height: '100vh',
+                        overflowY: 'clip',
+                    },
+                }}
             >
                 <NavBox>
-                    <Toolbar />
-
                     {navConfig.lists.map((list, index) => (
                         <Box key={index}>
                             {index > 0 && <Divider />}
