@@ -6,5 +6,6 @@ export { Graph } from './Graph';
 export { Customers } from './Customers';
 export { Products } from './Products';
 export { Transactions } from './Transactions';
+export { Footer } from './Footer';
 
 export type { Transaction } from './Transactions';
