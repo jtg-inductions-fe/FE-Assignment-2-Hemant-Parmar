@@ -1,28 +1,48 @@
-import { Chip, Typography } from '@mui/material';
+import { Chip, Theme, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import type { Status } from './ReusableTable.types';
 
-export const HeadCellText = styled(Typography)(({ theme }) => ({
-    fontSize: theme.typography.subtitle1.fontSize,
-    fontWeight: theme.typography.fontWeightMedium,
-    color: theme.palette.text.secondary,
-}));
+export const HeadCellText = styled(Typography)(
+    ({
+        theme: {
+            typography: { subtitle1, fontWeightMedium },
+            palette: { text },
+        },
+    }) => ({
+        fontSize: subtitle1.fontSize,
+        fontWeight: fontWeightMedium,
+        color: text.secondary,
+    }),
+);
+
+// Function to get chip colors based on status
+const getStatusColors = (
+    { palette: { success, info, error } }: Theme,
+    status: Status,
+) => {
+    switch (status) {
+        case 'Completed':
+            return {
+                backgroundColor: success.main,
+                color: success.contrastText,
+            };
+        case 'In Progress':
+            return {
+                backgroundColor: info.main,
+                color: info.contrastText,
+            };
+        default: // 'Cancelled'
+            return {
+                backgroundColor: error.main,
+                color: error.contrastText,
+            };
+    }
+};
 
 export const StatusChip = styled(Chip)<{ label: Status }>(
     ({ theme, label }) => ({
-        backgroundColor:
-            label === 'Completed'
-                ? theme.palette.success.main
-                : label === 'In Progress'
-                  ? theme.palette.info.main
-                  : theme.palette.error.main,
-        color:
-            label === 'Completed'
-                ? theme.palette.success.contrastText
-                : label === 'In Progress'
-                  ? theme.palette.info.contrastText
-                  : theme.palette.error.contrastText,
+        ...getStatusColors(theme, label),
         ...theme.typography.caption,
     }),
 );
