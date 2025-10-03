@@ -14,7 +14,8 @@ export const ErrorContainer = ({
 }: ErrorContainerProps) => (
     <Container maxWidth="xl" sx={{ textAlign: 'center' }}>
         <FlexBox
-            py={{ xs: 8, sm: 0 }}
+            gap={0}
+            py={{ xs: 2, sm: 0 }}
             width={{ md: '66%', lg: '50%' }}
             margin={'auto'}
         >
@@ -24,8 +25,8 @@ export const ErrorContainer = ({
                 alt={alt ?? `${title} illustration`}
             />
         </FlexBox>
-        <FlexBox gap={22} p={{ xs: 4, sm: 0 }}>
-            <FlexBox gap={10}>
+        <FlexBox gap={5} p={{ xs: 1, sm: 0 }}>
+            <FlexBox gap={2}>
                 <Typography variant="h1">{title}</Typography>
                 <Typography variant="body1" color="text.secondary">
                     {desc}
