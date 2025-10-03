@@ -37,7 +37,7 @@ export const Footer = () => (
                                 width={24}
                                 alt=""
                                 aria-hidden="true"
-                            ></Box>
+                            />
                         </ListItemButton>
                     </ListItem>
                 ))}

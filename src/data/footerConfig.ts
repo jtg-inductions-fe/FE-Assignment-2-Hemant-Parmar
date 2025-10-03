@@ -1,4 +1,4 @@
-import DribbleIconURL from '@assets/images/icons/DribbleIcon.svg';
+import DribbbleIconURL from '@assets/images/icons/DribbleIcon.svg';
 import FacebookIconURL from '@assets/images/icons/FacebookIcon.svg';
 import GithubIconURL from '@assets/images/icons/GithubIcon.svg';
 import TwitterIconURL from '@assets/images/icons/TwitterIcon.svg';
@@ -24,8 +24,8 @@ export const footerConfig = {
         },
         {
             url: 'https://dribbble.com/',
-            iconURL: DribbleIconURL,
-            ariaLabel: 'Follow us on Dribble',
+            iconURL: DribbbleIconURL,
+            ariaLabel: 'Follow us on Dribbble',
         },
     ],
 };
