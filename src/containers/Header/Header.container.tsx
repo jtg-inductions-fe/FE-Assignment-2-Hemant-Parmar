@@ -4,10 +4,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material';
 
-import MainProfileURL from '@assets/images/users/main-profile-picture.jpg';
 import { MainLogo, Profile, SearchBar } from '@components';
 import { ROUTES } from '@constants';
-import { topProducts } from '@data';
+import { currentUser, topProducts } from '@data';
 
 import { RoundedButton } from './Header.styles';
 import { HeaderProps } from './Header.types';
@@ -62,9 +61,9 @@ export const Header = ({
                         <NotificationsIcon fontSize="medium" />
                     </RoundedButton>
                     <Profile
-                        name="Hemant Parmar"
-                        email="hemantparmar@hotmail.com"
-                        imageURL={MainProfileURL}
+                        name={currentUser.name}
+                        email={currentUser.email}
+                        imageURL={currentUser.profileImg}
                     />
                 </Box>
             </Toolbar>
