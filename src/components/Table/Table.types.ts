@@ -1,4 +1,5 @@
 export type RowData = {
+    id: string | number;
     content: string;
     caption: string;
     avatar?: string;

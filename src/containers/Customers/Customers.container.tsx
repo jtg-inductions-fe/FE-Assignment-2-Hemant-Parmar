@@ -5,6 +5,7 @@ import { Container, Table } from '@components';
 import { latestCustomers } from '@data';
 
 const data: RowData[] = latestCustomers.map((user) => ({
+    id: user.id,
     content: user.name,
     caption: user.email,
     avatar: user.avatar,

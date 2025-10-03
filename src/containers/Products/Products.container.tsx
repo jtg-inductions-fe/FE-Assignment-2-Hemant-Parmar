@@ -5,6 +5,7 @@ import { Container, Table } from '@components';
 import { topProducts } from '@data';
 
 const data: RowData[] = topProducts.map((product) => ({
+    id: product.id,
     content: product.label,
     caption: product.technology,
     value: product.sales,
