@@ -16,6 +16,21 @@ const lineClamp = (lines: number = 1): CSSProperties => ({
     WebkitLineClamp: lines,
 });
 
+/**
+ * Specifies a max-width for clamping text to a single line inside a flex container
+ * @param maxWidth - The max width for the text
+ * @returns Returns Flex clamp CSS properties
+ */
+const flexClamp = (maxWidth: CSSProperties['maxWidth']): CSSProperties => ({
+    maxWidth: maxWidth,
+    display: '-webkit-box',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 1,
+});
+
 export const mixins: MixinsOptions = {
     lineClamp,
+    flexClamp,
 };
