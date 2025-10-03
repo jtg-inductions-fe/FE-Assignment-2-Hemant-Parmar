@@ -7,36 +7,42 @@ import ThomasAvatar from '@assets/images/users/thomas-lean-profile-picture.jpg';
 
 export const latestCustomers = [
     {
+        id: 0,
         name: 'Neil Sims',
         email: 'neil@example.com',
         avatar: NeilAvatar,
         amount: 367,
     },
     {
+        id: 1,
         name: 'Bonnie Green',
         email: 'bonnie@example.com',
         avatar: BonnieAvatar,
         amount: 67,
     },
     {
+        id: 2,
         name: 'Micheal Gough',
-        email: 'michael@example.com',
+        email: 'micheal@example.com',
         avatar: MichealAvatar,
         amount: 3467,
     },
     {
+        id: 3,
         name: 'Thomas Lean',
         email: 'thomas@example.com',
         avatar: ThomasAvatar,
         amount: 2367,
     },
     {
+        id: 4,
         name: 'Lana Byrd',
         email: 'lana@example.com',
         avatar: LanaAvatar,
         amount: 367,
     },
     {
+        id: 5,
         name: 'Karen Nelson',
         email: 'karen@example.com',
         avatar: KarenAvatar,

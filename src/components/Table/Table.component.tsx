@@ -16,7 +16,7 @@ export const Table = ({ data }: TableProps) => (
             <TableBody>
                 {data.map((item, index) => (
                     <TableRow
-                        key={index}
+                        key={item.id}
                         sx={{
                             '& td': {
                                 borderBottom: (theme) =>
