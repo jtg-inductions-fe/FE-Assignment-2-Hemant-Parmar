@@ -9,12 +9,19 @@ const data: RowData[] = topProducts.map((product) => ({
     content: product.label,
     caption: product.technology,
     value: product.sales,
-    format: (val: number) => <Typography>{val} sales</Typography>,
+    format: (val: number) => (
+        <>
+            {val}
+            <Typography component="span" color="text.secondary">
+                &nbsp;sales
+            </Typography>
+        </>
+    ),
 }));
 
 export const Products = () => (
     <Grid2 size={{ xs: 12, md: 6, lg: 8 }}>
-        <Container heading="Latest Customers" disableGutters>
+        <Container heading="Top Products" disableGutters>
             <Table data={data} />
         </Container>
     </Grid2>
