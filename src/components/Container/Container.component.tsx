@@ -14,7 +14,12 @@ export const Container = ({
     icon,
     ...rest
 }: ContainerProps) => (
-    <MuiContainer component="section" maxWidth="xl" {...rest}>
+    <MuiContainer
+        component="section"
+        maxWidth="xl"
+        aria-label={heading}
+        {...rest}
+    >
         <Paper sx={{ p: 6, borderRadius: 4 }}>
             <Box mb={3}>
                 <Box display="flex" alignItems="center" gap={2}>
