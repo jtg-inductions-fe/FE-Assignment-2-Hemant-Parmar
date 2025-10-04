@@ -1,9 +1,9 @@
-import { Box } from '@mui/material';
-
 import { Gallery } from '@containers';
+import { SalesGraph } from '@containers';
 
 export const Overview = () => (
-    <Box>
+    <>
         <Gallery />
-    </Box>
+        <SalesGraph />
+    </>
 );

@@ -28,6 +28,9 @@ export const palette: PaletteOptions = {
         main: COLORS.INFO.MAIN,
         contrastText: COLORS.INFO.TEXT,
     },
+    warning: {
+        main: COLORS.TEXT.SECONDARY,
+    },
     divider: COLORS.DIVIDER,
     background: {
         default: COLORS.BACKGROUND.PRIMARY,
