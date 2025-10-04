@@ -9,11 +9,12 @@ const data: RowData[] = topProducts.map((product) => ({
     content: product.label,
     caption: product.technology,
     value: product.sales,
-    format: (val: number) => (
+    valueFormatter: (val: number) => (
         <>
             {val}
             <Typography component="span" color="text.secondary">
-                &nbsp;sales
+                {' '}
+                sales
             </Typography>
         </>
     ),

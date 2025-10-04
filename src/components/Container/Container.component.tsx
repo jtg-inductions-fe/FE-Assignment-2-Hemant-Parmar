@@ -17,8 +17,8 @@ export const Container = ({
     <MuiContainer
         component="section"
         maxWidth="xl"
-        {...rest}
         aria-label={heading}
+        {...rest}
     >
         <Paper sx={{ p: 6, borderRadius: 4 }}>
             <Box mb={3}>

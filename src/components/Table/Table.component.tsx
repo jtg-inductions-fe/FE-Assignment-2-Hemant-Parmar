@@ -4,10 +4,10 @@ import {
     TableBody,
     TableCell,
     TableContainer,
-    TableRow,
     Typography,
 } from '@mui/material';
 
+import { StyledRow } from './Table.styles';
 import { TableProps } from './Table.types';
 
 export const Table = ({ data }: TableProps) => (
@@ -15,16 +15,9 @@ export const Table = ({ data }: TableProps) => (
         <MuiTable>
             <TableBody>
                 {data.map((item, index) => (
-                    <TableRow
+                    <StyledRow
                         key={item.id}
-                        sx={{
-                            '& td': {
-                                borderBottom: (theme) =>
-                                    index < data.length - 1
-                                        ? `1px solid ${theme.palette.divider}`
-                                        : null,
-                            },
-                        }}
+                        showDivider={index < data.length - 1}
                     >
                         {'avatar' in item ? (
                             <TableCell padding="none">
@@ -42,10 +35,10 @@ export const Table = ({ data }: TableProps) => (
                         </TableCell>
                         <TableCell>
                             <Typography variant="h3" textAlign="right">
-                                {item.format(item.value)}
+                                {item.valueFormatter(item.value)}
                             </Typography>
                         </TableCell>
-                    </TableRow>
+                    </StyledRow>
                 ))}
             </TableBody>
         </MuiTable>

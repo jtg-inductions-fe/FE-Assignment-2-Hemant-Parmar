@@ -10,7 +10,7 @@ const data: RowData[] = latestCustomers.map((user) => ({
     caption: user.email,
     avatar: user.avatar,
     value: user.amount,
-    format: (val: number) => `$${val}`,
+    valueFormatter: (val: number) => `$${val}`,
 }));
 
 export const Customers = () => (
