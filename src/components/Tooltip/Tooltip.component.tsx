@@ -2,6 +2,8 @@ import { TooltipProps } from 'recharts';
 
 import { Box, Typography, useTheme } from '@mui/material';
 
+import { shortenNumber } from '@utils';
+
 import { TooltipPaper } from './Tooltip.styles';
 import { Payload } from './Tooltip.types';
 
@@ -43,7 +45,7 @@ export const Tooltip = ({
                             fontWeight="bold"
                             color="text.primary"
                         >
-                            ${payload[0].value / 1000}k
+                            ${shortenNumber(payload[0].value)}
                         </Typography>
                     </Box>
                 </Box>

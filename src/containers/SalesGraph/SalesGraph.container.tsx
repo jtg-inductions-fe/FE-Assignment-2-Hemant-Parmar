@@ -16,7 +16,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import { Container } from '@components';
 import { Tooltip } from '@components';
 import { salesData } from '@data';
-import { formatDateVariants } from '@utils';
+import { formatDateVariants, shortenNumber } from '@utils';
 
 import type { ChartDataItem } from './SalesGraph.types';
 
@@ -70,8 +70,9 @@ export const SalesGraph = () => {
                     <YAxis
                         tickCount={7}
                         width={notMobileScreen ? undefined : 0}
-                        domain={[0, 240000]}
-                        tickFormatter={(value) => `${value / 1000}K`}
+                        tickFormatter={(value) =>
+                            `${shortenNumber(value as number).toUpperCase()}`
+                        }
                         axisLine={false}
                         tickLine={false}
                         tickMargin={72}
