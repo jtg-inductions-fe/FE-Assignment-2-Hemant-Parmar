@@ -5,14 +5,13 @@ export const TooltipPaper = styled(Paper)(
     ({
         theme: {
             spacing,
-            shape: { borderRadius },
             palette: {
                 background: { paper },
             },
         },
     }) => ({
         padding: spacing(2),
-        borderRadius: 2 * borderRadius,
+        borderRadius: spacing(2),
         backgroundColor: paper,
         position: 'relative',
         overflow: 'visible',
@@ -21,7 +20,6 @@ export const TooltipPaper = styled(Paper)(
         '&::after': {
             content: '""',
             position: 'absolute',
-            bottom: spacing(-2),
             left: '50%',
             transform: 'translateX(-50%) rotate(45deg)',
             width: spacing(4),

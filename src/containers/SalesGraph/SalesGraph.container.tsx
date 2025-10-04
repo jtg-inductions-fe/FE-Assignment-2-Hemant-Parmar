@@ -14,13 +14,13 @@ import ErrorIcon from '@mui/icons-material/ErrorOutline';
 import { useMediaQuery, useTheme } from '@mui/material';
 
 import { Container } from '@components';
+import { Tooltip } from '@components';
 import { salesData } from '@data';
 import { formatDateVariants } from '@utils';
 
-import type { ChartDataItem } from './Graph.types';
-import { Tooltip } from './subcomponents';
+import type { ChartDataItem } from './SalesGraph.types';
 
-export const Graph = () => {
+export const SalesGraph = () => {
     const theme = useTheme();
     const notMobileScreen = useMediaQuery(theme.breakpoints.up('sm'));
 

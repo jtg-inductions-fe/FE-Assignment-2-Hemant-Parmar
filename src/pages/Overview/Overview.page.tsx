@@ -1,9 +1,9 @@
 import { Gallery } from '@containers';
-import { Graph } from '@containers';
+import { SalesGraph } from '@containers';
 
 export const Overview = () => (
     <>
         <Gallery />
-        <Graph />
+        <SalesGraph />
     </>
 );

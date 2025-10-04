@@ -14,7 +14,7 @@ export const Tooltip = ({
         palette: { primary },
     } = useTheme();
 
-    if (active && payload && payload.length) {
+    if (active && payload?.length) {
         return (
             <TooltipPaper elevation={0} role="tooltip">
                 <Box>
@@ -22,22 +22,22 @@ export const Tooltip = ({
                         {payload[0].payload.dateFull}
                     </Typography>
 
-                    <Typography
-                        variant="subtitle2"
-                        color="text.secondary"
-                        display={'flex'}
-                        alignItems={'center'}
-                        gap={1}
-                        mt={1}
-                    >
+                    <Box display={'flex'} alignItems={'center'} gap={1} mt={1}>
                         {/* The dot in the tooltip */}
                         <Box
+                            component="span"
                             width={spacing(3)}
                             height={spacing(3)}
                             borderRadius={spacing(2)}
                             bgcolor={primary.main}
                         />
-                        Sales:
+                        <Typography
+                            component="span"
+                            variant="subtitle2"
+                            color="text.secondary"
+                        >
+                            Sales:
+                        </Typography>
                         <Typography
                             component="span"
                             fontWeight="bold"
@@ -45,7 +45,7 @@ export const Tooltip = ({
                         >
                             ${payload[0].value / 1000}k
                         </Typography>
-                    </Typography>
+                    </Box>
                 </Box>
             </TooltipPaper>
         );
